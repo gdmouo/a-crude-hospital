@@ -62,6 +62,60 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventorySlotOne"",
+                    ""type"": ""Button"",
+                    ""id"": ""5131bbc0-420f-41c7-905d-d3d416f63a63"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventorySlotThree"",
+                    ""type"": ""Button"",
+                    ""id"": ""c1ff334b-9020-44fe-8980-cd1515104f89"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventorySlotTwo"",
+                    ""type"": ""Button"",
+                    ""id"": ""76e250e7-8bc2-45e7-9918-ea77ad7f02c7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""157ca4fb-20b2-492a-9bf9-85c78f4b5c1b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Backpack"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba55d49b-f3a0-4c6e-a952-673d2c487997"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FallOut"",
+                    ""type"": ""Button"",
+                    ""id"": ""6ec3eb76-98c8-48b4-8948-b37e6d6424e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +206,72 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf0b271b-b7dd-4a5d-ba26-8a83122106f7"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventorySlotOne"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c7c460c8-8cfb-443c-a0f7-9fabedd604ed"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventorySlotThree"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1204757e-6abd-48d3-99ce-3b04abb1e77b"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventorySlotTwo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02ded343-dc65-451a-a8c4-1e78bac85aec"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66e6d00d-be56-43c8-8102-0a07229e4675"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Backpack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""29ef715a-2049-4c0d-9fc0-f715b28d35a3"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FallOut"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +284,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_InventorySlotOne = m_Player.FindAction("InventorySlotOne", throwIfNotFound: true);
+        m_Player_InventorySlotThree = m_Player.FindAction("InventorySlotThree", throwIfNotFound: true);
+        m_Player_InventorySlotTwo = m_Player.FindAction("InventorySlotTwo", throwIfNotFound: true);
+        m_Player_Click = m_Player.FindAction("Click", throwIfNotFound: true);
+        m_Player_Backpack = m_Player.FindAction("Backpack", throwIfNotFound: true);
+        m_Player_FallOut = m_Player.FindAction("FallOut", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +355,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_InventorySlotOne;
+    private readonly InputAction m_Player_InventorySlotThree;
+    private readonly InputAction m_Player_InventorySlotTwo;
+    private readonly InputAction m_Player_Click;
+    private readonly InputAction m_Player_Backpack;
+    private readonly InputAction m_Player_FallOut;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -237,6 +369,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @InventorySlotOne => m_Wrapper.m_Player_InventorySlotOne;
+        public InputAction @InventorySlotThree => m_Wrapper.m_Player_InventorySlotThree;
+        public InputAction @InventorySlotTwo => m_Wrapper.m_Player_InventorySlotTwo;
+        public InputAction @Click => m_Wrapper.m_Player_Click;
+        public InputAction @Backpack => m_Wrapper.m_Player_Backpack;
+        public InputAction @FallOut => m_Wrapper.m_Player_FallOut;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +396,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @InventorySlotOne.started += instance.OnInventorySlotOne;
+            @InventorySlotOne.performed += instance.OnInventorySlotOne;
+            @InventorySlotOne.canceled += instance.OnInventorySlotOne;
+            @InventorySlotThree.started += instance.OnInventorySlotThree;
+            @InventorySlotThree.performed += instance.OnInventorySlotThree;
+            @InventorySlotThree.canceled += instance.OnInventorySlotThree;
+            @InventorySlotTwo.started += instance.OnInventorySlotTwo;
+            @InventorySlotTwo.performed += instance.OnInventorySlotTwo;
+            @InventorySlotTwo.canceled += instance.OnInventorySlotTwo;
+            @Click.started += instance.OnClick;
+            @Click.performed += instance.OnClick;
+            @Click.canceled += instance.OnClick;
+            @Backpack.started += instance.OnBackpack;
+            @Backpack.performed += instance.OnBackpack;
+            @Backpack.canceled += instance.OnBackpack;
+            @FallOut.started += instance.OnFallOut;
+            @FallOut.performed += instance.OnFallOut;
+            @FallOut.canceled += instance.OnFallOut;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -274,6 +430,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @InventorySlotOne.started -= instance.OnInventorySlotOne;
+            @InventorySlotOne.performed -= instance.OnInventorySlotOne;
+            @InventorySlotOne.canceled -= instance.OnInventorySlotOne;
+            @InventorySlotThree.started -= instance.OnInventorySlotThree;
+            @InventorySlotThree.performed -= instance.OnInventorySlotThree;
+            @InventorySlotThree.canceled -= instance.OnInventorySlotThree;
+            @InventorySlotTwo.started -= instance.OnInventorySlotTwo;
+            @InventorySlotTwo.performed -= instance.OnInventorySlotTwo;
+            @InventorySlotTwo.canceled -= instance.OnInventorySlotTwo;
+            @Click.started -= instance.OnClick;
+            @Click.performed -= instance.OnClick;
+            @Click.canceled -= instance.OnClick;
+            @Backpack.started -= instance.OnBackpack;
+            @Backpack.performed -= instance.OnBackpack;
+            @Backpack.canceled -= instance.OnBackpack;
+            @FallOut.started -= instance.OnFallOut;
+            @FallOut.performed -= instance.OnFallOut;
+            @FallOut.canceled -= instance.OnFallOut;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -297,5 +471,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnInventorySlotOne(InputAction.CallbackContext context);
+        void OnInventorySlotThree(InputAction.CallbackContext context);
+        void OnInventorySlotTwo(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
+        void OnBackpack(InputAction.CallbackContext context);
+        void OnFallOut(InputAction.CallbackContext context);
     }
 }

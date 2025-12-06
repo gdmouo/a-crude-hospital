@@ -6,12 +6,15 @@ using UnityEngine;
 public class PlayerCamera : MonoBehaviour
 {
     public static PlayerCamera Instance { get; private set; }
+    public Camera CameraObject { get { return playerCamera; } }
 
     [Header("Mouse Settings")]
     [SerializeField] private float sensitivity = 2f;
     [SerializeField] private float clampAngle = 80f;
     [SerializeField] private bool FollowPlayerEnabled = true;
     [SerializeField] private Vector3 cameraOffset;
+
+    [SerializeField] private Camera playerCamera;
 
     private Player player;
 

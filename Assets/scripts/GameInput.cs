@@ -4,55 +4,117 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class GameInput : MonoBehaviour
 {
+    public static GameInput Instance { get; private set; }
+
     private PlayerInputActions playerInputActions;
     private Player player;
 
     private PlayerCamera firstPersonCamera;
     private Vector2 mouseInput;
 
-    private Menu menu;
+    private Pause pause;
 
     private LockMouse lockMouse;
+    private Backpack backpack;
+
+    private bool playerControlsDisabled = false;
+
+    private IntInvGUI selectedIIGUI;
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Debug.LogError("More than one Menu instance found");
+        }
+        Instance = this;
+
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Look.performed += ctx => mouseInput = ctx.ReadValue<Vector2>();
         playerInputActions.Player.Look.canceled += ctx => mouseInput = Vector2.zero; // Reset when mouse stops
         playerInputActions.Player.Pause.performed += Escape_performed;
-        playerInputActions.Player.Jump.performed += Jump_performed;
+        playerInputActions.Player.Jump.performed += Space_performed;
+        playerInputActions.Player.InventorySlotOne.performed += KeyboardOne_performed;
+        playerInputActions.Player.InventorySlotTwo.performed += KeyboardTwo_performed;
+        playerInputActions.Player.InventorySlotThree.performed += KeyboardThree_performed;
+        playerInputActions.Player.Click.performed += OnClick;
+        playerInputActions.Player.Backpack.performed += Backpack_performed;
+        playerInputActions.Player.FallOut.performed += FallOut_performed;
     }
 
     private void Start()
     {
         player = Player.Instance;
         firstPersonCamera = PlayerCamera.Instance;
-        menu = Menu.Instance;
+        pause = Pause.Instance;
+        backpack = Backpack.Instance;
         lockMouse = gameObject.GetComponent<LockMouse>();
         lockMouse.Toggle(false);
     }
+
+    private void OnClick(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        player.InteractWithSelectedItem();
+    }
     private void Escape_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        lockMouse.Toggle(menu.Toggle());
+        lockMouse.Toggle(pause.Toggle());
     }
-    private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+
+    private void Backpack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        lockMouse.Toggle(backpack.Toggle());
+    }
+
+    private void FallOut_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        //lockMouse.Toggle(pause.Toggle());
+    }
+    private void Space_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         player.Jump();
         Debug.Log("Jumped");
     }
+
+    private void KeyboardOne_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        player.AccessInventory(0);
+    }
+
+    private void KeyboardTwo_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        player.AccessInventory(1);
+    }
+
+    private void KeyboardThree_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        player.AccessInventory(2);
+    }
     private void Update()
     {
-        if (!menu.SwitchedOn)
+        //Debug.Log(mouseInput);
+        if (!playerControlsDisabled)
         {
             HandleWASD();
             HandleBob();
+            HandleHoldSpace();
         }
-        HandleHoldSpace();
+    }
+
+    public bool IsMouseHolding()
+    {
+        return playerInputActions.Player.Click.IsPressed();
+    }
+
+    public void TogglePlayerControls(bool toggle)
+    {
+        playerControlsDisabled = toggle;
     }
 
     private void HandleWASD() {
@@ -91,4 +153,17 @@ public class GameInput : MonoBehaviour
             player.StopJumping();
         }
     }
+
+    /*
+    private List<RaycastResult> GetEventSystemRaycastResults()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = 
+            Input.mousePosition;
+        List<RaycastResult> raysastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, raysastResults);
+        return raysastResults;
+    }*/
+
+
 }

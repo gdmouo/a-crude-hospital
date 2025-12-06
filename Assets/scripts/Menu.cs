@@ -1,33 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class Menu : MonoBehaviour
+public abstract class Menu : MonoBehaviour
 {
-    public static Menu Instance { get; private set; }
     public bool SwitchedOn { get; private set; }
 
-    [SerializeField] private GameObject backdrop;
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Debug.LogError("More than one Menu instance found");
-        }
-        Instance = this;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] protected GameObject backdrop;
 
     public bool Toggle()
     {
@@ -35,11 +15,20 @@ public class Menu : MonoBehaviour
         {
             backdrop.SetActive(false);
             SwitchedOn = false;
+            GameInput.Instance.TogglePlayerControls(false);
+            GlobalVariables.Instance.SetGlobalMenuStatus(false);
             return false;
-        } else
+        }
+        else
         {
+            if (GlobalVariables.Instance.IsMenuOpen())
+            {
+                return true;
+            }
             backdrop.SetActive(true);
             SwitchedOn = true;
+            GameInput.Instance.TogglePlayerControls(true);
+            GlobalVariables.Instance.SetGlobalMenuStatus(true);
             return true;
         }
     }

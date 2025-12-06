@@ -10,6 +10,10 @@ public class PlayerCCMovement : MonoBehaviour, IPlayerMovement
     [SerializeField] private float gravity = -2;
     [SerializeField] private float jumpHeight = 2;
 
+    [SerializeField] private Vector3 groundCheckOffset;
+    [SerializeField] private float groundCheckSize;
+    [SerializeField] private LayerMask groundCheckLayer;
+
     private CharacterController characterController;
     private Vector2 velocity;
     private bool jumping = false;
@@ -35,7 +39,7 @@ public class PlayerCCMovement : MonoBehaviour, IPlayerMovement
 
     public void Jump(bool value)
     { 
-        if (value && characterController.isGrounded)
+        if (value && IsGrounded())
         {
             jumping = true;
         } else
@@ -55,5 +59,18 @@ public class PlayerCCMovement : MonoBehaviour, IPlayerMovement
 
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
+    }
+
+    private bool IsGrounded()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position - groundCheckOffset, groundCheckSize, groundCheckLayer);
+        return hitColliders.Length != 0;
+    }
+
+    //
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position - groundCheckOffset, groundCheckSize);
     }
 }
