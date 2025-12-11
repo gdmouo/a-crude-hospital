@@ -169,4 +169,14 @@ public class Player : MonoBehaviour
     {
         return interactibleHolding;
     }
+
+    public void GivePlayerPills(List<PillSO> pills)
+    {
+        foreach (PillSO pill in pills)
+        {
+            Debug.Log("took " + pill.pillName);
+        }
+
+        gameObject.GetComponent<PillLeProcessor>().ProcessPills(pills);
+    }
 }

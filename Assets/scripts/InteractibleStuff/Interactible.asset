@@ -17,3 +17,5 @@ MonoBehaviour:
   openedSprite: {fileID: -941905943, guid: 5a19f31857148394a986b5f85e57fd30, type: 3}
   itemName: Fartonastick
   itemDescription: Click to pick up
+  itemGUIDescription: dis a test pil
+  sideEffects: di

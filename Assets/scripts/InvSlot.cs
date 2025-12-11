@@ -51,7 +51,7 @@ public class InvSlot : MonoBehaviour
     {
         if (i.GetIcon() != null)
         {
-            intInvGUI.SetParameters(i.GetInteractibleSO(), this);
+            intInvGUI.SetParameters(i, this);
 
             iconFaded.sprite = i.GetIcon();
             Color color2 = new(1f, 1f, 1f, 0.05f);

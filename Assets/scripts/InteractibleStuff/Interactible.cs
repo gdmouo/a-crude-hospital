@@ -5,8 +5,10 @@ using UnityEngine;
 public abstract class Interactible : MonoBehaviour, IInteractible
 {
     [SerializeField] private InteractibleSO interactibleSO;
-    [SerializeField] private InteractibleGUI interactibleGUI;
 
+    [SerializeField] private int quantity = 0;
+    public int Quantity { get { return quantity; } }
+    
     public Sprite GetIcon()
     {
         return interactibleSO.sprite;
@@ -48,9 +50,22 @@ public abstract class Interactible : MonoBehaviour, IInteractible
         transform.localPosition = Vector3.zero;
     }
 
+    public virtual void GUIInteract()
+    {
+
+    }
+
     public InteractibleSO GetInteractibleSO()
     {
         return interactibleSO;
+    }
+
+    public void DecreaseQuantity()
+    {
+        if (quantity > 0)
+        {
+            quantity--;
+        }
     }
 
 }

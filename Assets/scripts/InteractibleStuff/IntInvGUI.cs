@@ -13,8 +13,19 @@ public class IntInvGUI : MonoBehaviour
 
     private RectTransform rectTransform;
     private Canvas canvas;
+    private Interactible item;
 
     private bool caseOpened = false;
+
+     [SerializeField] private Pill pill;
+
+
+    private bool startTimer = false;
+    [SerializeField] private float timerMax = 4f;
+    private float timer = 0f;
+
+    [SerializeField] private GameObject descriptionGUI;
+    private IntDescGUI intDescGUI;
 
     //
 
@@ -23,15 +34,31 @@ public class IntInvGUI : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
         icon = GetComponent<Image>();
+        intDescGUI = descriptionGUI.GetComponent<IntDescGUI>();
     }
 
     private void Start()
     {
+
     }
 
 
     void Update()
     {
+        if (startTimer)
+        {
+            if (timer < timerMax)
+            {
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                EndTimer();
+                ShowDescGUI();
+                //show gui
+                //show description gui
+            }
+        }
     }
 
     public void OnBeginDrag(BaseEventData data)
@@ -39,7 +66,8 @@ public class IntInvGUI : MonoBehaviour
         ChangeIconToHeldSprite();
 
         //change to this
-        Debug.Log("Item draggd");
+        // Debug.Log("Item draggd");
+        GameInput.Instance.SetSelectedIIGUI(this);
     }
 
     public void OnDrag(BaseEventData data)
@@ -53,9 +81,55 @@ public class IntInvGUI : MonoBehaviour
     public void OnEndDrag(BaseEventData data)
     {
         PutIconBack();
+        GameInput.Instance.SetSelectedIIGUI(null);
+    }
 
-        //reset
-        Debug.Log("Item droppd");
+    public void OnPointerEnter(BaseEventData data)
+    {
+        EndTimer();
+        ResetTimer();
+        StartTimer();
+    }
+
+    public void OnPointerExit(BaseEventData data)
+    {
+        EndTimer();
+        ResetTimer();
+        HideDescGUI();
+        //hide gui if displayed
+    }
+
+    private void StartTimer() {
+        startTimer = true;
+    }
+
+    private void EndTimer()
+    {
+        startTimer = false;
+    }
+    private void ResetTimer()
+    {
+        timer = 0f;
+    }
+
+    private void ShowDescGUI()
+    {
+        if (!descriptionGUI.activeSelf)
+        {
+            if (!intDescGUI.TextSet)
+            {
+                intDescGUI.SetText(item);
+            }
+            descriptionGUI.SetActive(true);
+        }
+    }
+
+    private void HideDescGUI()
+    {
+        if (descriptionGUI.activeSelf)
+        {
+            descriptionGUI.SetActive(false);
+        }
     }
 
     public void SetIcon()
@@ -84,9 +158,10 @@ public class IntInvGUI : MonoBehaviour
         icon.GetComponent<RectTransform>().anchoredPosition = inventorySlot.GetIconFadedPosition();
     }
 
-    public void SetParameters(InteractibleSO interactibleSO, InvSlot iS)
+    public void SetParameters(Interactible interactible, InvSlot iS)
     {
-        itemSO = interactibleSO;
+        item = interactible;
+        itemSO = interactible.GetInteractibleSO();
         inventorySlot = iS;
         SetIcon();
     }
@@ -96,6 +171,8 @@ public class IntInvGUI : MonoBehaviour
         if (caseOpened)
         {
             //drop
+            item.GUIInteract();
+            Debug.Log("pill fell");
             
         }
     }

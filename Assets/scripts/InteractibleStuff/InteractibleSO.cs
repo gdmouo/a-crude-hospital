@@ -10,5 +10,8 @@ public class InteractibleSO : ScriptableObject
     public Sprite openedSprite;
     public string itemName;
     public string itemDescription;
+    //^ thats for the screen highlihgt
+    public string itemGUIDescription;
+    public string sideEffects;
 
 }

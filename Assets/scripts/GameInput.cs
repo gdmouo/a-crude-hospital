@@ -75,6 +75,10 @@ public class GameInput : MonoBehaviour
     private void FallOut_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         //lockMouse.Toggle(pause.Toggle());
+        if (selectedIIGUI != null)
+        {
+            selectedIIGUI.FallPill();
+        }
     }
     private void Space_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
@@ -115,6 +119,11 @@ public class GameInput : MonoBehaviour
     public void TogglePlayerControls(bool toggle)
     {
         playerControlsDisabled = toggle;
+    }
+
+    public void SetSelectedIIGUI(IntInvGUI iiGUI)
+    {
+        selectedIIGUI = iiGUI;
     }
 
     private void HandleWASD() {
@@ -164,6 +173,7 @@ public class GameInput : MonoBehaviour
         EventSystem.current.RaycastAll(eventData, raysastResults);
         return raysastResults;
     }*/
+
 
 
 }
