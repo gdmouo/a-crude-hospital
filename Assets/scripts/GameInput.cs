@@ -26,6 +26,11 @@ public class GameInput : MonoBehaviour
 
     private IntInvGUI selectedIIGUI;
 
+
+    //private BeatPadController bpCont;
+  //  bpCont = BeatPadController.Instance;
+       
+
     private void Awake()
     {
         if (Instance != null)
@@ -60,6 +65,11 @@ public class GameInput : MonoBehaviour
 
     private void OnClick(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        if (DialogueControl.Instance.SomeoneIsSpeaking)
+        {
+            DialogueControl.Instance.EndText();
+            return;
+        }
         player.InteractWithSelectedItem();
     }
     private void Escape_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -77,7 +87,7 @@ public class GameInput : MonoBehaviour
         //lockMouse.Toggle(pause.Toggle());
         if (selectedIIGUI != null)
         {
-            selectedIIGUI.FallPill();
+            selectedIIGUI.GUIHoldingInteract();
         }
     }
     private void Space_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -109,6 +119,10 @@ public class GameInput : MonoBehaviour
             HandleBob();
             HandleHoldSpace();
         }
+
+
+        //
+       // HandleCustomBar();
     }
 
     public bool IsMouseHolding()
@@ -129,6 +143,7 @@ public class GameInput : MonoBehaviour
     private void HandleWASD() {
         player.Move(GetMovementVectorNormalized(), firstPersonCamera.transform.forward, firstPersonCamera.transform.right);
     }
+
     private void HandleBob()
     {
         firstPersonCamera.Move(GetRotationVector());
@@ -174,6 +189,40 @@ public class GameInput : MonoBehaviour
         return raysastResults;
     }*/
 
+    /*
+    private void HandleCustomBar()
+    {
+        //if (playerInputActions.Player.Jump.IsPressed())
+        if (playerInputActions.Player.PressZ.IsPressed())
+        {
+            bpCont.HitBar(KeyButt.Z);
+        }
+        if (playerInputActions.Player.PressX.IsPressed())
+        {
+            bpCont.HitBar(KeyButt.X);
+        }
+        if (playerInputActions.Player.PressC.IsPressed())
+        {
+            bpCont.HitBar(KeyButt.C);
+        }
+        if (playerInputActions.Player.PressV.IsPressed())
+        {
+            bpCont.HitBar(KeyButt.V);
+        }
+        if (playerInputActions.Player.PressB.IsPressed())
+        {
+            bpCont.HitBar(KeyButt.B);
+        }
+        if (playerInputActions.Player.PressN.IsPressed())
+        {
+            bpCont.HitBar(KeyButt.N);
+        }
+        if (playerInputActions.Player.PressM.IsPressed())
+        {
+            bpCont.HitBar(KeyButt.M);
+        }
+    }
+    */
 
 
 }

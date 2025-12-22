@@ -42,8 +42,4 @@ public class Door : Interactible
     {
         ToggleDoor();
     }
-
-    public override void InteractHolding(Player player)
-    {
-    }
 }

@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Interactible : MonoBehaviour, IInteractible
+public class Interactible : MonoBehaviour, IInteractible
 {
-    [SerializeField] private InteractibleSO interactibleSO;
+    [SerializeField] protected InteractibleSO interactibleSO;
 
-    [SerializeField] private int quantity = 0;
-    public int Quantity { get { return quantity; } }
+   // [SerializeField] private int quantity = 0;
+   // public int Quantity { get { return quantity; } }
     
+    /*
     public Sprite GetIcon()
     {
         return interactibleSO.sprite;
@@ -24,25 +25,39 @@ public abstract class Interactible : MonoBehaviour, IInteractible
         return interactibleSO.openedSprite;
     }
 
+    */
+
     public virtual void Interact(Player player)
     {
-        player.StoreItem(this);
+        //player.StoreItem(this);
     }
+
+    /*
 
     public virtual void InteractHolding(Player player)
     {
         Debug.Log("interact while holding");
     }
+    */
 
-    public string GetItemName()
+    public string GetName()
     {
-        return interactibleSO.itemName;
+        return interactibleSO.interactibleName;
     }
+
+    public string GetHighlight()
+    {
+        return interactibleSO.interactingHighlight;
+    }
+
+    /*
 
     public string GetItemDescription()
     {
-        return interactibleSO.itemDescription;
+        return interactibleSO.interactingHighlight;
     }
+
+    */
 
     public void SetParentToFollow(Transform t)
     {
@@ -50,22 +65,24 @@ public abstract class Interactible : MonoBehaviour, IInteractible
         transform.localPosition = Vector3.zero;
     }
 
+    /*
     public virtual void GUIInteract()
     {
 
-    }
+    }*/
 
     public InteractibleSO GetInteractibleSO()
     {
         return interactibleSO;
     }
 
+    /*
     public void DecreaseQuantity()
     {
         if (quantity > 0)
         {
             quantity--;
         }
-    }
+    }*/
 
 }

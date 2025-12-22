@@ -5,27 +5,22 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
 
-public class IntInvGUI : MonoBehaviour
+public class IntInvGUI : MonoBehaviour, IInvSlotGUI
 {
-    private InvSlot inventorySlot;
-    private Image icon;
-    private InteractibleSO itemSO;
+    protected InvSlot inventorySlot;
+    protected Image icon;
+    protected ItemSO itemSO;
+    protected RectTransform rectTransform;
+    protected Canvas canvas;
+    protected Item item;
 
-    private RectTransform rectTransform;
-    private Canvas canvas;
-    private Interactible item;
+    protected bool startTimer = false;
+    protected const float TIMER_MAX = 0.5f;
+    protected float timer = 0f;
 
-    private bool caseOpened = false;
-
-     [SerializeField] private Pill pill;
-
-
-    private bool startTimer = false;
-    [SerializeField] private float timerMax = 4f;
-    private float timer = 0f;
-
-    [SerializeField] private GameObject descriptionGUI;
-    private IntDescGUI intDescGUI;
+    //
+    protected GameObject descriptionGUI;
+    protected ItemDescGUI intDescGUI;
 
     //
 
@@ -34,7 +29,23 @@ public class IntInvGUI : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
         icon = GetComponent<Image>();
-        intDescGUI = descriptionGUI.GetComponent<IntDescGUI>();
+        //intDescGUI = descriptionGUI.GetComponent<ItemDescGUI>();
+    }
+
+    protected void SetStuffUp()
+    {
+        if (rectTransform == null)
+        {
+            rectTransform = gameObject.GetComponent<RectTransform>();
+        }
+        if (canvas == null)
+        {
+            canvas = gameObject.GetComponentInParent<Canvas>();
+        }
+        if (icon == null)
+        {
+            icon = gameObject.GetComponent<Image>();
+        }
     }
 
     private void Start()
@@ -47,13 +58,14 @@ public class IntInvGUI : MonoBehaviour
     {
         if (startTimer)
         {
-            if (timer < timerMax)
+            if (timer < TIMER_MAX)
             {
                 timer += Time.deltaTime;
+                Debug.Log(timer);
             }
             else
             {
-                EndTimer();
+               // EndTimer();
                 ShowDescGUI();
                 //show gui
                 //show description gui
@@ -61,7 +73,7 @@ public class IntInvGUI : MonoBehaviour
         }
     }
 
-    public void OnBeginDrag(BaseEventData data)
+    public virtual void OnBeginDrag(BaseEventData data)
     {
         ChangeIconToHeldSprite();
 
@@ -70,28 +82,32 @@ public class IntInvGUI : MonoBehaviour
         GameInput.Instance.SetSelectedIIGUI(this);
     }
 
-    public void OnDrag(BaseEventData data)
+    public virtual void OnDrag(BaseEventData data)
     {
         var pointerData = (PointerEventData)data;
         rectTransform.anchoredPosition += pointerData.delta / canvas.scaleFactor;
 
-        CheckForPillcase();
+        //CheckForPillcase();
     }
 
-    public void OnEndDrag(BaseEventData data)
+    public virtual void OnEndDrag(BaseEventData data)
     {
         PutIconBack();
         GameInput.Instance.SetSelectedIIGUI(null);
     }
 
-    public void OnPointerEnter(BaseEventData data)
+    public virtual void OnPointerEnter(BaseEventData data)
     {
+        if (startTimer)
+        {
+            return;
+        }
         EndTimer();
         ResetTimer();
         StartTimer();
     }
 
-    public void OnPointerExit(BaseEventData data)
+    public virtual void OnPointerExit(BaseEventData data)
     {
         EndTimer();
         ResetTimer();
@@ -99,32 +115,38 @@ public class IntInvGUI : MonoBehaviour
         //hide gui if displayed
     }
 
-    private void StartTimer() {
+    public virtual void GUIHoldingInteract()
+    {
+
+    }
+
+    protected void StartTimer() {
         startTimer = true;
     }
 
-    private void EndTimer()
+    protected void EndTimer()
     {
         startTimer = false;
     }
-    private void ResetTimer()
+    protected void ResetTimer()
     {
         timer = 0f;
     }
 
-    private void ShowDescGUI()
+    protected void ShowDescGUI()
     {
         if (!descriptionGUI.activeSelf)
         {
             if (!intDescGUI.TextSet)
             {
-                intDescGUI.SetText(item);
+                intDescGUI.SetParameters(item, inventorySlot);
+
             }
             descriptionGUI.SetActive(true);
         }
     }
 
-    private void HideDescGUI()
+    protected void HideDescGUI()
     {
         if (descriptionGUI.activeSelf)
         {
@@ -138,75 +160,32 @@ public class IntInvGUI : MonoBehaviour
         Color color = new(1f, 1f, 1f, 1f);
         icon.color = color;
         icon.SetNativeSize();
+
+        //
+        icon.GetComponent<RectTransform>().anchoredPosition = inventorySlot.GetIconFadedPosition();
     }
 
-    public void ChangeIconToHeldSprite()
+    protected void ChangeIconToHeldSprite()
     {
         icon.sprite = itemSO.heldSprite;
         icon.SetNativeSize();
     }
 
-    public void ChangeIconToOpenedSprite()
-    {
-        icon.sprite = itemSO.openedSprite;
-        icon.SetNativeSize();
-    }
-    public void PutIconBack()
+    protected void PutIconBack()
     {
         icon.sprite = itemSO.sprite;
         icon.SetNativeSize();
         icon.GetComponent<RectTransform>().anchoredPosition = inventorySlot.GetIconFadedPosition();
     }
 
-    public void SetParameters(Interactible interactible, InvSlot iS)
+    public void SetParameters(Interactible interactible, InvSlot iS, ItemDescGUI iD)
     {
-        item = interactible;
-        itemSO = interactible.GetInteractibleSO();
+        item = interactible as Item;
+        itemSO = item.GetInteractibleSO() as ItemSO;
         inventorySlot = iS;
+        descriptionGUI = iD.gameObject;
+        intDescGUI = iD;
         SetIcon();
-    }
-
-    public void FallPill()
-    {
-        if (caseOpened)
-        {
-            //drop
-            item.GUIInteract();
-            Debug.Log("pill fell");
-            
-        }
-    }
-
-
-    private void CheckForPillcase()
-    {
-        RectTransform targetAreaRectTransform = PillcaseUI.Instance.GetCRT();
-
-        Vector2 localPoint;
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            targetAreaRectTransform,
-            rectTransform.position, // Use world position for conversion
-            canvas.worldCamera,
-            out localPoint))
-        {
-            // Check if the local point is within the target area's local bounds
-            if (targetAreaRectTransform.rect.Contains(localPoint))
-            {
-               // Debug.Log("UI object dropped within the target area!");
-                // Perform actions for dropping within the area
-                //inventorySlot.ChangeIconToOpenedSprite();
-                ChangeIconToOpenedSprite();
-                caseOpened = true;
-                //inventorySlot.TogglePoop(true);
-            }
-            else
-            {
-               // Debug.Log("UI object dropped outside the target area.");
-                // Perform actions for dropping outside the area
-                ChangeIconToHeldSprite();
-                caseOpened = false;
-                // inventorySlot.TogglePoop(false);
-            }
-        }
+        HideDescGUI();
     }
 }

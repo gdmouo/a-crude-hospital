@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7702dd45bef994e8dcd4a2130448f0, type: 3}
+  m_Name: Tetitem
+  m_EditorClassIdentifier: 
+  interactibleName: test item
+  interactingHighlight: click to fart
+  sprite: {fileID: -2011074206, guid: 5a19f31857148394a986b5f85e57fd30, type: 3}
+  heldSprite: {fileID: -1356768791, guid: 5a19f31857148394a986b5f85e57fd30, type: 3}
+  itemDescription: derth

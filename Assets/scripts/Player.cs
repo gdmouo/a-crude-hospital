@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float raycastRange;
     [SerializeField] private LayerMask interactLayer;
 
-    private Interactible interactibleHolding;
+    private Item itemHolding;
     private Interactible selectedInteractible;
 
     private IPlayerMovement playerMovement;
@@ -80,14 +80,14 @@ public class Player : MonoBehaviour
 
     public void AccessInventory(int slot)
     {
-        inventory.UseHotbar(slot, interactibleHolding);
+        inventory.UseHotbar(slot, itemHolding);
     }
 
     public void InteractWithSelectedItem()
     {
-        if (interactibleHolding != null)
+        if (itemHolding != null)
         {
-            interactibleHolding.InteractHolding(this);
+            itemHolding.InteractHolding(this);
         } else
         {
             if (selectedInteractible != null)
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
         {
             if (hit.transform.gameObject.TryGetComponent<Interactible>(out Interactible i))
             {
-                if (selectedInteractible == null || (!GameObject.ReferenceEquals(selectedInteractible, i) && !GameObject.ReferenceEquals(interactibleHolding, i)))
+                if (selectedInteractible == null || (!GameObject.ReferenceEquals(selectedInteractible, i) && !GameObject.ReferenceEquals(itemHolding, i)))
                 {
                     selectedInteractible = i;
                     OnSelectedInteractibleChanged?.Invoke(this, new OnSelectedInteractibleChangedEventArgs
@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
 
     public void PickupItem(Interactible i)
     {
-        interactibleHolding = i;
+        itemHolding = (Item) i;
         i.SetParentToFollow(interactibleHoldPoint);
     }
 
@@ -162,12 +162,12 @@ public class Player : MonoBehaviour
 
     public void SetInteractibleHoldingToNUll()
     {
-        interactibleHolding = null;
+        itemHolding = null;
     }
 
     public Interactible GetInteractibleHolding()
     {
-        return interactibleHolding;
+        return itemHolding;
     }
 
     public void GivePlayerPills(List<PillSO> pills)

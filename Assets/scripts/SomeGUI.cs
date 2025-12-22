@@ -23,8 +23,8 @@ public class SomeGUI : MonoBehaviour
             {
                 textParent.SetActive(true);
             }
-            itemNameComponent.text = e.selectedInteractible.GetItemName();
-            itemDescriptionComponent.text = e.selectedInteractible.GetItemDescription();
+            itemNameComponent.text = e.selectedInteractible.GetName();
+            itemDescriptionComponent.text = e.selectedInteractible.GetHighlight();
         }
         else
         {
