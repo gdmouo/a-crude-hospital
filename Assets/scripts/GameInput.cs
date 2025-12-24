@@ -112,17 +112,17 @@ public class GameInput : MonoBehaviour
     }
     private void Update()
     {
-        //Debug.Log(mouseInput);
         if (!playerControlsDisabled)
         {
             HandleWASD();
             HandleBob();
             HandleHoldSpace();
         }
+    }
 
-
-        //
-       // HandleCustomBar();
+    public void ToggleMouse(bool v)
+    {
+        lockMouse.Toggle(v);
     }
 
     public bool IsMouseHolding()
@@ -177,52 +177,5 @@ public class GameInput : MonoBehaviour
             player.StopJumping();
         }
     }
-
-    /*
-    private List<RaycastResult> GetEventSystemRaycastResults()
-    {
-        PointerEventData eventData = new PointerEventData(EventSystem.current);
-        eventData.position = 
-            Input.mousePosition;
-        List<RaycastResult> raysastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventData, raysastResults);
-        return raysastResults;
-    }*/
-
-    /*
-    private void HandleCustomBar()
-    {
-        //if (playerInputActions.Player.Jump.IsPressed())
-        if (playerInputActions.Player.PressZ.IsPressed())
-        {
-            bpCont.HitBar(KeyButt.Z);
-        }
-        if (playerInputActions.Player.PressX.IsPressed())
-        {
-            bpCont.HitBar(KeyButt.X);
-        }
-        if (playerInputActions.Player.PressC.IsPressed())
-        {
-            bpCont.HitBar(KeyButt.C);
-        }
-        if (playerInputActions.Player.PressV.IsPressed())
-        {
-            bpCont.HitBar(KeyButt.V);
-        }
-        if (playerInputActions.Player.PressB.IsPressed())
-        {
-            bpCont.HitBar(KeyButt.B);
-        }
-        if (playerInputActions.Player.PressN.IsPressed())
-        {
-            bpCont.HitBar(KeyButt.N);
-        }
-        if (playerInputActions.Player.PressM.IsPressed())
-        {
-            bpCont.HitBar(KeyButt.M);
-        }
-    }
-    */
-
 
 }

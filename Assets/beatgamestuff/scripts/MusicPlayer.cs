@@ -16,6 +16,7 @@ public class MusicPlayer : MonoBehaviour
     private double songEndTime;
 
     private bool songStarted = false;
+    private float flyDuration = 1f;
 
    // public float timeElapsed { get; private set; }
 
@@ -41,14 +42,18 @@ public class MusicPlayer : MonoBehaviour
             BeatList b = songBeatMap.GetBeatMap();
             noteBeats = b.beatList;
             song = songBeatMap.GetSong();
-
+            
             //upodate score manager
-            ScoreManager.Instance.SetupScoreManager(b.maxScore);
+            
             
 
             TrackSO trackSO = songBeatMap.GetTrackSO();
             songStartTime = AudioSettings.dspTime + trackSO.songStartTime;
             songEndTime = trackSO.songEndTime;
+
+            flyDuration = trackSO.flyDuration;
+
+            ScoreManager.Instance.SetupScoreManager(b.maxScore, trackSO.passingScore);
 
             TimeManager.Instance.SetupTimeManager((float) trackSO.songEndTime);
         } else
@@ -65,14 +70,11 @@ public class MusicPlayer : MonoBehaviour
     private void RunSong()
     {
         double songTime = AudioSettings.dspTime - songStartTime;
-        //timeElapsed = (float) songTime;
 
         if (TimeManager.Instance.timeInitialized)
         {
             TimeManager.Instance.UpdateTime(Math.Round(songTime, 2));
         }
-
-        
 
         if (songTime < 0)
         {
@@ -87,20 +89,20 @@ public class MusicPlayer : MonoBehaviour
         {
             ProjBeat pB = noteBeats[nextIndex];
 
-            double spawnTime = pB.time;
+            double spawnTime = Mathf.Max(pB.time - flyDuration, 0);
             if (songTime >= spawnTime)
             {
-                SpawnNote(pB);
+                SpawnNote(pB, flyDuration);
                 nextIndex++;
             }
         }
 
     }
 
-    private void SpawnNote(ProjBeat pB)
+    private void SpawnNote(ProjBeat pB, float f)
     {
         if (AttackController.Instance.PLDict.TryGetValue(pB.dir, out ProjectileLauncher pL)) {
-            pL.FireProjectile(pB.time);
+            pL.FireProjectile(f);
         }
     }
 
@@ -108,6 +110,8 @@ public class MusicPlayer : MonoBehaviour
     {
         songStarted = false;
         song.Stop();
+        ResultManager.Instance.EndGame();
+        //
     }
 }
 

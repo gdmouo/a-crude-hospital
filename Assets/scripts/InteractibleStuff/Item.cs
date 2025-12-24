@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class Item : Interactible
 {
-
-    // [SerializeField] private int quantity = 0;
-    // public int Quantity { get { return quantity; } }
-
-    
     public Sprite GetIcon()
     {
         return (interactibleSO as ItemSO).sprite;
@@ -35,38 +30,8 @@ public class Item : Interactible
         return (interactibleSO as ItemSO).itemDescription;
     }
 
-
-
-    /*
     public virtual void GUIInteract()
     {
 
-    }*/
-
-    /*
-    public void DecreaseQuantity()
-    {
-        if (quantity > 0)
-        {
-            quantity--;
-        }
-    }*/
-
-
-    public virtual void GUIInteract()
-    {
-        /*
-        if (pill == null)
-        {
-            pill = pillPrefab.GetComponent<Pill>();
-        }
-        if (Quantity > 0)
-        {
-            if (PillcaseUI.Instance.DepositPill(pill))
-            {
-                DecreaseQuantity();
-            }
-            //update gui
-        }*/
     }
 }

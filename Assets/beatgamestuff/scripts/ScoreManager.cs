@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance {  get; private set; }
     private float maxScore;
     private float currentScore;
+    private float passingScore;
 
     public bool scoreInitialized { get; private set; }
     public bool songStarted { get; private set; }
@@ -27,11 +28,12 @@ public class ScoreManager : MonoBehaviour
         songStarted = false;
     }
 
-    public void SetupScoreManager(float m)
+    public void SetupScoreManager(float m, float s)
     {
         maxScore = m;
         currentScore = 0f;
         scoreInitialized = true;
+        passingScore = s;
         songStarted = true;
     }
 
@@ -44,5 +46,12 @@ public class ScoreManager : MonoBehaviour
     {
         return (currentScore / maxScore) * 100f;
     }
+
+    public bool Passed()
+    {
+        return GetCurrentScore() >= passingScore;
+    }
+
+
 
 }

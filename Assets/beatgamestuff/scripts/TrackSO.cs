@@ -6,7 +6,8 @@ using UnityEngine;
 public class TrackSO : ScriptableObject
 {
     public string songTitle;
-    public float beatSpeed;
+    public float flyDuration;
     public double songStartTime;
     public double songEndTime;
+    public float passingScore;
 }
