@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0039f7b7b00b61a4f84fda2daa0e7874, type: 3}
   m_Name: PillBottle
   m_EditorClassIdentifier: 
-  interactibleName: Drugz
-  interactingHighlight: i hate my lfie
+  interactibleName: dog medicine
+  interactingHighlight: woof
   sprite: {fileID: -2011074206, guid: 5a19f31857148394a986b5f85e57fd30, type: 3}
   heldSprite: {fileID: -1356768791, guid: 5a19f31857148394a986b5f85e57fd30, type: 3}
-  itemDescription: fart
+  itemDescription: dog
   openedSprite: {fileID: -941905943, guid: 5a19f31857148394a986b5f85e57fd30, type: 3}
-  sideEffects: josepjh
+  sideEffects: barking

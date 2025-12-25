@@ -11,6 +11,10 @@ public abstract class Menu : MonoBehaviour
 
     public bool Toggle()
     {
+        if (backdrop == null)
+        {
+            return false;
+        }
         if (backdrop.activeSelf)
         {
             backdrop.SetActive(false);
