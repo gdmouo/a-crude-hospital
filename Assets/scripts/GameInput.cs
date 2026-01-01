@@ -26,6 +26,9 @@ public class GameInput : MonoBehaviour
 
     private IntInvGUI selectedIIGUI;
 
+    private bool dialogueActivated = false;
+    private DialogueRunner dialogueRunner = null;
+
 
     //private BeatPadController bpCont;
   //  bpCont = BeatPadController.Instance;
@@ -65,9 +68,15 @@ public class GameInput : MonoBehaviour
 
     private void OnClick(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (DialogueControl.Instance.SomeoneIsSpeaking)
+        /*
+        if (DialogueUIControl.Instance.SomeoneIsSpeaking)
         {
-            DialogueControl.Instance.EndText();
+            DialogueUIControl.Instance.ProgressDialogue();
+            return;
+        }*/
+        if (dialogueActivated && dialogueRunner != null)
+        {
+            dialogueRunner.ClickDialogueRunner();
             return;
         }
         player.InteractWithSelectedItem();
@@ -118,6 +127,12 @@ public class GameInput : MonoBehaviour
             HandleBob();
             HandleHoldSpace();
         }
+    }
+
+    public void ToggleIsSpeaking(bool b, DialogueRunner r)
+    {
+        dialogueRunner = r;
+        dialogueActivated = b;
     }
 
     public void ToggleMouse(bool v)

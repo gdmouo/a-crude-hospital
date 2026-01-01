@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ClosedCaptionBar : MonoBehaviour
 {
     
-    public Dialogue d;
+    public FartDIa d;
     [Header("UI")]
     public Image fillImage;          // Assign BarFill here in the Inspector
 

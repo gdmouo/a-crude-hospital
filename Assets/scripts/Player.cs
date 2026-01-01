@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
 
     private Camera playerCamera;
 
+    public Room CurrentRoom { get; private set; }
+
 
     private void Awake()
     {
@@ -41,11 +43,14 @@ public class Player : MonoBehaviour
             Debug.LogError("More than one Player instance found");
         }
         Instance = this;
+        
     }
 
     private void Start()
     {
         playerCamera = PlayerCamera.Instance.CameraObject;
+        //update v
+        CurrentRoom = Room.HOSPITAL_RECEPTION;
     }
 
     private void Update()

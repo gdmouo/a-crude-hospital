@@ -4,22 +4,33 @@ using UnityEngine;
 
 public class NPCTalkBox : Interactible
 {
+    [SerializeField] private NPCScript npcScript;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+       // LoadScript();
     }
 
     public override void Interact(Player player)
     {
-        //Debug.Log("speak to");
-        //player.StoreItem(this);
-        DialogueControl.Instance.EnterText("poooosay");
+        if (npcScript == null)
+        {
+            return;
+        }
+        List<Dialogue> l = npcScript.GetDialoguePack(player.CurrentRoom);
+        DialogueUIControl.Instance.LoadDialogue(l);
     }
+
+    /*
+    protected virtual void LoadScript()
+    {
+        AssignScript(null);
+    }
+
+    protected void AssignScript(NPCScript n)
+    {
+        npcScript = n;
+    }*/
+
+
 }

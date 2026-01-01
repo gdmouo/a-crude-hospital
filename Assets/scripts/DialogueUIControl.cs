@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class DialogueControl : MonoBehaviour
+public class DialogueUIControl : MonoBehaviour
 {
-    public static DialogueControl Instance;
+    public static DialogueUIControl Instance;
     [SerializeField] private TextMeshProUGUI textComponent;
+
+    private List<string> lines;
+    private int currIdx;
 
     public bool SomeoneIsSpeaking {  get; private set; }
     // Start is called before the first frame update
@@ -33,20 +36,43 @@ public class DialogueControl : MonoBehaviour
         
     }
 
-    public void EnterText(string text)
+    private void OnDialogueLoaded()
     {
+        if (!textComponent.gameObject.activeSelf)
+        {
+            textComponent.gameObject.SetActive(true);
+        }
+        currIdx = 0;
         SomeoneIsSpeaking = true;
-        textComponent.text = text;
-        textComponent.gameObject.SetActive(true);
     }
 
-    public void EndText()
+    private void EnterText(string text)
     {
-       // if (test == 0)
-       // {
-       //     test = 1;
-       //     return;
-       // }
+        textComponent.text = text;
+    }
+
+    public void LoadDialogue(List<Dialogue> l)
+    {
+        lines ??= new List<string>();
+        foreach (Dialogue dialogue in l)
+        {
+            lines.Add(dialogue.Line);
+        }
+        OnDialogueLoaded();
+    }
+
+    public void ProgressDialogue()
+    {
+        if (currIdx >=  lines.Count)
+        {
+            EndText();
+        }
+        EnterText(lines[currIdx]);
+    }
+
+    
+    private void EndText()
+    {
         SomeoneIsSpeaking = false;
         textComponent.gameObject.SetActive(false);
     }

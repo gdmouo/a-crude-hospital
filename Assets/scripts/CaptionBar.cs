@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class GrowingBar : MonoBehaviour
 {
-    public Dialogue d;
+    public FartDIa d;
     [Header("UI")]
     public Image fillImage;          // Assign BarFill here in the Inspector
 

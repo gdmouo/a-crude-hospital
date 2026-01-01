@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class Dialogue : MonoBehaviour
+public class FartDIa : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     //public TextMeshProUGUI nameComponent;
