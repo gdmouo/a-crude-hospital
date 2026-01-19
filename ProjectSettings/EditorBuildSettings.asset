@@ -8,10 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Yassome/3DHospitalMap.unity
     guid: 7c845e8ca807db448a0203af273b8596
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Yassome/2DBeatRoom.unity
     guid: a40511fe7a60d984dbe9bebc3d8aafe7
+  - enabled: 1
+    path: Assets/Scenes/Boopa/3DHospitalMap.unity
+    guid: 6b57c3a9e91ef154493c97a6a82fe2d6
+  - enabled: 1
+    path: Assets/Scenes/Boopa/2DBeatRoom.unity
+    guid: c713302556805f04ca9c2885ef47f55e
+  - enabled: 1
+    path: Assets/Scenes/Boopa/DeathRoom.unity
+    guid: 3ab595ac39f350d45b5a1528e8d8dee7
   m_configObjects: {}

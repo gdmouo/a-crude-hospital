@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     private Camera playerCamera;
 
     public Room CurrentRoom { get; private set; }
+    public Inventory Inventory { get { return inventory;  } }
 
 
     private void Awake()
@@ -183,5 +184,18 @@ public class Player : MonoBehaviour
         }
 
         gameObject.GetComponent<PillLeProcessor>().ProcessPills(pills);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Test"))
+        {
+            if (other.gameObject.TryGetComponent<Triggerable>(out Triggerable b)) {
+                b.Interact(this);
+            }
+        }
+
+        //if inventory contains the music box, trigger
+
     }
 }

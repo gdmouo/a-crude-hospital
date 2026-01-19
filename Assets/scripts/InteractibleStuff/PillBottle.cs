@@ -5,14 +5,9 @@ using UnityEngine;
 public class PillBottle : Item
 {
     [SerializeField] private int quantity;
-
-  //  [SerializeField] private Pill pill;
     [SerializeField] private GameObject pillPrefab;
     private Pill pill;
 
-
-
-    // [SerializeField] private int quantity = 0;
     public int Quantity { get { return quantity; } }
 
     public Sprite GetOpenedIcon()
@@ -20,33 +15,36 @@ public class PillBottle : Item
         return (interactibleSO as PillBottleSO).openedSprite;
     }
 
-    /*
-    public override void InteractHolding(Player player)
-    {
-        Debug.Log("take pill");
-    }*/
-
     public string GetSideEffects()
     {
         return (interactibleSO as PillBottleSO).sideEffects;
     }
 
-    /*
-    public virtual void GUIInteract()
-    {
-
-    }*/
-
-    /*
     public void DecreaseQuantity()
+    {
+        quantity--;
+        if (intInvGUI != null)
+        {
+            PillBottleDescGUI po = intInvGUI.GetItemDescGUI() as PillBottleDescGUI;
+            po.UpdatePillCount(quantity);
+        }
+    }
+
+    public override void GUIInteract()
     {
         if (quantity > 0)
         {
-            quantity--;
+            if (pill == null)
+            {
+                pill = pillPrefab.GetComponent<Pill>();
+            }
+            if (PillcaseUI.Instance.DepositPill(pill))
+            {
+                //quantity--;
+                DecreaseQuantity();
+            }
         }
-    }*/
-    public override void GUIInteract()
-    {
+
         /*
         if (pill == null)
         {

@@ -19,19 +19,19 @@ public class Inventory : MonoBehaviour
         
     }
 
-    /*
-    private void InitializeInventory()
+    //if inventory contains beatbox
+    public bool CheckForBattleBox()
     {
-        if (inventorySlots == null)
+        string BATTLE_BOX_NAME = "Battle Mechanic";
+        foreach (InvSlot slot in inventorySlots.Values)
         {
-            inventorySlots = new Dictionary<int, InventorySlot>();
+            if (slot.Item != null && slot.Item.GetName() == BATTLE_BOX_NAME)
+            {
+                return true;
+            }
         }
-
-        foreach (InventorySlot inv in slots)
-        {
-            inventorySlots.Add(inv.Slot, inv);
-        }
-    }*/
+        return false;
+    }
 
     public void UseHotbar(int slot, Interactible i)
     {

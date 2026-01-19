@@ -181,11 +181,18 @@ public class IntInvGUI : MonoBehaviour, IInvSlotGUI
     public void SetParameters(Interactible interactible, InvSlot iS, ItemDescGUI iD)
     {
         item = interactible as Item;
+        item.SetGUIIntParam(this);
         itemSO = item.GetInteractibleSO() as ItemSO;
         inventorySlot = iS;
         descriptionGUI = iD.gameObject;
         intDescGUI = iD;
         SetIcon();
         HideDescGUI();
+        ///////
+    }
+
+    public ItemDescGUI GetItemDescGUI()
+    {
+        return intDescGUI;
     }
 }

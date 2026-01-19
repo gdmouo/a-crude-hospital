@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Item : Interactible
 {
+    protected IntInvGUI intInvGUI;
     public Sprite GetIcon()
     {
         return (interactibleSO as ItemSO).sprite;
@@ -33,5 +34,11 @@ public class Item : Interactible
     public virtual void GUIInteract()
     {
 
+    }
+
+    //set interactible
+    public virtual void SetGUIIntParam(IntInvGUI i)
+    {
+        intInvGUI = i;
     }
 }

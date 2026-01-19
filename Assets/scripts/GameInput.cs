@@ -68,12 +68,6 @@ public class GameInput : MonoBehaviour
 
     private void OnClick(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        /*
-        if (DialogueUIControl.Instance.SomeoneIsSpeaking)
-        {
-            DialogueUIControl.Instance.ProgressDialogue();
-            return;
-        }*/
         if (dialogueActivated && dialogueRunner != null)
         {
             dialogueRunner.ClickDialogueRunner();

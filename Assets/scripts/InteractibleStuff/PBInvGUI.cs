@@ -32,7 +32,7 @@ public class PBInvGUI : IntInvGUI
             //drop
             item.GUIInteract();
             Debug.Log("pill fell");
-            
+
         }
     }
 

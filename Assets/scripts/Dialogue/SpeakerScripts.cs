@@ -21,7 +21,7 @@ public class SpeakerScripts : MonoBehaviour
         switch (speaker)
         {
             case SpeakerKeys.DogEevee:
-                return new List<string>() { new("Broseph bon"), new("meep"), new("meo") };
+                return new List<string>() { new("meep"), new("meo") };
             default:
                 return new List<string>() { new("No dialogue available")};
         }

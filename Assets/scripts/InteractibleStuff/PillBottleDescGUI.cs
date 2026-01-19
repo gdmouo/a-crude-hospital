@@ -23,4 +23,9 @@ public class PillBottleDescGUI : ItemDescGUI
         pillQuantity.text = QTY_LABEL + (inter as PillBottle).Quantity.ToString();
         //TextSet = true;
     }
+
+    public void UpdatePillCount(int c)
+    {
+        pillQuantity.text = QTY_LABEL + c.ToString();
+    }
 }

@@ -11,11 +11,9 @@ public class PillcaseUI : MonoBehaviour
     [SerializeField] private RectTransform colliderRectTransform;
     [SerializeField] private Transform pillGUIParent;
 
-    //private Dictionary<GameObject, GameObject> pills;
     private List<GameObject> pillsUIRepresentationsList;
     private List<PillSO> pillSOs;
 
-    //private List<Pill> pills;
 
     private void Awake()
     {
@@ -44,7 +42,6 @@ public class PillcaseUI : MonoBehaviour
 
     public bool DepositPill(Pill pill)
     {
-        //if (pills == null) pills = new Dictionary<Pill, GameObject>();
         if (pillsUIRepresentationsList == null) pillsUIRepresentationsList = new List<GameObject>();
         if (pillSOs == null) pillSOs = new List<PillSO>();
 
@@ -55,8 +52,9 @@ public class PillcaseUI : MonoBehaviour
         
         GameObject guiVisual = pill.GetPillGUIPrefab();
         guiVisual = Instantiate(guiVisual);
+
         guiVisual.transform.SetParent(pillGUIParent);
-        guiVisual.GetComponent<RectTransform>().anchoredPosition = pillGUIParent.GetComponent<RectTransform>().anchoredPosition;
+        //guiVisual.GetComponent<RectTransform>().anchoredPosition = pillGUIParent.GetComponent<RectTransform>().anchoredPosition;
         pillSOs.Add(pill.PillSO);
         pillsUIRepresentationsList.Add(guiVisual);
 
@@ -78,6 +76,7 @@ public class PillcaseUI : MonoBehaviour
         return toRet;
     }
 
+    
     public void RemovePill(Pill pill)
     {
         Destroy(pill.gameObject);

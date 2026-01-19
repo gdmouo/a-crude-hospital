@@ -5,6 +5,7 @@ using UnityEngine;
 public class PillLeProcessor : MonoBehaviour
 {
     [SerializeField] private PillSO benadrylPill;
+    [SerializeField] private int hatmanPillPreCond = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,7 @@ public class PillLeProcessor : MonoBehaviour
         {
             if (!pcDict.ContainsKey(pill.pillName))
             {
-                pcDict.Add(pill.pillName, 1);
+                pcDict.Add(pill.pillName, 0);
             }
             pcDict[pill.pillName]++;
         }
@@ -46,30 +47,33 @@ public class PillLeProcessor : MonoBehaviour
     private bool CheckHatmanEvent(Dictionary<string, int> pcDict)
     {
         Dictionary<string, int> hatmanDict = new Dictionary<string, int>();
-        hatmanDict.Add(benadrylPill.name, 9);
+        hatmanDict.Add(benadrylPill.pillName, hatmanPillPreCond);
 
         foreach (KeyValuePair<string, int> kvp in pcDict)
         {
+            //v currently will only trigger event for the first satisfied combo it detects
             if (pcDict.ContainsKey(kvp.Key))
             {
-                if (kvp.Value == pcDict[kvp.Key])
+               // Debug.Log(kvp.Key);
+                //Debug.Log(benadrylPill.pillName);
+                if (kvp.Value == hatmanDict[kvp.Key])
                 {
-
-                } else
-                {
-                    return false;
-                }
+                    return true;
+                } 
             }
         }
 
+        Debug.Log("no event triggered.");
+
         //check count optionally
 
-        return true;
+        return false;
     }
 
     private void TriggerHatmanEvent()
     {
-        Debug.Log("hatman event triggered");
+        HallwayGameManager.Instance.EnableKeyObjects();
+        //Debug.Log("hatman event triggered");
     }
 
 
