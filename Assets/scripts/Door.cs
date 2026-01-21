@@ -11,6 +11,8 @@ public class Door : Interactible
     private Quaternion closedRotation;
     private Quaternion openRotation;
 
+    public bool IsOpen {  get { return isOpen; } }
+
     void Awake()
     {
         closedRotation = transform.localRotation; // Store the initial (closed) rotation
@@ -27,6 +29,8 @@ public class Door : Interactible
         isOpen = !isOpen; // Toggle the door state
         StopAllCoroutines(); // Stop any ongoing rotation
         StartCoroutine(RotateDoor(isOpen ? openRotation : closedRotation));
+
+        //somethin gotta fix these
     }
 
     IEnumerator RotateDoor(Quaternion targetRotation)
@@ -41,5 +45,10 @@ public class Door : Interactible
     public override void Interact(Player player)
     {
         ToggleDoor();
+    }
+
+    public bool CheckIfFullyOpened()
+    {
+        return transform.localRotation == openRotation;
     }
 }

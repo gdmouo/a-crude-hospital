@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hatman : MonoBehaviour
+public class Hatman : NPC
 {
     public static Hatman Instance { get; private set; }
     [SerializeField] private GameObject visualParent;
@@ -30,7 +30,7 @@ public class Hatman : MonoBehaviour
     //settargetroom <- use separate class to generate whichroom
     //travel
 
-    public void Activate()
+    public override void Activate()
     {
         if (!visualParent.activeSelf)
         {
@@ -38,7 +38,7 @@ public class Hatman : MonoBehaviour
             Activated = true;
         }
     }
-    public void SetDest(Vector3 l)
+    public override void SetDest(Vector3 l)
     {
       //  Debug.Log("djksal");
         List<Vector3> vectorPath = PathfindingSystem.Instance.GetShortestPathAsVectors(transform.position, l);
@@ -46,15 +46,31 @@ public class Hatman : MonoBehaviour
         npcMotor.SetPath(vectorPath);
     }
 
-    public void StartPath()
+    public override void StartPath()
     {
         npcMotor.ToggleMovement(true);
         bool b = npcMotor.TryGetPathStep();
     }
 
+    public override void TogglePausePath(bool b)
+    {
+        if (b)
+        {
+            npcMotor.PausePath();
+        } else
+        {
+            npcMotor.UnpausePath();
+        }
+    }
+
+    public override void MovePos(Vector3 p)
+    {
+        transform.position = p;
+    }
+
     //maybe in eed to clear target before the next one.. not sure
 
-    public void Deactivate()
+    public override void Deactivate()
     {
         if (visualParent.activeSelf)
         {

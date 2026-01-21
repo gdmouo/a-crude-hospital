@@ -82,6 +82,10 @@ public class SeekStep : LoopStepOperator
         {
             gotPlayerRoom = true;
             playerRoom = HallwayManager.Instance.GetPlayerRoomIndex();
+            if (playerRoom == -1)
+            {
+
+            }
           //  Debug.Log("Player is in room: " + playerRoom);
         }
         if (!initialHMActivate)

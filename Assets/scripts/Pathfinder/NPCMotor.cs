@@ -23,6 +23,8 @@ public class NPCMotor : MonoBehaviour
 
     private bool enableMovement = false;
 
+    private bool pathPaused = false;
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -60,6 +62,10 @@ public class NPCMotor : MonoBehaviour
 
     private void Move()
     {
+        if (pathPaused)
+        {
+            return;
+        }
         Vector3 desiredPlanar = Vector3.zero;
 
         if (targetPos.HasValue)
@@ -123,7 +129,6 @@ public class NPCMotor : MonoBehaviour
         }
     }
 
-    /*
     public bool TryGetPathStep()
     {
         if (pathTargets != null && pathTargets.Count > 0)
@@ -132,14 +137,14 @@ public class NPCMotor : MonoBehaviour
             return true;
         }
         return false;
-    }*/
-    public bool TryGetPathStep()
+    }
+
+    public void PausePath()
     {
-        if (pathTargets != null && pathTargets.Count > 0)
-        {
-            SetTarget(pathTargets.Dequeue());
-            return true;
-        }
-        return false;
+        pathPaused = true;
+    }
+    public void UnpausePath()
+    {
+        pathPaused = false;
     }
 }
