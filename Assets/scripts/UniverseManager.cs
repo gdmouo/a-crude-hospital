@@ -25,6 +25,11 @@ public class UniverseManager : MonoBehaviour
 
         currentRoom = GetCurrentScene();
     }
+
+    private void Start()
+    {
+        
+    }
     public void GoToBeatRoom()
     {
         if (GetCurrentScene() != BEAT_ROOM)

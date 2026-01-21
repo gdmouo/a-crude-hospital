@@ -186,13 +186,16 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<PillLeProcessor>().ProcessPills(pills);
     }
 
+    /// <summary>
+    /// Vwhat dafuq is dis sdoing here brah...
+    /// </summary>
+    /// <param name="other"></param>
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Test"))
+        if (other.gameObject.TryGetComponent<Triggerable>(out Triggerable b))
         {
-            if (other.gameObject.TryGetComponent<Triggerable>(out Triggerable b)) {
-                b.Interact(this);
-            }
+            b.Interact(this);
         }
 
         //if inventory contains the music box, trigger

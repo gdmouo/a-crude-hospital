@@ -9,9 +9,6 @@ public class NPCDoorAutoUnlock : MonoBehaviour
     [SerializeField] private Transform behindPoint;
     [SerializeField] private Transform frontPoint;
 
-    private bool doorOpenSequenceStarted = false;
-    private NPC npcWhomEntered = null;
-
     private void Update()
     {
         /*

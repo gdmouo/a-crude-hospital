@@ -6,5 +6,5 @@ public interface ILoopStepOperator
 {
     public LoopStepLabel GetNextStep();
 
-    public void Meantime();
+    public bool Meantime();
 }

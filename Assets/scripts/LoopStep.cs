@@ -24,12 +24,11 @@ public class LoopStep : ILoopStep
     {
         if (!Timer())
         {
-            Meantime();
+            return Meantime();
         } else
         {
             return true;
         }
-        return false;
     }
 
     private bool Timer()
@@ -53,12 +52,13 @@ public class LoopStep : ILoopStep
         return LoopStepLabel.ERROR_OCCURED;
     }
 
-    private void Meantime()
+    private bool Meantime()
     {
         if (loopStepOperator != null)
         {
-            loopStepOperator.Meantime();
+            return loopStepOperator.Meantime();
         }
+        return true;
     }
 
     private LoopStepOperator LSOFactory(LoopStepLabel l)

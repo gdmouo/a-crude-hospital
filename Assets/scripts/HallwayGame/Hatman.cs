@@ -5,7 +5,6 @@ using UnityEngine;
 public class Hatman : NPC
 {
     public static Hatman Instance { get; private set; }
-    [SerializeField] private GameObject visualParent;
     [SerializeField] private NPCMotor npcMotor;
     public bool Activated { get; private set; }
 
@@ -17,7 +16,10 @@ public class Hatman : NPC
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (gameObject.activeSelf)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -32,11 +34,17 @@ public class Hatman : NPC
 
     public override void Activate()
     {
+        if (!gameObject.activeSelf)
+        {
+            gameObject.SetActive(true);
+            Activated = true;
+        }
+        /*
         if (!visualParent.activeSelf)
         {
             visualParent.SetActive(true);
             Activated = true;
-        }
+        }*/
     }
     public override void SetDest(Vector3 l)
     {
@@ -72,9 +80,9 @@ public class Hatman : NPC
 
     public override void Deactivate()
     {
-        if (visualParent.activeSelf)
+        if (gameObject.activeSelf)
         {
-            visualParent.SetActive(false);
+            gameObject.SetActive(false);
             Activated = false;
         }
     }

@@ -11,13 +11,19 @@ public abstract class LoopStepOperator : ILoopStepOperator
     }
     public abstract LoopStepLabel GetNextStep();
 
-    public virtual void Meantime()
+    //if false, no error
+    //if true, error/interrupt occured, handle
+    public virtual bool Meantime()
     {
         if (HallwayGameCanvasManager.Instance != null)
         {
             HallwayGameCanvasManager.Instance.Activate();
             HallwayGameCanvasManager.Instance.SetStepText(loopStep.StepLabel.ToString());
             HallwayGameCanvasManager.Instance.SetTimerText(loopStep.CurrTime.ToString());
+            return false;
+        } else
+        {
+            return true;
         }
     }
 }
@@ -33,9 +39,9 @@ public class HideStep : LoopStepOperator
         return LoopStepLabel.Seek;
     }
 
-    public override void Meantime()
+    public override bool Meantime()
     {
-        base.Meantime();
+        return base.Meantime();
     }
 }
 
@@ -53,15 +59,22 @@ public class SeekStep : LoopStepOperator
 
     public override LoopStepLabel GetNextStep()
     {
-        if (PlayerHasBattleBox())
+        if (playerRoom == -1)
         {
-            return LoopStepLabel.PlayerPickedUpBB;
+            if (PlayerHasBattleBox())
+            {
+                return LoopStepLabel.PlayerPickedUpBB;
+            } else
+            {
+                return LoopStepLabel.PlayerDeath;
+            }
         } else
         {
             if (PlayerWithHatman())
             {
                 return LoopStepLabel.PlayerDeath;
-            } else
+            }
+            else
             {
                 if (StepIsEndIndex())
                 {
@@ -75,7 +88,7 @@ public class SeekStep : LoopStepOperator
         }
     }
 
-    public override void Meantime()
+    public override bool Meantime()
     {
         base.Meantime();
         if (!gotPlayerRoom)
@@ -84,7 +97,7 @@ public class SeekStep : LoopStepOperator
             playerRoom = HallwayManager.Instance.GetPlayerRoomIndex();
             if (playerRoom == -1)
             {
-
+                return true;
             }
           //  Debug.Log("Player is in room: " + playerRoom);
         }
@@ -105,6 +118,8 @@ public class SeekStep : LoopStepOperator
             setBack = true;
             Hatman.Instance.SetBackToHallwayStartPos();
         }
+
+        return false;
     }
 
     private bool PlayerWithHatman()
@@ -170,9 +185,9 @@ public class ConcludeRoundStep : LoopStepOperator
         }
     }
 
-    public override void Meantime()
+    public override bool Meantime()
     {
-        base.Meantime();
+        return base.Meantime();
     }
 }
 
@@ -188,7 +203,7 @@ public class BBStep : LoopStepOperator
         throw new System.Exception();
     }
 
-    public override void Meantime()
+    public override bool Meantime()
     {
         base.Meantime();
         if (!battleTriggered)
@@ -196,6 +211,7 @@ public class BBStep : LoopStepOperator
             battleTriggered = true;
             BattleBox.Instance.TriggerBattle();
         }
+        return false;
     }
 }
 
@@ -209,10 +225,11 @@ public class DeathStep : LoopStepOperator
         throw new System.Exception();
     }
 
-    public override void Meantime()
+    public override bool Meantime()
     {
         base.Meantime();
         UniverseManager.Instance.GoToDeath();
+        return false;
     }
 }
 
