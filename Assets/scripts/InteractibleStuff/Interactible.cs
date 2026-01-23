@@ -10,6 +10,10 @@ public class Interactible : MonoBehaviour, IInteractible
     {
     }
 
+    public virtual void Interact(Character character)
+    {
+    }
+
     public string GetName()
     {
         return interactibleSO.interactibleName;

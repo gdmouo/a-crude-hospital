@@ -8,6 +8,11 @@ public class Triggerable : MonoBehaviour, IInteractible
 
     public virtual void Interact(Player player)
     {
+
+    }
+
+    public virtual void Interact(Character character)
+    {
     }
 
     public string GetName()

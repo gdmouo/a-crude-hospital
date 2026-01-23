@@ -15,4 +15,16 @@ public class HatmanTriggerDetector : MonoBehaviour
     {
         
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        /*
+        if (other.gameObject.TryGetComponent<Triggerable>(out Triggerable b))
+        {
+            b.Interact(this);
+        }*/
+
+        //if inventory contains the music box, trigger
+
+    }
 }

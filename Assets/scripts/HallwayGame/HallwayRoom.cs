@@ -19,6 +19,7 @@ public class HallwayRoom : MonoBehaviour
     {
         areaBounds = boxCollider.bounds;
         target = Player.Instance.gameObject;
+
     }
 
     // Update is called once per frame

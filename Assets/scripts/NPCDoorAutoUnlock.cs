@@ -1,95 +1,76 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 
-public class NPCDoorAutoUnlock : MonoBehaviour
+public class NPCDoorAutoUnlock : Triggerable
 {
     [SerializeField] private Door door;
+    [SerializeField] private GameObject doorCollisionObject;
     [SerializeField] private Transform behindPoint;
     [SerializeField] private Transform frontPoint;
+    [SerializeField] private BoxCollider thisBoxCollider;
+
+
+    private GameObject targetEntering = null;
+    private Bounds areaBounds;
+   
+
+    void Start()
+    {
+        if (thisBoxCollider != null)
+        {
+            areaBounds = thisBoxCollider.bounds;
+        }
+    }
 
     private void Update()
     {
-        /*
-        if (doorOpenSequenceStarted)
+        if (targetEntering != null)
         {
-            if (door.CheckIfFullyOpened())
+            if (CheckIfTargetIsInsideThisZone())
             {
-                if (npcWhomEntered != null)
-                {
-                    npcWhomEntered.TogglePausePath(false);
-                }
-                doorOpenSequenceStarted=false;
-            }
-        }*/
-    }
-
-
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("DJASKOLHNDLZKLCJZXM>CKN");
-        if (other.gameObject.CompareTag("NPC"))
-        {
-            if (!door.IsOpen)
-            {
-                door.ToggleDoor();
-            }
+                targetEntering = null;
+                ToggleDoorCollider(false);
+            } 
         }
-        /*
-        Debug.Log("hyahs");
-        if (other.gameObject.CompareTag("NPC"))
-        {
-            if (other.TryGetComponent<NPC>(out NPC npc))
-            {
-                npcWhomEntered = npc;
-                MoveNPCToPoint(npc);
-                ToggleDoor(true);
-            } else
-            {
-                Debug.Log("fart");
-            }
-        }*/
     }
 
-    void OnTriggerExit(Collider other)
+    public override void Interact(Character character)
     {
-        if (other.gameObject.CompareTag("NPC"))
+        if (character.GetCharacterType() == CharacterType.NPC)
         {
+            targetEntering = character.gameObject;
+            ToggleDoorCollider(true);
+            //
+        }
+    }
 
-            if (door.IsOpen)
+    public void ToggleDoorCollider(bool op)
+    {
+        if (doorCollisionObject != null)
+        {
+            if (doorCollisionObject.TryGetComponent<BoxCollider>(out BoxCollider b))
             {
-                door.ToggleDoor();
+                b.enabled = op;
             }
         }
     }
 
-    /*
-    private void ToggleDoor(bool didNPCEnter)
+    private bool CheckIfTargetIsInsideThisZone()
     {
-        if (didNPCEnter)
+        if (targetEntering == null)
         {
-            if (!door.IsOpen)
-            {
-                door.ToggleDoor();
-            }
-        } else
-        {
-            if (door.IsOpen)
-            {
-                door.ToggleDoor();
-            }
+            return false;
         }
+        if (areaBounds.Contains(targetEntering.transform.position))
+        {
+            return true;
+            // target is inside
+        }
+        return false;
     }
-
-    private void MoveNPCToPoint(NPC npc)
-    {
-        float distToFront = Vector3.Distance(npc.transform.position, frontPoint.position);
-        float distToBack = Vector3.Distance(npc.transform.position, behindPoint.position);
-        Vector3 toPlace = distToFront < distToBack ? frontPoint.position : behindPoint.position;
-        npc.TogglePausePath(true);
-        npc.SetDest(toPlace);
-    }*/
 }
 
 

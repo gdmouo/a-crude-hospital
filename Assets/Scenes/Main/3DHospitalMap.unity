@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 39929417}
   - component: {fileID: 39929416}
   - component: {fileID: 39929415}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hatman
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -1316,7 +1316,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6004d84453d8e8746a92e4a0b86b85c3, type: 2}
+  - {fileID: 2100000, guid: ea689e7c59ea45f48b6c8efba90ac11c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1476,74 +1476,6 @@ Transform:
   - {fileID: 1707111735}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &204477785
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1038288483690201428, guid: bfc133f264d7bac4fa39675fdbfbbd0f,
-        type: 3}
-      propertyPath: m_Name
-      value: Dor (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221646911016227209, guid: bfc133f264d7bac4fa39675fdbfbbd0f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -23.567516
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221646911016227209, guid: bfc133f264d7bac4fa39675fdbfbbd0f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.167
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221646911016227209, guid: bfc133f264d7bac4fa39675fdbfbbd0f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.2142873
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221646911016227209, guid: bfc133f264d7bac4fa39675fdbfbbd0f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221646911016227209, guid: bfc133f264d7bac4fa39675fdbfbbd0f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221646911016227209, guid: bfc133f264d7bac4fa39675fdbfbbd0f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221646911016227209, guid: bfc133f264d7bac4fa39675fdbfbbd0f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221646911016227209, guid: bfc133f264d7bac4fa39675fdbfbbd0f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221646911016227209, guid: bfc133f264d7bac4fa39675fdbfbbd0f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221646911016227209, guid: bfc133f264d7bac4fa39675fdbfbbd0f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bfc133f264d7bac4fa39675fdbfbbd0f, type: 3}
 --- !u!1 &235619895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2713,8 +2645,8 @@ GameObject:
   - component: {fileID: 631475481}
   - component: {fileID: 631475480}
   - component: {fileID: 631475483}
-  m_Layer: 0
-  m_Name: Cube
+  m_Layer: 13
+  m_Name: BattleBoxTrigger
   m_TagString: Test
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3356,7 +3288,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6004d84453d8e8746a92e4a0b86b85c3, type: 2}
+  - {fileID: 2100000, guid: ea689e7c59ea45f48b6c8efba90ac11c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3545,7 +3477,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6004d84453d8e8746a92e4a0b86b85c3, type: 2}
+  - {fileID: 2100000, guid: ea689e7c59ea45f48b6c8efba90ac11c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4643,11 +4575,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 569492762}
     m_Modifications:
-    - target: {fileID: 1021236933474651165, guid: f236d0da62c84854bbbba1a8f1eb2c8a,
-        type: 3}
-      propertyPath: roomNumber
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7769255443434069216, guid: f236d0da62c84854bbbba1a8f1eb2c8a,
         type: 3}
       propertyPath: m_Name
@@ -5885,7 +5812,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6004d84453d8e8746a92e4a0b86b85c3, type: 2}
+  - {fileID: 2100000, guid: ea689e7c59ea45f48b6c8efba90ac11c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6708,7 +6635,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6004d84453d8e8746a92e4a0b86b85c3, type: 2}
+  - {fileID: 2100000, guid: ea689e7c59ea45f48b6c8efba90ac11c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7284,7 +7211,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -7723,7 +7650,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6004d84453d8e8746a92e4a0b86b85c3, type: 2}
+  - {fileID: 2100000, guid: ea689e7c59ea45f48b6c8efba90ac11c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8785,7 +8712,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6004d84453d8e8746a92e4a0b86b85c3, type: 2}
+  - {fileID: 2100000, guid: ea689e7c59ea45f48b6c8efba90ac11c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10012,6 +9939,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 569492762}
     m_Modifications:
+    - target: {fileID: 1021236933474651165, guid: f236d0da62c84854bbbba1a8f1eb2c8a,
+        type: 3}
+      propertyPath: roomNumber
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4192450542383265893, guid: f236d0da62c84854bbbba1a8f1eb2c8a,
         type: 3}
       propertyPath: frontPoint
@@ -10257,4 +10189,3 @@ SceneRoots:
   - {fileID: 1400802924}
   - {fileID: 73540956}
   - {fileID: 83620762}
-  - {fileID: 204477785}
