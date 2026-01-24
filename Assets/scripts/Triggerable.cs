@@ -6,11 +6,6 @@ public class Triggerable : MonoBehaviour, IInteractible
 {
     [SerializeField] protected InteractibleSO interactibleSO;
 
-    public virtual void Interact(Player player)
-    {
-
-    }
-
     public virtual void Interact(Character character)
     {
     }

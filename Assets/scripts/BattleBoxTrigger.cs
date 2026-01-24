@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BattleBoxTrigger : Triggerable
 {
+    public override void Interact(Character character)
+    {
+
+    }
+    /*
     public override void Interact(Player player)
     {
         Debug.Log("hoi");
@@ -14,5 +19,5 @@ public class BattleBoxTrigger : Triggerable
         {
             UniverseManager.Instance.GoToDeath();
         }
-    }
+    }*/
 }

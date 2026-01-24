@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Player : MonoBehaviour
+public class Player : Character
 {
     public event EventHandler<OnSelectedInteractibleChangedEventArgs> OnSelectedInteractibleChanged;
     public class OnSelectedInteractibleChangedEventArgs : EventArgs
@@ -15,10 +15,6 @@ public class Player : MonoBehaviour
     }
     public static Player Instance { get; private set; }
 
-    [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private float playerRadius = .7f;
-    [SerializeField] private float playerHeight = 2f;
     [SerializeField] private Inventory inventory;
     [SerializeField] private Transform interactibleHoldPoint;
 
@@ -50,7 +46,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         playerCamera = PlayerCamera.Instance.CameraObject;
-        //update v
         CurrentRoom = Room.HOSPITAL_RECEPTION;
     }
 
@@ -77,7 +72,7 @@ public class Player : MonoBehaviour
     {
         playerMovement ??= gameObject.GetComponent<IPlayerMovement>();
 
-        playerMovement.Move(inputVector, cameraForward, cameraRight, moveSpeed, playerRadius, playerHeight);
+       // playerMovement.Move(inputVector, cameraForward, cameraRight,);
     }
     public void Rotate(Vector3 input)
     {
@@ -107,8 +102,7 @@ public class Player : MonoBehaviour
     {
         Vector3 screenCenter = new(0.5f, 0.5f, 0f);
         Ray ray = playerCamera.ViewportPointToRay(screenCenter);
-
-        // Perform the raycast
+    
         if (Physics.Raycast(ray, out RaycastHit hit, raycastRange, interactLayer))
         {
             if (hit.transform.gameObject.TryGetComponent<Interactible>(out Interactible i))
@@ -121,7 +115,6 @@ public class Player : MonoBehaviour
                         selectedInteractible = selectedInteractible
                     });
                 }
-                //selectedInteractible.Interact(this);
             } else
             {
                 selectedInteractible = null;
@@ -130,7 +123,6 @@ public class Player : MonoBehaviour
                     selectedInteractible = null
                 });
             }
-            //Debug.Log("Raycast hit: " + hit.collider.name + " at position: " + hit.point);
         }
         else
         {
@@ -139,7 +131,6 @@ public class Player : MonoBehaviour
             {
                 selectedInteractible = null
             });
-            // If the ray did not hit anything within the specified range
         }
     }
 
@@ -186,19 +177,16 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<PillLeProcessor>().ProcessPills(pills);
     }
 
-    /// <summary>
-    /// Vwhat dafuq is dis sdoing here brah...
-    /// </summary>
-    /// <param name="other"></param>
+    public override CharacterType GetCharacterType()
+    {
+        return CharacterType.Player;
+    }
 
-    void OnTriggerEnter(Collider other)
+    public override void CharacterTriggerFunction(Collider other)
     {
         if (other.gameObject.TryGetComponent<Triggerable>(out Triggerable b))
         {
             b.Interact(this);
         }
-
-        //if inventory contains the music box, trigger
-
     }
 }

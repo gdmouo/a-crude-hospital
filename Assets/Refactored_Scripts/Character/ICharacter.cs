@@ -5,6 +5,7 @@ using UnityEngine;
 public interface ICharacter
 {
     public CharacterType GetCharacterType();
+    public void CharacterTriggerFunction(Collider collider);
 }
 
 [System.Serializable]

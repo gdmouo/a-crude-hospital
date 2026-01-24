@@ -22,16 +22,6 @@ public class Hatman : NPC
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    //activate
-    //settargetroom <- use separate class to generate whichroom
-    //travel
-
     public override CharacterType GetCharacterType()
     {
         return CharacterType.NPC;
@@ -43,18 +33,10 @@ public class Hatman : NPC
             gameObject.SetActive(true);
             Activated = true;
         }
-        /*
-        if (!visualParent.activeSelf)
-        {
-            visualParent.SetActive(true);
-            Activated = true;
-        }*/
     }
     public void SetDest(Vector3 l)
     {
-      //  Debug.Log("djksal");
         List<Vector3> vectorPath = PathfindingSystem.Instance.GetShortestPathAsVectors(transform.position, l);
-       // Debug.Log("wo");
         npcMotor.SetPath(vectorPath);
     }
 
@@ -63,25 +45,6 @@ public class Hatman : NPC
         npcMotor.ToggleMovement(true);
         bool b = npcMotor.TryGetPathStep();
     }
-
-    public void TogglePausePath(bool b)
-    {
-        if (b)
-        {
-            npcMotor.PausePath();
-        } else
-        {
-            npcMotor.UnpausePath();
-        }
-    }
-
-    public void MovePos(Vector3 p)
-    {
-        transform.position = p;
-    }
-
-    //maybe in eed to clear target before the next one.. not sure
-
     public void Deactivate()
     {
         if (gameObject.activeSelf)
@@ -99,20 +62,12 @@ public class Hatman : NPC
         Deactivate();
     }
 
-    void OnTriggerEnter(Collider other)
+    public override void CharacterTriggerFunction(Collider other)
     {
         if (other.gameObject.TryGetComponent<Triggerable>(out Triggerable b))
         {
             b.Interact(this);
         }
-        /*
-        if (other.gameObject.TryGetComponent<Triggerable>(out Triggerable b))
-        {
-            b.Interact(this);
-        }*/
-
-        //if inventory contains the music box, trigger
-
     }
 
 }
