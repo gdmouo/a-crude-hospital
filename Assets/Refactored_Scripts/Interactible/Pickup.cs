@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class Item : Interactible
+public class Pickup : Interactible
 {
     protected IntInvGUI intInvGUI;
     public Sprite GetIcon()

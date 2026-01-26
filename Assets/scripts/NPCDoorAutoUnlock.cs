@@ -4,7 +4,7 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 
-public class NPCDoorAutoUnlock : Triggerable
+public class NPCDoorAutoUnlock : PassThrough
 {
     [SerializeField] private Door door;
     [SerializeField] private GameObject doorCollisionObject;

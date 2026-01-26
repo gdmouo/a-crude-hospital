@@ -152,12 +152,12 @@ public class GameInput : MonoBehaviour
     private void HandleWASD() {
         player.Move(GetMovementVectorNormalized(), firstPersonCamera.transform.forward, firstPersonCamera.transform.right);
     }
-
     private void HandleBob()
     {
         firstPersonCamera.Move(GetRotationVector());
         player.Rotate(firstPersonCamera.transform.eulerAngles);
     }
+
     private Vector2 GetMovementVectorNormalized()
     {
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();

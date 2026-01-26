@@ -64,7 +64,7 @@ public class Hatman : NPC
 
     public override void CharacterTriggerFunction(Collider other)
     {
-        if (other.gameObject.TryGetComponent<Triggerable>(out Triggerable b))
+        if (other.gameObject.TryGetComponent<PassThrough>(out PassThrough b))
         {
             b.Interact(this);
         }

@@ -24,7 +24,7 @@ public class ItemDescGUI : MonoBehaviour, IIntInvDescGUI
         invSlot = iS;
         InteractibleSO i = inter.GetInteractibleSO();
         itemName.text = NAME_LABEL + i.interactibleName;
-        itemDescription.text = DESC_LABEL + ((inter as Item).GetItemDescription());
+        itemDescription.text = DESC_LABEL + ((inter as Pickup).GetItemDescription());
         TextSet = true;
 
         Vector2 os = new(192f,154f);

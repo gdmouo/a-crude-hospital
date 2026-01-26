@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PillBottle : Item
+public class PillBottle : Pickup
 {
     [SerializeField] private int quantity;
     [SerializeField] private GameObject pillPrefab;

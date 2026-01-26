@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleBoxTrigger : Triggerable
+public class BattleBoxTrigger : PassThrough
 {
     public override void Interact(Character character)
     {

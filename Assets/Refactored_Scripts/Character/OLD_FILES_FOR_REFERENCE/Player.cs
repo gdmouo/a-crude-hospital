@@ -22,7 +22,7 @@ public class Player : Character
     [SerializeField] private float raycastRange;
     [SerializeField] private LayerMask interactLayer;
 
-    private Item itemHolding;
+    private Pickup itemHolding;
     private Interactible selectedInteractible;
 
     private IPlayerMovement playerMovement;
@@ -148,7 +148,7 @@ public class Player : Character
 
     public void PickupItem(Interactible i)
     {
-        itemHolding = (Item) i;
+        itemHolding = (Pickup) i;
         i.SetParentToFollow(interactibleHoldPoint);
     }
 
@@ -184,7 +184,7 @@ public class Player : Character
 
     public override void CharacterTriggerFunction(Collider other)
     {
-        if (other.gameObject.TryGetComponent<Triggerable>(out Triggerable b))
+        if (other.gameObject.TryGetComponent<PassThrough>(out PassThrough b))
         {
             b.Interact(this);
         }

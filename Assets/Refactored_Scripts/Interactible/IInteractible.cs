@@ -7,5 +7,4 @@ public interface IInteractible
 
     public string GetName();
     public void Interact(Character character);
-  //  public void InteractHolding(Player player);
 }

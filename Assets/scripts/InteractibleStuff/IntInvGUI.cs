@@ -12,7 +12,7 @@ public class IntInvGUI : MonoBehaviour, IInvSlotGUI
     protected ItemSO itemSO;
     protected RectTransform rectTransform;
     protected Canvas canvas;
-    protected Item item;
+    protected Pickup item;
 
     protected bool startTimer = false;
     protected const float TIMER_MAX = 0.5f;
@@ -180,7 +180,7 @@ public class IntInvGUI : MonoBehaviour, IInvSlotGUI
 
     public void SetParameters(Interactible interactible, InvSlot iS, ItemDescGUI iD)
     {
-        item = interactible as Item;
+        item = interactible as Pickup;
         item.SetGUIIntParam(this);
         itemSO = item.GetInteractibleSO() as ItemSO;
         inventorySlot = iS;

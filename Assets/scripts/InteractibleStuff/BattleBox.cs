@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleBox : Item
+public class BattleBox : Pickup
 {
     public static BattleBox Instance;
 

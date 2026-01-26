@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HallwayGameTrigger : Triggerable
+public class HallwayGameTrigger : PassThrough
 {
     public override void Interact(Character character)
     {

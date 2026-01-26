@@ -92,7 +92,7 @@ public class InvSlot : MonoBehaviour
 
     public void Store(Interactible i)
     {
-        Sprite spr = (i as Item).GetIcon();
+        Sprite spr = (i as Pickup).GetIcon();
         if (spr != null)
         {
             //t
