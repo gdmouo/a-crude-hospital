@@ -8,6 +8,7 @@ public class GameStateSO : ScriptableObject
     public GameStateType gameStateType;
     public GameObject canvasObject;
     public InputMapType inputMapType;
+    public bool playerControlsEnabled;
 }
 
 
