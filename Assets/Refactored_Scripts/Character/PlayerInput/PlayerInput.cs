@@ -4,25 +4,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
-public class PlayerInput : Driver
+public class PlayerInput : InputMap
 {
-    [SerializeField] private UnityEvent invokeOnEscape;
-
-    private PlayerInputActions playerInputActions;
     private Vector2 mouseInput;
-    private bool cursorLocked = false;
 
-
-    private void Awake()
-    {
-        playerInputActions = new PlayerInputActions();
-        playerInputActions.Player.Enable();
-        playerInputActions.Player.Look.performed += ctx => mouseInput = ctx.ReadValue<Vector2>();
-        playerInputActions.Player.Look.canceled += ctx => mouseInput = Vector2.zero;
-        playerInputActions.Player.Pause.performed += Escape_performed;
-
-    }
+    //REQUIRES: MapEnabled = true;
     public Vector2 GetMovementVectorNormalized()
     {
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
@@ -31,16 +19,6 @@ public class PlayerInput : Driver
         return inputVector;
     }
 
-    public void LockCursor()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-    public void UnlockCursor()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
     public Vector2 GetRotationVector()
     {
         float mouseX = mouseInput.x;
@@ -49,22 +27,36 @@ public class PlayerInput : Driver
         return inputVector;
     }
 
-    private void Escape_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    public override InputMapType GetInputMapType()
     {
-        invokeOnEscape?.Invoke();
+        return InputMapType.Player;
     }
 
-    //JFIOEJFLKAJSKLZDDBUEDENUG
-    public void TestEscapeAction()
+    protected override void OnEnableMap(PlayerInputActions p)
     {
-        if (cursorLocked)
-        {
-            UnlockCursor();
-            cursorLocked = false;
-        } else
-        {
-            LockCursor();
-            cursorLocked = true;
-        }
+        p.Player.Enable();
+        p.Player.Look.performed += ctx => mouseInput = ctx.ReadValue<Vector2>();
+        p.Player.Look.canceled += ctx => mouseInput = Vector2.zero;
+        MouseManager.Instance.ToggleCursor(CursorLockMode.Locked);
     }
+
+    protected override void OnDisableMap(PlayerInputActions p)
+    {
+        p.Player.Look.performed -= OnLookPerformed;
+        p.Player.Look.canceled -= OnLookCanceled;
+        p.Player.Disable();
+        MouseManager.Instance.ToggleCursor(CursorLockMode.None);
+    }
+
+    private void OnLookPerformed(InputAction.CallbackContext ctx)
+    {
+        mouseInput = ctx.ReadValue<Vector2>();
+    }
+
+    private void OnLookCanceled(InputAction.CallbackContext ctx)
+    {
+        mouseInput = Vector2.zero;
+    }
+
+
 }

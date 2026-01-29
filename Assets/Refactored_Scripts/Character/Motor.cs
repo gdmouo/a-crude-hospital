@@ -6,7 +6,7 @@ public abstract class Motor : MonoBehaviour, IMotor
 {
     [Header("Movement Settings")]
     [SerializeField] protected CharacterController characterController;
-    [SerializeField] protected Driver driver;
+    [SerializeField] protected GameObject driver;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float gravity;
     protected Vector2 velocity;
@@ -32,21 +32,18 @@ public abstract class Motor : MonoBehaviour, IMotor
             }
             else
             {
-                Debug.LogError(gameObject.name + "has UNASSIGNED VARIABLE NEEDED FOR COMPILATION");
+                Debug.LogError("Critical variable unassigned in " + gameObject.name);
                 return;
             }
         }
+       
         if (driver == null)
         {
-            if (gameObject.TryGetComponent<Driver>(out Driver d))
-            {
-                driver = d;
-            }
-            else
-            {
-                Debug.LogError(gameObject.name + "has UNASSIGNED VARIABLE NEEDED FOR COMPILATION");
-                return;
-            }
+            Debug.LogError("Critical variable unassigned in " + gameObject.name);
+            return;
+        } else
+        {
+            //TBD
         }
     }
     protected virtual void OnUpdate()

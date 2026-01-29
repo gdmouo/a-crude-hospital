@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanvasManager : MonoBehaviour
+public class InventoryInput : MonoBehaviour
 {
-    //private CanvasState currentState = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +15,4 @@ public class CanvasManager : MonoBehaviour
     {
         
     }
-}
-
-public enum CanvasStateLabel { 
-    Menu,
-    Inventory,
-    Dialogue,
-    HUD //identifier, crosshair, hotbar, objectives
 }

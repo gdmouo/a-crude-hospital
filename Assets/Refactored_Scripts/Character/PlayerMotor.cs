@@ -20,18 +20,40 @@ public class PlayerMotor : Motor
     {
         if (playerInput == null)
         {
-            playerInput = driver as PlayerInput;
+            playerInput = GetPlayerDriver(driver);
         }
-        Vector2 inputVector = playerInput.GetMovementVectorNormalized();
-        Vector3 moveDirection = transform.right * inputVector.x + transform.forward * inputVector.y;
-        characterController.Move(moveSpeed * Time.deltaTime * moveDirection);
+        if (playerInput.MapEnabled)
+        {
+            Vector2 inputVector = playerInput.GetMovementVectorNormalized();
+            Vector3 moveDirection = transform.right * inputVector.x + transform.forward * inputVector.y;
+            characterController.Move(moveSpeed * Time.deltaTime * moveDirection);
+        }
     }
     private void Rotate()
     {
-        Vector3 inputVector = playerInput.GetRotationVector();
-        transform.Rotate(Vector3.up, inputVector.x * sensitivity * Time.deltaTime, Space.World);
-        inputVector.y = Mathf.Clamp(inputVector.y, -clampAngle, clampAngle);
-        transform.Rotate(Vector3.right, -inputVector.y * sensitivity * Time.deltaTime, Space.Self);
-        transform.eulerAngles = new(transform.eulerAngles.x, transform.eulerAngles.y, 0f);
+        if (playerInput == null)
+        {
+            return;
+        }
+        if (playerInput.MapEnabled)
+        {
+            Vector3 inputVector = playerInput.GetRotationVector();
+            transform.Rotate(Vector3.up, inputVector.x * sensitivity * Time.deltaTime, Space.World);
+            inputVector.y = Mathf.Clamp(inputVector.y, -clampAngle, clampAngle);
+            transform.Rotate(Vector3.right, -inputVector.y * sensitivity * Time.deltaTime, Space.Self);
+            transform.eulerAngles = new(transform.eulerAngles.x, transform.eulerAngles.y, 0f);
+        }
+    }
+
+    private PlayerInput GetPlayerDriver(GameObject g)
+    {
+        if (g.TryGetComponent<PlayerInput>(out PlayerInput p))
+        {
+            return p;
+        } else
+        {
+            Debug.LogError("Critical variable unassigned in " + gameObject.name);
+            return null;
+        }
     }
 }
