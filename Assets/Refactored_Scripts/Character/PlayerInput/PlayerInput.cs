@@ -37,7 +37,10 @@ public class PlayerInput : InputMap
         p.Player.Enable();
         p.Player.Look.performed += ctx => mouseInput = ctx.ReadValue<Vector2>();
         p.Player.Look.canceled += ctx => mouseInput = Vector2.zero;
-        MouseManager.Instance.ToggleCursor(CursorLockMode.Locked);
+        if (inputMapManager != null)
+        {
+            inputMapManager.Mouse.ToggleCursor(CursorLockMode.Locked);
+        }
     }
 
     protected override void OnDisableMap(PlayerInputActions p)
@@ -45,7 +48,10 @@ public class PlayerInput : InputMap
         p.Player.Look.performed -= OnLookPerformed;
         p.Player.Look.canceled -= OnLookCanceled;
         p.Player.Disable();
-        MouseManager.Instance.ToggleCursor(CursorLockMode.None);
+        if (inputMapManager != null)
+        {
+            inputMapManager.Mouse.ToggleCursor(CursorLockMode.None);
+        }
     }
 
     private void OnLookPerformed(InputAction.CallbackContext ctx)

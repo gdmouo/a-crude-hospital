@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
+    //list of states
+    //List<GameState> gameStates;
     private GameState currentGameState;
     //private 
     
@@ -21,7 +23,7 @@ public class GameStateManager : MonoBehaviour
 
     public void ToggleState(GameStateType gameStateType)
     {
-        GameStateType currState = currentGameState.GetStateLabel();
+        GameStateType currState = currentGameState.StateType;
         bool activate = currState == gameStateType;
 
         //state specific measures

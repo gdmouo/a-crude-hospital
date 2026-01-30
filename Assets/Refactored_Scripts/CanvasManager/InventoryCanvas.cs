@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueInput : InputMap
+public class InventoryCanvas : StateCanvas
 {
-    public override InputMapType GetInputMapType()
+    public override void OnActivate()
     {
         throw new System.NotImplementedException();
     }
 
-    protected override void OnDisableMap(PlayerInputActions p)
+    public override void OnDeactivate()
     {
         throw new System.NotImplementedException();
     }
 
-    protected override void OnEnableMap(PlayerInputActions p)
+    protected override void OnUpdate()
     {
         throw new System.NotImplementedException();
     }

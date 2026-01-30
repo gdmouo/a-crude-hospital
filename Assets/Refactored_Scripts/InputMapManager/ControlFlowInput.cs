@@ -27,18 +27,21 @@ public class ControlFlowInput : InputMap
 
     private void ToggleMenu_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        Debug.Log("test");
-        if (InputMapManager.Instance != null)
+        GameStateManager g = GameStateManager.Instance;
+        
+        if (g != null)
         {
-            InputMapManager.Instance.EnableMap(InputMapType.Menu);
+            g.ToggleState(GameStateType.Menu);
         }
     }
 
     private void ToggleInventory_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (InputMapManager.Instance != null)
+        GameStateManager g = GameStateManager.Instance;
+
+        if (g != null)
         {
-            InputMapManager.Instance.EnableMap(InputMapType.Inventory);
+            g.ToggleState(GameStateType.Inventory);
         }
     }
 }

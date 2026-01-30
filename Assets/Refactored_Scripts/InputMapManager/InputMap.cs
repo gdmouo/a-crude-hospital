@@ -8,8 +8,15 @@ public abstract class InputMap : MonoBehaviour, IInputMap
     public bool MapEnabled { get { return mapEnabled; } }
     protected PlayerInputActions playerInputActions;
 
+    protected InputMapManager inputMapManager;
+
     public void EnableMap(PlayerInputActions p)
     {
+        if (inputMapManager == null)
+        {
+            inputMapManager = InputMapManager.Instance;
+        }
+
         if (playerInputActions == null)
         {
             playerInputActions = p;

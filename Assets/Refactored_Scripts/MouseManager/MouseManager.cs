@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class MouseManager : MonoBehaviour
 {
-    public static MouseManager Instance { get; private set; }
     private CursorController cursorController;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
 
     public void ToggleCursor(CursorLockMode mode)
     {

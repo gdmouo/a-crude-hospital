@@ -5,12 +5,13 @@ using UnityEngine.Events;
 
 public class InputMapManager : MonoBehaviour
 {
-    [SerializeField] private Transform inputMapObjects;
-    private List<InputMap> inputMaps;
-
+    [SerializeField] private InputMap controlFlow;
+    [SerializeField] private InputMap playerControls;
+    [SerializeField] private MouseManager mouseManager;
     private PlayerInputActions playerInputActions;
 
     public static InputMapManager Instance { get; private set; }
+    public MouseManager Mouse { get { return mouseManager;  } }
 
     private void Awake()
     {
@@ -21,79 +22,32 @@ public class InputMapManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inputMaps = GetMapChildren(inputMapObjects);
-        InputMap controlFlowMap = GetMapFromList(InputMapType.ControlFlow, inputMaps);
-
-        if (controlFlowMap == null)
-        {
-            Debug.LogError("Critical variable unassigned in " + gameObject.name);
-            return;
-        } else
-        {
-            EnableMap(InputMapType.ControlFlow);
-        }
+        controlFlow.EnableMap(playerInputActions);
+        playerControls.EnableMap(playerInputActions);
     }
 
-
-    //vv current, exhcange for togglemap
-    public void EnableMap(InputMapType i)
+    public void ToggleMaps(List<InputMap> toActivate, List<InputMap> toDeactivate)
     {
-        DisableAllMaps();
-
-        foreach (InputMap map in inputMaps)
+        if (toDeactivate != null)
         {
-            if (map.GetInputMapType() == i && !map.MapEnabled)
+            foreach (InputMap inputMap in toDeactivate)
             {
-                map.EnableMap(playerInputActions);
+                if (inputMap.MapEnabled)
+                {
+                    inputMap.DisableMap(playerInputActions);
+                }
             }
         }
-        Debug.Log("map " + i.ToString() + " enabled.");
-    }
 
-    //if map is exempted from deactivation
-    private bool IsExempted(InputMap map)
-    {
-        if (map.GetInputMapType() == InputMapType.ControlFlow)
+        if (toActivate != null)
         {
-            return true;
-        }
-        return false;
-    }
-
-    private InputMap GetMapFromList(InputMapType i, List<InputMap> iM)
-    {
-        foreach (InputMap map in iM)
-        {
-            if (map.GetInputMapType() == i)
+            foreach (InputMap inputMap in toDeactivate)
             {
-                return map;
+                if (!inputMap.MapEnabled)
+                {
+                    inputMap.EnableMap(playerInputActions);
+                }
             }
         }
-        return null;
-    }
-
-    private void DisableAllMaps()
-    {
-        foreach (InputMap map in inputMaps)
-        {
-            if (!IsExempted(map) && map.MapEnabled)
-            {
-                map.DisableMap(playerInputActions);
-                Debug.Log("map " + map.GetInputMapType().ToString() + " disabled.");
-            }
-        }
-    }
-
-    private List<InputMap> GetMapChildren(Transform parent)
-    {
-        List<InputMap> result =     new List<InputMap>();
-        foreach (Transform child in parent)
-        {
-            if (child.gameObject.TryGetComponent<InputMap>(out InputMap map))
-            {
-                result.Add(map);
-            }
-        }
-        return result;
     }
 }
