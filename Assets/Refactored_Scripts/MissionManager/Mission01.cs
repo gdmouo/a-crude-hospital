@@ -1,21 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
+using static UnityEditor.Progress;
 
 public class Mission01 : Mission
 {
+    [Header("Mission01")]
+    [SerializeField] private Mission01StageLabel startingStage;
+    [SerializeField] List<Mission01Stage> stageList;
     public override void Init()
     {
-        stageStartFunctions = new Dictionary<string, Action>()
+        currentStage = startingStage.ToString();
+        stageStartFunctions = new Dictionary<string, UnityEvent>();
+
+        foreach (Mission01Stage stage in stageList)
         {
-            {Mission01Stage.NotStarted.ToString(), OnNotStarted},
-            {Mission01Stage.LeftBathroom.ToString(), OnLeftBathroom},
-            {Mission01Stage.LeftRoom.ToString(), OnLeftRoom},
-            {Mission01Stage.TalkedToMaeby.ToString(), OnTalkedToMaeby},
-            {Mission01Stage.FoundKeycard.ToString(), OnFoundKeycard},
-            {Mission01Stage.MissionEnded.ToString(), OnMissionEnded},
-        };
+            stageStartFunctions.Add(stage.stageLabel.ToString(), stage.toInvoke);
+        }
     }
 
     protected override void OnPassThroughTriggered(string id)
@@ -23,12 +27,12 @@ public class Mission01 : Mission
         string LeftBathroomTrigger = "LeftBathroomTrigger";
         string LeftRoomTrigger = "LeftRoomTrigger";
 
-        if (currentStage == Mission01Stage.LeftBathroom.ToString() && id == LeftBathroomTrigger)
+        if (currentStage == Mission01StageLabel.LeftBathroom.ToString() && id == LeftBathroomTrigger)
         {
-            Advance(Mission01Stage.LeftRoom.ToString());
-        } else if (currentStage == Mission01Stage.LeftRoom.ToString()  && id == LeftRoomTrigger)
+            Advance(Mission01StageLabel.LeftRoom.ToString());
+        } else if (currentStage == Mission01StageLabel.LeftRoom.ToString()  && id == LeftRoomTrigger)
         {
-            Advance(Mission01Stage.TalkedToMaeby.ToString());
+            Advance(Mission01StageLabel.TalkedToMaeby.ToString());
         }
     }
 
@@ -36,9 +40,9 @@ public class Mission01 : Mission
     {
         string KeycardPickup = "KeycardPickup";
  
-        if (currentStage == Mission01Stage.FoundKeycard.ToString() && id == KeycardPickup)
+        if (currentStage == Mission01StageLabel.FoundKeycard.ToString() && id == KeycardPickup)
         {
-            Advance(Mission01Stage.MissionEnded.ToString());
+            Advance(Mission01StageLabel.MissionEnded.ToString());
         }
     }
 
@@ -46,45 +50,14 @@ public class Mission01 : Mission
     {
         string TalkedToMaebyEvent = "TalkedToMaebyEvent";
 
-        if (currentStage == Mission01Stage.TalkedToMaeby.ToString() && id == TalkedToMaebyEvent)
+        if (currentStage == Mission01StageLabel.TalkedToMaeby.ToString() && id == TalkedToMaebyEvent)
         {
-            Advance(Mission01Stage.FoundKeycard.ToString());
+            Advance(Mission01StageLabel.FoundKeycard.ToString());
         }
     }
-
-    public void OnNotStarted()
-    {
-
-    }
-
-    public void OnLeftBathroom()
-    {
-
-    }
-
-    public void OnLeftRoom()
-    {
-
-    }
-
-    public void OnTalkedToMaeby()
-    {
-    }
-
-
-    public void OnFoundKeycard()
-    {
-
-    }
-
-    public void OnMissionEnded()
-    {
-
-    }
-
 }
 
-public enum Mission01Stage { 
+public enum Mission01StageLabel { 
     NotStarted,
     LeftBathroom,
     LeftRoom,
@@ -112,3 +85,9 @@ public enum Mission01Stage {
     MissionEnded
 }
 
+[System.Serializable]
+public struct Mission01Stage
+{
+    public Mission01StageLabel stageLabel;
+    public UnityEvent toInvoke;
+}

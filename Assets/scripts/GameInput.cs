@@ -27,7 +27,7 @@ public class GameInput : MonoBehaviour
     private IntInvGUI selectedIIGUI;
 
     private bool dialogueActivated = false;
-    private DialogueRunner dialogueRunner = null;
+    private Farttface dialogueRunner = null;
 
 
     //private BeatPadController bpCont;
@@ -122,7 +122,7 @@ public class GameInput : MonoBehaviour
         }
     }
 
-    public void ToggleIsSpeaking(bool b, DialogueRunner r)
+    public void ToggleIsSpeaking(bool b, Farttface r)
     {
         dialogueRunner = r;
         dialogueActivated = b;

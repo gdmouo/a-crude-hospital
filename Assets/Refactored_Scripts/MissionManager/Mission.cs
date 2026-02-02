@@ -2,20 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Mission : MonoBehaviour, IMission
 {
-    [SerializeField] protected string currentStage;
-    protected Dictionary<string, Action> stageStartFunctions;
+    protected string currentStage;
+    protected Dictionary<string, UnityEvent> stageStartFunctions;
 
     public abstract void Init();
     public void Advance(string next)
     {
+        if (stageStartFunctions == null)
+        {
+            return;
+        }
+
         currentStage = next;
 
-        if (stageStartFunctions.TryGetValue(next, out Action action))
+        if (stageStartFunctions.TryGetValue(next, out UnityEvent unityEvent))
         {
-            action?.Invoke();
+            unityEvent?.Invoke();
         }
     }
 

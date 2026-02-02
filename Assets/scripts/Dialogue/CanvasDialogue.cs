@@ -6,7 +6,7 @@ using UnityEngine;
 public class CanvasDialogue : MonoBehaviour
 {
     [SerializeField] private SpeakerScripts speakerScripts;
-    [SerializeField] private DialogueRunner dialogueRunner;
+    [SerializeField] private Farttface dialogueRunner;
 
     public static CanvasDialogue Instance {  get; private set; }
 
