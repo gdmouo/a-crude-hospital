@@ -4,40 +4,34 @@ using UnityEngine;
 
 public class Pickup : Interactible
 {
-    protected IntInvGUI intInvGUI;
-    public Sprite GetIcon()
+    protected bool pickedUp = false;
+    public override void Interact(Character character)
     {
-        return (interactibleSO as ItemSO).sprite;
+        if (pickedUp)
+        {
+            return;
+        }
+        if (character.GetCharacterType() == CharacterType.Player)
+        {
+            PlayerCharacter player = character as PlayerCharacter;
+            PlayerBackpack p = player.GetPlayerBackpack();
+            if (p.TryInsertItem(this))
+            {
+                SetParentToFollow(p.GetHotbarHidePar());
+                gameObject.SetActive(false);
+                pickedUp = true;
+                OnPickup();
+            }
+        }
+    }
+    protected void SetParentToFollow(Transform t)
+    {
+        transform.parent = t;
+        transform.localPosition = Vector3.zero;
     }
 
-    public Sprite GetHeldIcon()
-    {
-        return (interactibleSO as ItemSO).heldSprite;
-    }
-
-
-    public override void Interact(Player player)
-    {
-        player.StoreItem(this);
-    }
-    public virtual void InteractHolding(Player player)
-    {
-        Debug.Log("interact while holding");
-    }
-
-    public string GetItemDescription()
-    {
-        return (interactibleSO as ItemSO).itemDescription;
-    }
-
-    public virtual void GUIInteract()
+    protected virtual void OnPickup()
     {
 
-    }
-
-    //set interactible
-    public virtual void SetGUIIntParam(IntInvGUI i)
-    {
-        intInvGUI = i;
     }
 }

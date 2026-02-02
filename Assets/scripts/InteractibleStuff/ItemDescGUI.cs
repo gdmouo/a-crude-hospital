@@ -22,9 +22,9 @@ public class ItemDescGUI : MonoBehaviour, IIntInvDescGUI
     public virtual void SetParameters(Interactible inter, InvSlot iS)
     {
         invSlot = iS;
-        InteractibleSO i = inter.GetInteractibleSO();
-        itemName.text = NAME_LABEL + i.interactibleName;
-        itemDescription.text = DESC_LABEL + ((inter as Pickup).GetItemDescription());
+     //   InteractibleSO i = inter.GetInteractibleSO();
+      //  itemName.text = NAME_LABEL + i.interactibleName;
+        itemDescription.text = DESC_LABEL + ((inter as Flopahhpickup).GetItemDescription());
         TextSet = true;
 
         Vector2 os = new(192f,154f);

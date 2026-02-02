@@ -4,30 +4,8 @@ using UnityEngine;
 
 public class InventoryCanvas : StateCanvas
 {
-    public override void OnActivate()
+    public override StateCanvasType GetStateCanvasType()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public override void OnDeactivate()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    protected override void OnUpdate()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return StateCanvasType.Inventory;
     }
 }

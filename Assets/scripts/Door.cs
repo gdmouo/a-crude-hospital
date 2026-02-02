@@ -42,13 +42,19 @@ public class Door : Interactible
         }
         transform.localRotation = targetRotation; // Ensure the rotation is exactly at the target
     }
+    /*
     public override void Interact(Player player)
     {
         ToggleDoor();
-    }
+    }*/
 
     public bool CheckIfFullyOpened()
     {
         return transform.localRotation == openRotation;
+    }
+
+    public override void Interact(Character character)
+    {
+        throw new System.NotImplementedException();
     }
 }

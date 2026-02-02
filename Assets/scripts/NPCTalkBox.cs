@@ -5,12 +5,19 @@ using UnityEngine;
 public class NPCTalkBox : Interactible
 {
     [SerializeField] private NPCScript npcScript;
+
+    public override void Interact(Character character)
+    {
+        throw new System.NotImplementedException();
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
        // LoadScript();
     }
 
+    /*
     public override void Interact(Player player)
     {
         if (npcScript == null)
@@ -19,7 +26,7 @@ public class NPCTalkBox : Interactible
         }
         List<Dialogue> l = npcScript.GetDialoguePack(player.CurrentRoom);
         DialogueUIControl.Instance.LoadDialogue(l);
-    }
+    }*/
 
     /*
     protected virtual void LoadScript()

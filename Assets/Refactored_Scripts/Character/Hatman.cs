@@ -62,12 +62,14 @@ public class Hatman : NPC
         Deactivate();
     }
 
+    /*
+
     public override void CharacterTriggerFunction(Collider other)
     {
         if (other.gameObject.TryGetComponent<PassThrough>(out PassThrough b))
         {
             b.Interact(this);
         }
-    }
+    }*/
 
 }

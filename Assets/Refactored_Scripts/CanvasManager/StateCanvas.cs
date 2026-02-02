@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class StateCanvas : MonoBehaviour, IStateCanvas
 {
+    [SerializeField] protected GameObject visualsParent;
     protected bool canvasEnabled = false;
     public bool CanvasEnabled { get { return canvasEnabled; } }
     // Update is called once per frame
@@ -14,17 +16,36 @@ public abstract class StateCanvas : MonoBehaviour, IStateCanvas
 
     public void ActivateCanvas()
     {
-        canvasEnabled = true;
         OnActivate();
+        canvasEnabled = true;
     }
     public void DeactivateCanvas()
     {
-        canvasEnabled = false;
         OnDeactivate();
+        canvasEnabled = false;
     }
 
-    public abstract void OnActivate();
-    public abstract void OnDeactivate();
+    protected virtual void OnActivate()
+    {
+        if (visualsParent == null) return;
+        if (!visualsParent.activeSelf)
+        {
+            visualsParent.SetActive(true);
+        }
+    }
+    protected virtual void OnDeactivate()
+    {
+        if (visualsParent == null) return;
+        if (visualsParent.activeSelf)
+        {
+            visualsParent.SetActive(false);
+        }
+    }
 
-    protected abstract void OnUpdate();
+    protected virtual void OnUpdate()
+    {
+
+    }
+
+    public abstract StateCanvasType GetStateCanvasType();
 }

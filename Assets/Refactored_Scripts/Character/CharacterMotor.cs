@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Motor : MonoBehaviour, IMotor
+public abstract class CharacterMotor : MonoBehaviour, ICharacterMotor
 {
     [Header("Movement Settings")]
     [SerializeField] protected CharacterController characterController;
     [SerializeField] protected GameObject driver;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float gravity;
+    protected Character character;
+
     protected Vector2 velocity;
 
     private void Awake()
@@ -18,6 +20,10 @@ public abstract class Motor : MonoBehaviour, IMotor
     private void Update()
     {
         OnUpdate();
+    }
+    public virtual void Init(Character c)
+    {
+        character = c;
     }
 
     public abstract void Move();

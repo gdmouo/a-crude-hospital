@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCMotor : Motor
+public class NPCMotor : CharacterMotor
 {
     [Header("NPCMotor Exclusive Fields")]
     [SerializeField] private float acceleration = 12f;

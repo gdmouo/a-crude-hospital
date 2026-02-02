@@ -92,7 +92,7 @@ public class InvSlot : MonoBehaviour
 
     public void Store(Interactible i)
     {
-        Sprite spr = (i as Pickup).GetIcon();
+        Sprite spr = (i as Flopahhpickup).GetIcon();
         if (spr != null)
         {
             //t

@@ -37,6 +37,7 @@ public class PlayerInput : InputMap
         p.Player.Enable();
         p.Player.Look.performed += ctx => mouseInput = ctx.ReadValue<Vector2>();
         p.Player.Look.canceled += ctx => mouseInput = Vector2.zero;
+        p.Player.Click.performed += OnClick;
         if (inputMapManager != null)
         {
             inputMapManager.Mouse.ToggleCursor(CursorLockMode.Locked);
@@ -45,24 +46,18 @@ public class PlayerInput : InputMap
 
     protected override void OnDisableMap(PlayerInputActions p)
     {
-        p.Player.Look.performed -= OnLookPerformed;
-        p.Player.Look.canceled -= OnLookCanceled;
+        p.Player.Look.performed -= ctx => mouseInput = ctx.ReadValue<Vector2>();
+        p.Player.Look.canceled -= ctx => mouseInput = Vector2.zero;
+        p.Player.Click.performed -= OnClick;
         p.Player.Disable();
-        if (inputMapManager != null)
+    }
+
+   private void OnClick(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+   {
+        PlayerCharacter player = PlayerCharacter.Instance;
+        if (player != null)
         {
-            inputMapManager.Mouse.ToggleCursor(CursorLockMode.None);
+            player.InteractWithItemSelected();
         }
-    }
-
-    private void OnLookPerformed(InputAction.CallbackContext ctx)
-    {
-        mouseInput = ctx.ReadValue<Vector2>();
-    }
-
-    private void OnLookCanceled(InputAction.CallbackContext ctx)
-    {
-        mouseInput = Vector2.zero;
-    }
-
-
+   }
 }

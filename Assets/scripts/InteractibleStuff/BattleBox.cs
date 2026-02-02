@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleBox : Pickup
+public class BattleBox : Flopahhpickup
 {
     public static BattleBox Instance;
 
@@ -10,10 +10,11 @@ public class BattleBox : Pickup
     {
         Instance = this;
     }
+    /*
     public override void Interact(Player player)
     {
         player.StoreItem(this);
-    }
+    }*/
     public override void InteractHolding(Player player)
     {
         // Debug.Log("battle");

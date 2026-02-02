@@ -6,28 +6,18 @@ public class MenuInput : InputMap
 {
     public override InputMapType GetInputMapType()
     {
-        throw new System.NotImplementedException();
+        return InputMapType.Menu;
     }
 
     protected override void OnDisableMap(PlayerInputActions p)
     {
-        throw new System.NotImplementedException();
+        //fix vv adjust for hud, make hud lock it
+        //throw new System.NotImplementedException();
     }
 
     protected override void OnEnableMap(PlayerInputActions p)
     {
-        throw new System.NotImplementedException();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        inputMapManager.Mouse.ToggleCursor(CursorLockMode.None);
+        //throw new System.NotImplementedException();
     }
 }

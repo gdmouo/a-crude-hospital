@@ -2,17 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacter : MonoBehaviour
+public class PlayerCharacter : Character
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private PlayerBackpack playerBackpack;
+    private Pickup itemHolding = null;
+    public static PlayerCharacter Instance { get; private set; }
+    public Pickup ItemHolding { get { return itemHolding; } }
+
+    protected override void OnAwake()
     {
-        
+        base.OnAwake();
+        Instance = this;
+        if (playerBackpack == null)
+        {
+            Debug.LogError("Critical variable unassigned in: " + gameObject.name);  
+        }
+    }
+    public override CharacterType GetCharacterType()
+    {
+        return CharacterType.Player;
     }
 
-    // Update is called once per frame
-    void Update()
+    public Interactible GetSelectedInteractible()
     {
-        
+        if (sensor != null)
+        {
+            return (sensor as PlayerSensor).SelectedInteractible;
+        }
+        return null;
     }
+
+    public void InteractWithItemSelected()
+    {
+        Interactible i = GetSelectedInteractible();
+        if (i != null)
+        {
+            i.Interact(this);
+        }
+    }
+    public PlayerBackpack GetPlayerBackpack()
+    {
+        return playerBackpack;
+    }
+    //pickup funciton
 }

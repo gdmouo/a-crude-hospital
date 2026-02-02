@@ -66,14 +66,13 @@ public class GameInput : MonoBehaviour
         lockMouse.Toggle(false);
     }
 
+
     private void OnClick(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (dialogueActivated && dialogueRunner != null)
+        if (player != null)
         {
-            dialogueRunner.ClickDialogueRunner();
-            return;
+            //interact
         }
-        player.InteractWithSelectedItem();
     }
     private void Escape_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {

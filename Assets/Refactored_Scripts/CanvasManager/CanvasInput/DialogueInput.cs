@@ -6,17 +6,15 @@ public class DialogueInput : InputMap
 {
     public override InputMapType GetInputMapType()
     {
-        throw new System.NotImplementedException();
+        return InputMapType.Dialogue;
     }
 
     protected override void OnDisableMap(PlayerInputActions p)
     {
-        throw new System.NotImplementedException();
     }
 
     protected override void OnEnableMap(PlayerInputActions p)
     {
-        throw new System.NotImplementedException();
     }
 
     // Start is called before the first frame update

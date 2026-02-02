@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMotor : Motor
+public class PlayerMotor : CharacterMotor
 {
     [Header("PlayerMotor Exclusive Fields")]
     [SerializeField] private float sensitivity = 2f;
@@ -20,7 +20,7 @@ public class PlayerMotor : Motor
     {
         if (playerInput == null)
         {
-            playerInput = GetPlayerDriver(driver);
+            playerInput = GetPlayerDriver(driver);;
         }
         if (playerInput.MapEnabled)
         {

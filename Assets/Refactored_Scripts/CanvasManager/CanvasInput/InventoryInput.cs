@@ -6,17 +6,16 @@ public class InventoryInput : InputMap
 {
     public override InputMapType GetInputMapType()
     {
-        throw new System.NotImplementedException();
+        return InputMapType.Inventory;
     }
 
     protected override void OnDisableMap(PlayerInputActions p)
     {
-        throw new System.NotImplementedException();
     }
 
     protected override void OnEnableMap(PlayerInputActions p)
     {
-        throw new System.NotImplementedException();
+        inputMapManager.Mouse.ToggleCursor(CursorLockMode.None);
     }
 
     // Start is called before the first frame update

@@ -1,18 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Tap : MonoBehaviour
+public class Tap : Interactible
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Interact(Character character)
     {
-        
+        OnInteract(OnInteractEventFinished);
+    }
+    public virtual void OnInteractEventFinished()
+    {
+
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void OnInteract(Action a)
     {
-        
+
     }
 }

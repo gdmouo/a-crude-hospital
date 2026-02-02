@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
-    //list of states
-    //List<GameState> gameStates;
+    [SerializeField] private List<GameState> gameStates;
     private GameState currentGameState;
-    //private 
     
     public static GameStateManager Instance { get; private set; }
 
@@ -23,68 +21,27 @@ public class GameStateManager : MonoBehaviour
 
     public void ToggleState(GameStateType gameStateType)
     {
-        GameStateType currState = currentGameState.StateType;
-        bool activate = currState == gameStateType;
+        bool activate = true;
 
-        //state specific measures
-        //check if activate or not
-        //handle canvas
-        //enable map
-        //enable/disable player input
-
-        switch (currState)
+        if (currentGameState != null)
         {
-            case GameStateType.Menu:
-                //
-                //state specific measures
-                /*
-                 * if (activate) 
-                 * keep track of previous state
-                 * disable previous state
-                 * enable
-                 * else 
-                 * disable state
-                 * activate previous state
-                 */
-                break;
-            case GameStateType.Inventory:
-                //state specific measures
-                /*
-                 * if (activate) 
-                 *  if (currstate == hud)
-                 *      disable previous state
-                 *      enable
-                 *  else return
-                 * else 
-                 * disable state
-                 * activate hud state
-                 */
+            GameStateType currStateType = currentGameState.StateType;
+            activate = currStateType != gameStateType;
+        }
 
-                break;
-            case GameStateType.Dialogue:
-                //state specific measures
-                /*
-                 * if (activate) 
-                 *  if (currstate == hud)
-                 *      disable previous state
-                 *      enable
-                 *  else return
-                 * else 
-                 * disable state
-                 * activate hud state
-                 */
-                break;
-            case GameStateType.HUD:
-            //state specific measures
-            /*
-             * if (activate) 
-             *  enable
-             * else 
-             * disable state
-             * activate hud state
-             */
-            default:
-                break;
+        GameState gameStateTo = GetStateByLabel(gameStateType);
+
+        if (gameStateTo == null)
+        {
+            return;
+        }
+
+        if (activate)
+        {
+            gameStateTo.ActivateState();
+        } else
+        {
+            gameStateTo.DeactivateState();
         }
     }
 
@@ -93,13 +50,25 @@ public class GameStateManager : MonoBehaviour
         currentGameState = gameState;
     }
 
-    public GameState GetCurrState()
+    public GameState GetCurrentState()
     {
         return currentGameState;
     }
 
+    public GameState GetHUDState()
+    {
+        return GetStateByLabel(GameStateType.HUD);
+    }
 
-
+    private GameState GetStateByLabel(GameStateType g)
+    {
+        if (gameStates == null) return null;
+        foreach (GameState state in gameStates)
+        {
+            if (state.StateType == g) return state;
+        }
+        return null;
+    }
 }
 
 

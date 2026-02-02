@@ -7,10 +7,16 @@ public class Speaker : Interactible
     [SerializeField] private SpeakerKeys speakerName;
     public SpeakerKeys SpeakerName {  get { return speakerName; } }
 
+    public override void Interact(Character character)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    /*
     public override void Interact(Player player)
     {
 
         CanvasDialogue.Instance.InitDialogue(this);
-    }
+    }*/
 
 }

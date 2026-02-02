@@ -1,33 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HUDCanvas : StateCanvas
 {
-    public override void OnActivate()
-    {
-        throw new System.NotImplementedException();
-    }
+    [SerializeField] private TextMeshProUGUI identifier;
 
-    public override void OnDeactivate()
+    public override StateCanvasType GetStateCanvasType()
     {
-        throw new System.NotImplementedException();
+        return StateCanvasType.HUD;
     }
 
     protected override void OnUpdate()
     {
-        throw new System.NotImplementedException();
+        base.OnUpdate();
+        if (identifier != null)
+        {
+            PlayerCharacter player = PlayerCharacter.Instance;
+            if (player != null)
+            {
+                Interactible i = player.GetSelectedInteractible();
+                if (i != null)
+                {
+                    string updateTo = i.GetName();
+                    UpdateUniqueText(identifier, updateTo);
+                } else
+                {
+                    UpdateUniqueText(identifier, string.Empty);
+                }
+            } else
+            {
+                UpdateUniqueText(identifier, string.Empty);
+            }
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void UpdateUniqueText(TextMeshProUGUI t, string updateTo)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (updateTo != t.text)
+                    {
+            t.text = updateTo;
+        }
     }
 }

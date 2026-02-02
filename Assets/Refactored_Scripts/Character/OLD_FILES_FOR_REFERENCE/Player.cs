@@ -22,7 +22,7 @@ public class Player : Character
     [SerializeField] private float raycastRange;
     [SerializeField] private LayerMask interactLayer;
 
-    private Pickup itemHolding;
+    private Flopahhpickup itemHolding;
     private Interactible selectedInteractible;
 
     private IPlayerMovement playerMovement;
@@ -93,7 +93,7 @@ public class Player : Character
         {
             if (selectedInteractible != null)
             {
-                selectedInteractible.Interact(this);
+               // selectedInteractible.Interact(this);
             }
         }
     }
@@ -110,6 +110,7 @@ public class Player : Character
                 if (selectedInteractible == null || (!GameObject.ReferenceEquals(selectedInteractible, i) && !GameObject.ReferenceEquals(itemHolding, i)))
                 {
                     selectedInteractible = i;
+
                     OnSelectedInteractibleChanged?.Invoke(this, new OnSelectedInteractibleChangedEventArgs
                     {
                         selectedInteractible = selectedInteractible
@@ -148,8 +149,8 @@ public class Player : Character
 
     public void PickupItem(Interactible i)
     {
-        itemHolding = (Pickup) i;
-        i.SetParentToFollow(interactibleHoldPoint);
+        itemHolding = (Flopahhpickup) i;
+       // i.SetParentToFollow(interactibleHoldPoint);
     }
 
     public void StoreItem(Interactible i)
@@ -182,11 +183,12 @@ public class Player : Character
         return CharacterType.Player;
     }
 
+    /*
     public override void CharacterTriggerFunction(Collider other)
     {
         if (other.gameObject.TryGetComponent<PassThrough>(out PassThrough b))
         {
             b.Interact(this);
         }
-    }
+    }*/
 }

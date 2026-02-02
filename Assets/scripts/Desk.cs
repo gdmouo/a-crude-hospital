@@ -5,7 +5,14 @@ using UnityEngine;
 public class Desk : Interactible
 {
     private const float X_OFFSET = 0.8729f;
-    private bool toggle = false;
+    //private bool toggle = false;
+
+    public override void Interact(Character character)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    /*
     public override void Interact(Player player)
     {
         toggle = !toggle;
@@ -23,5 +30,5 @@ public class Desk : Interactible
             //if toggled to close
             //close drawer
         }
-    }
+    }*/
 }

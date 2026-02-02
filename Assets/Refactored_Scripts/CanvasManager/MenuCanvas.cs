@@ -4,30 +4,24 @@ using UnityEngine;
 
 public class MenuCanvas : StateCanvas
 {
-    public override void OnActivate()
+    public override StateCanvasType GetStateCanvasType()
     {
-        throw new System.NotImplementedException();
+        return StateCanvasType.Menu;
     }
 
-    public override void OnDeactivate()
-    {
-        throw new System.NotImplementedException();
-    }
+    //button functions V
 
-    protected override void OnUpdate()
+    public void OnClickResume()
     {
-        throw new System.NotImplementedException();
-    }
+        GameStateManager g = GameStateManager.Instance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        if (g != null)
+        {
+            g.ToggleState(GameStateType.Menu);
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    public void OnClickQuit()
     {
-        
+        Application.Quit();
     }
 }

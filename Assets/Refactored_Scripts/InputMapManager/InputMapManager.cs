@@ -5,9 +5,10 @@ using UnityEngine.Events;
 
 public class InputMapManager : MonoBehaviour
 {
-    [SerializeField] private InputMap controlFlow;
-    [SerializeField] private InputMap playerControls;
+    [SerializeField] private List<InputMap> inputMaps;
     [SerializeField] private MouseManager mouseManager;
+    private InputMap controlFlow;
+    private InputMap playerControls;
     private PlayerInputActions playerInputActions;
 
     public static InputMapManager Instance { get; private set; }
@@ -22,16 +23,26 @@ public class InputMapManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controlFlow.EnableMap(playerInputActions);
-        playerControls.EnableMap(playerInputActions);
+        controlFlow = GetMapByType(InputMapType.ControlFlow);
+        if (controlFlow != null)
+        {
+            controlFlow.EnableMap(playerInputActions);
+        }
+        playerControls = GetMapByType(InputMapType.Player);
+        if (playerControls != null)
+        {
+            playerControls.EnableMap(playerInputActions);
+        }
     }
-
-    public void ToggleMaps(List<InputMap> toActivate, List<InputMap> toDeactivate)
+    public void ToggleMaps(List<GameStateType> toActivate, List<GameStateType> toDeactivate)
     {
+        playerControls.DisableMap(playerInputActions);
+        
         if (toDeactivate != null)
         {
-            foreach (InputMap inputMap in toDeactivate)
+            foreach (GameStateType gameStateType in toDeactivate)
             {
+                InputMap inputMap = GetMapByType(MapStateToType(gameStateType));
                 if (inputMap.MapEnabled)
                 {
                     inputMap.DisableMap(playerInputActions);
@@ -41,13 +52,45 @@ public class InputMapManager : MonoBehaviour
 
         if (toActivate != null)
         {
-            foreach (InputMap inputMap in toDeactivate)
+            foreach (GameStateType gameStateType in toActivate)
             {
+                InputMapType i = MapStateToType(gameStateType);
+                if (i == InputMapType.HUD)
+                {
+                    playerControls.EnableMap(playerInputActions);
+                }
+                InputMap inputMap = GetMapByType(i);
                 if (!inputMap.MapEnabled)
                 {
                     inputMap.EnableMap(playerInputActions);
                 }
             }
         }
+    }
+
+    private InputMapType MapStateToType(GameStateType g)
+    {
+        switch (g) {
+            case GameStateType.Menu:
+                return InputMapType.Menu;
+            case GameStateType.HUD:
+                return InputMapType.HUD;
+            case GameStateType.Inventory:
+                return InputMapType.Inventory;
+            case GameStateType.Dialogue:
+            default:
+                return InputMapType.Dialogue;
+        }
+
+    }
+
+    private InputMap GetMapByType(InputMapType i)
+    {
+        if (inputMaps == null) return null;
+        foreach (InputMap inputMap in inputMaps)
+        {
+            if (inputMap.GetInputMapType() == i) return inputMap;
+        }
+        return null;
     }
 }

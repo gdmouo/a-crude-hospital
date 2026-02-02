@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class ControlFlowInput : InputMap
 {
-    private void Awake()
-    {
-        mapEnabled = false;
-    }
     protected override void OnDisableMap(PlayerInputActions p)
     {
         p.ControlFlow.Disable();

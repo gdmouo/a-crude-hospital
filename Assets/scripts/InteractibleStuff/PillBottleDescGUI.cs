@@ -16,10 +16,10 @@ public class PillBottleDescGUI : ItemDescGUI
     public override void SetParameters(Interactible inter, InvSlot iS)
     {
         base.SetParameters(inter, iS);
-        PillBottleSO i = inter.GetInteractibleSO() as PillBottleSO; 
+     //   PillBottleSO i = inter.GetInteractibleSO() as PillBottleSO; 
        // itemName.text = NAME_LABEL + i.interactibleName;
        // itemDescription.text = DESC_LABEL + ((inter as Item).GetItemDescription());
-        sideEffects.text = SE_LABEL + i.sideEffects;
+      //  sideEffects.text = SE_LABEL + i.sideEffects;
         pillQuantity.text = QTY_LABEL + (inter as PillBottle).Quantity.ToString();
         //TextSet = true;
     }

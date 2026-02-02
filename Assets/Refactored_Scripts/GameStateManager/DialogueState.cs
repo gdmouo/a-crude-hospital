@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class DialogueState : GameState
 {
+    protected override void OnActivate()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void OnDeactivate()
+    {
+        throw new System.NotImplementedException();
+    }
+
     // Start is called before the first frame update
     void Start()
     {

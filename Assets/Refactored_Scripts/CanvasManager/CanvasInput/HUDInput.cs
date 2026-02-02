@@ -14,14 +14,11 @@ public class HUDInput : InputMap
 
     protected override void OnEnableMap(PlayerInputActions p)
     {
+        inputMapManager.Mouse.ToggleCursor(CursorLockMode.Locked);
         p.HUD.Enable();
         playerInputActions.HUD.Hotbar1.performed += KeyboardOne_performed;
         playerInputActions.HUD.Hotbar2.performed += KeyboardTwo_performed;
         playerInputActions.HUD.Hotbar3.performed += KeyboardThree_performed;
-        if (inputMapManager != null)
-        {
-            inputMapManager.Mouse.ToggleCursor(CursorLockMode.None);
-        }
     }
 
     protected override void OnDisableMap(PlayerInputActions p)
@@ -30,10 +27,6 @@ public class HUDInput : InputMap
         playerInputActions.HUD.Hotbar2.performed -= KeyboardTwo_performed;
         playerInputActions.HUD.Hotbar3.performed -= KeyboardThree_performed;
         p.HUD.Disable();
-        if (inputMapManager != null)
-        {
-            inputMapManager.Mouse.ToggleCursor(CursorLockMode.Locked);
-        }
     }
 
     private void KeyboardOne_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)

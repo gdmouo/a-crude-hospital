@@ -2,16 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PassThrough : MonoBehaviour, IInteractible
+public class PassThrough : Interactible
 {
-    [SerializeField] protected InteractibleSO interactibleSO;
-
-    public virtual void Interact(Character character)
+    public override void Interact(Character character)
     {
-    }
-
-    public string GetName()
-    {
-        return interactibleSO.name;
+        throw new System.NotImplementedException();
     }
 }

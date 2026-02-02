@@ -24,7 +24,7 @@ public class SomeGUI : MonoBehaviour
                 textParent.SetActive(true);
             }
             itemNameComponent.text = e.selectedInteractible.GetName();
-            itemDescriptionComponent.text = e.selectedInteractible.GetHighlight();
+          //  itemDescriptionComponent.text = e.selectedInteractible.GetHighlight();
         }
         else
         {
