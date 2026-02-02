@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class TheForceManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private TheForceRunner theForceRunner;
+    public static TheForceManager Instance { get; private set; }
+
+    private void Awake()
     {
-        
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public DialogueRunner GetRunner()
     {
-        
+        return theForceRunner;
     }
 }

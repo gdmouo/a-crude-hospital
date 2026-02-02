@@ -29,7 +29,7 @@ public class EndButtonManagers : MonoBehaviour
     {
         //if (GetCurrentScene() != BEAT_ROOM)
        // {
-            GameInput.Instance.ToggleMouse(false);
+          //  GameInput.Instance.ToggleMouse(false);
             SceneManager.LoadScene(HOSPITAL_ROOM);
        // }
     }
@@ -38,7 +38,7 @@ public class EndButtonManagers : MonoBehaviour
     {
         //if (GetCurrentScene() != BEAT_ROOM)
         // {
-        GameInput.Instance.ToggleMouse(true);
+      //  GameInput.Instance.ToggleMouse(true);
         SceneManager.LoadScene(BEAT_ROOM);
         // }
     }

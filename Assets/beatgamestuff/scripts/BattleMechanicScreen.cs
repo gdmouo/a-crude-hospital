@@ -45,7 +45,7 @@ public class BattleMechanicScreen : MonoBehaviour
         {
             visuals.SetActive(true);
         }
-        GameInput.Instance.TogglePlayerControls(true);
-        GameInput.Instance.ToggleMouse(true);
+       // GameInput.Instance.TogglePlayerControls(true);
+       // GameInput.Instance.ToggleMouse(true);
     }
 }

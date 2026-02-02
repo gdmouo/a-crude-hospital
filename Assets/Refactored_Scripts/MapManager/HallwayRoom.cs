@@ -18,7 +18,7 @@ public class HallwayRoom : MonoBehaviour
     void Start()
     {
         areaBounds = boxCollider.bounds;
-        target = Player.Instance.gameObject;
+       // target = Player.Instance.gameObject;
 
     }
 

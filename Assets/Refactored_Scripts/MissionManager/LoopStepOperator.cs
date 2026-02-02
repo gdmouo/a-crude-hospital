@@ -15,6 +15,8 @@ public abstract class LoopStepOperator : ILoopStepOperator
     //if true, error/interrupt occured, handle
     public virtual bool Meantime()
     {
+        return false;
+        /*
         if (HallwayGameCanvasManager.Instance != null)
         {
             HallwayGameCanvasManager.Instance.Activate();
@@ -24,7 +26,7 @@ public abstract class LoopStepOperator : ILoopStepOperator
         } else
         {
             return true;
-        }
+        }*/
     }
 }
 
@@ -129,21 +131,25 @@ public class SeekStep : LoopStepOperator
 
     private bool StepIsEndIndex()
     {
-        HallwayGameManager hgm = HallwayGameManager.Instance;
-        return hgm.LoopIndex == hgm.LoopMax;
+        //  HallwayGameManager hgm = HallwayGameManager.Instance;
+        return false;
+            //hgm.LoopIndex == hgm.LoopMax;
     }
 
     private bool PlayerHasBattleBox()
     {
-        return Player.Instance.Inventory.CheckForBattleBox();
+        return false;
+       // return Player.Instance.Inventory.CheckForBattleBox();
     }
 
     private int ChooseRoomForHatman()
     {
+        /*
         HallwayGameManager hgm = HallwayGameManager.Instance;
         HallwayManager hm = HallwayManager.Instance;
         
-        return HatmanRoomSelector.Instance.SelectHatmanRoom(hm.PlayerPrevRoom, hgm.LoopIndex);
+        return HatmanRoomSelector.Instance.SelectHatmanRoom(hm.PlayerPrevRoom, hgm.LoopIndex);*/
+        return -1;
     }
     
     private void SendHatman()
@@ -171,6 +177,8 @@ public class ConcludeRoundStep : LoopStepOperator
     }
     public override LoopStepLabel GetNextStep()
     {
+        return LoopStepLabel.PlayerPickedUpBB;
+        /*
         HallwayGameManager.Instance.IncLoopMax();
         if (Player.Instance.Inventory.CheckForBattleBox())
         {
@@ -182,7 +190,7 @@ public class ConcludeRoundStep : LoopStepOperator
         {
             //lose
             return LoopStepLabel.PlayerDeath;
-        }
+        }*/
     }
 
     public override bool Meantime()
@@ -209,7 +217,7 @@ public class BBStep : LoopStepOperator
         if (!battleTriggered)
         {
             battleTriggered = true;
-            BattleBox.Instance.TriggerBattle();
+          //  BattleBox.Instance.TriggerBattle();
         }
         return false;
     }
@@ -228,7 +236,7 @@ public class DeathStep : LoopStepOperator
     public override bool Meantime()
     {
         base.Meantime();
-        UniverseManager.Instance.GoToDeath();
+      //  UniverseManager.Instance.GoToDeath();
         return false;
     }
 }

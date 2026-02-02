@@ -12,10 +12,11 @@ public class LoopStep : ILoopStep
     public float TimerMax { get { return timerMax; } }
     public LoopStep(float t, LoopStepLabel l)
     {
+        /*
         if (HallwayGameManager.Instance != null)
         {
             HallwayGameManager.Instance.IncLoopCount();
-        }
+        }*/
         timerMax = t;
         StepLabel = l;
         loopStepOperator = LSOFactory(l); 
