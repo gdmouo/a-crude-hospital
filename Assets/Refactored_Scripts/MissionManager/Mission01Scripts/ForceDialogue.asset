@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac1f09b22f290b4984da6aade2854ee, type: 3}
+  m_Name: ForceDialogue
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 'TheForce:'
+    text: Far better for him to put away his academic gown, to say good-bye to the
+      study, and to wander with human heart through the world.
+  - speaker: 'TheForce:'
+    text: There, in the horrors of the prison, the asylum and the hospital, in the
+      drinking-shops, brothels and gambling hells, in the salons of the elegant,
+      in the exchanges,
+  - speaker: 'TheForce:'
+    text: socialist meetings, churches, religious revivals and sectarian ecstasies,
+      through love and hate, through the experience of passion in every form in his
+      own body,
+  - speaker: 'TheForce:'
+    text: he would reap richer stores of knowledge of the human soul.
+  - speaker: 'TheForce:'
+    text: But he may be pardoned if his respect for the 'corner stones' of experimental
+      psychology is no longer excessive.

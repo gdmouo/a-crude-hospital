@@ -36,6 +36,10 @@ public abstract class CharacterSensor : MonoBehaviour, ICharacterSensor
             }
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        CharacterTriggerFunction(other);
+    }
 
     protected abstract void RaycastSense();
 

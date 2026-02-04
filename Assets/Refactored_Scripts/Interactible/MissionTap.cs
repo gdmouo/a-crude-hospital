@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MissionTap : Tap
 {
-    [SerializeField] private MissionTapID triggerID;
+    [SerializeField] protected MissionTapID triggerID;
 
     public override void OnInteractEventFinished()
     {

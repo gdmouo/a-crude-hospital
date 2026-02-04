@@ -338,6 +338,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "HighlightObjectives",
+                    "type": "Button",
+                    "id": "d8f72e61-0c8d-49ac-87ec-d0234b0535f7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -371,6 +380,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Hotbar3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "efdbab94-64cc-4e54-abe9-621973872a2e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HighlightObjectives",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -477,15 +497,6 @@
             "id": "f2fae9a8-ba6b-400c-bf75-9991018edcfb",
             "actions": [
                 {
-                    "name": "Click",
-                    "type": "Button",
-                    "id": "3947c119-0db0-4f00-a641-634077dccdd8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Hover",
                     "type": "Value",
                     "id": "5bf86f36-006f-47f8-a2ad-ba178802139b",
@@ -493,20 +504,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "6fc28eae-cac2-47e3-b5d8-54ff8e5737fd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "2ef34e69-c99e-44f4-8852-c0cf1a23e333",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "7ec36283-76c8-4a85-ae2f-3c78ae29b215",
@@ -515,6 +524,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Hover",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "209c3309-5c59-4e0d-9279-84ee49c0d5cb",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

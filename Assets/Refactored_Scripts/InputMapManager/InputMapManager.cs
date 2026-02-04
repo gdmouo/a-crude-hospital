@@ -42,7 +42,14 @@ public class InputMapManager : MonoBehaviour
         {
             foreach (GameStateType gameStateType in toDeactivate)
             {
-                InputMap inputMap = GetMapByType(MapStateToType(gameStateType));
+                InputMapType i = MapStateToType(gameStateType);
+
+                if (i == InputMapType.Dialogue)
+                {
+                    controlFlow.EnableMap(playerInputActions);
+                }
+
+                InputMap inputMap = GetMapByType(i);
                 if (inputMap.MapEnabled)
                 {
                     inputMap.DisableMap(playerInputActions);
@@ -55,10 +62,15 @@ public class InputMapManager : MonoBehaviour
             foreach (GameStateType gameStateType in toActivate)
             {
                 InputMapType i = MapStateToType(gameStateType);
+
                 if (i == InputMapType.HUD)
                 {
                     playerControls.EnableMap(playerInputActions);
+                } else if (i == InputMapType.Dialogue)
+                {
+                    controlFlow.DisableMap(playerInputActions);
                 }
+
                 InputMap inputMap = GetMapByType(i);
                 if (!inputMap.MapEnabled)
                 {

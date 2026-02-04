@@ -2,31 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftRoom : MissionStageEvent
+public class LeftRoom : MissionStage
 {
-    public override void OnAwake()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void OnFixedUpdate()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void OnStart()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void OnUpdate()
-    {
-        throw new System.NotImplementedException();
-    }
-
+    [SerializeField] private DialogueDataSO dialogueToPrint;
+    [SerializeField] private Collider nextStagePassThrough;
     public override void ToInvoke()
     {
-        throw new System.NotImplementedException();
+        UpdateObjective();
+        if (nextStagePassThrough != null)
+        {
+            nextStagePassThrough.isTrigger = false;
+        }
+        DialogueRunner d = TheForceManager.Instance.GetRunner();
+        d.StartDialogue(dialogueToPrint, AfterForceDialogue);
     }
 
+    public void AfterForceDialogue()
+    {
+        nextStagePassThrough.isTrigger = true;
+    }
 }

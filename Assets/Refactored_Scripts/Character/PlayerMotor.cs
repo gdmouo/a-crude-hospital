@@ -20,13 +20,17 @@ public class PlayerMotor : CharacterMotor
     {
         if (playerInput == null)
         {
-            playerInput = GetPlayerDriver(driver);;
+            playerInput = GetPlayerDriver(driver);
         }
         if (playerInput.MapEnabled)
         {
             Vector2 inputVector = playerInput.GetMovementVectorNormalized();
             Vector3 moveDirection = transform.right * inputVector.x + transform.forward * inputVector.y;
-            characterController.Move(moveSpeed * Time.deltaTime * moveDirection);
+
+            moveDirection.y = 0f;
+            moveDirection.Normalize();
+
+            characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
         }
     }
     private void Rotate()

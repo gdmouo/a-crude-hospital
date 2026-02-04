@@ -11,8 +11,7 @@ public class DialogueUI : MonoBehaviour
 
     private void Awake()
     {
-        SetOpen(false);
-        SetText("", "");
+        OnAwake();
     }
 
     public void SetOpen(bool open)
@@ -30,4 +29,11 @@ public class DialogueUI : MonoBehaviour
     {
         if (bodyText != null) bodyText.text = body;
     }
+
+    protected virtual void OnAwake()
+    {
+        SetOpen(false);
+        SetText("", "");
+    }
+
 }

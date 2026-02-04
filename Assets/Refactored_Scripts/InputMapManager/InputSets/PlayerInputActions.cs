@@ -360,6 +360,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HighlightObjectives"",
+                    ""type"": ""Button"",
+                    ""id"": ""d8f72e61-0c8d-49ac-87ec-d0234b0535f7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -393,6 +402,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Hotbar3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""efdbab94-64cc-4e54-abe9-621973872a2e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HighlightObjectives"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -499,15 +519,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ""id"": ""f2fae9a8-ba6b-400c-bf75-9991018edcfb"",
             ""actions"": [
                 {
-                    ""name"": ""Click"",
-                    ""type"": ""Button"",
-                    ""id"": ""3947c119-0db0-4f00-a641-634077dccdd8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Hover"",
                     ""type"": ""Value"",
                     ""id"": ""5bf86f36-006f-47f8-a2ad-ba178802139b"",
@@ -515,20 +526,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""6fc28eae-cac2-47e3-b5d8-54ff8e5737fd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""2ef34e69-c99e-44f4-8852-c0cf1a23e333"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""7ec36283-76c8-4a85-ae2f-3c78ae29b215"",
@@ -537,6 +546,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Hover"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""209c3309-5c59-4e0d-9279-84ee49c0d5cb"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -610,6 +630,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_HUD_Hotbar1 = m_HUD.FindAction("Hotbar1", throwIfNotFound: true);
         m_HUD_Hotbar2 = m_HUD.FindAction("Hotbar2", throwIfNotFound: true);
         m_HUD_Hotbar3 = m_HUD.FindAction("Hotbar3", throwIfNotFound: true);
+        m_HUD_HighlightObjectives = m_HUD.FindAction("HighlightObjectives", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Click = m_Menu.FindAction("Click", throwIfNotFound: true);
@@ -620,8 +641,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Inventory_Hover = m_Inventory.FindAction("Hover", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
-        m_Dialogue_Click = m_Dialogue.FindAction("Click", throwIfNotFound: true);
         m_Dialogue_Hover = m_Dialogue.FindAction("Hover", throwIfNotFound: true);
+        m_Dialogue_Click = m_Dialogue.FindAction("Click", throwIfNotFound: true);
         // ControlFlow
         m_ControlFlow = asset.FindActionMap("ControlFlow", throwIfNotFound: true);
         m_ControlFlow_ToggleMenu = m_ControlFlow.FindAction("ToggleMenu", throwIfNotFound: true);
@@ -808,6 +829,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_HUD_Hotbar1;
     private readonly InputAction m_HUD_Hotbar2;
     private readonly InputAction m_HUD_Hotbar3;
+    private readonly InputAction m_HUD_HighlightObjectives;
     public struct HUDActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -815,6 +837,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Hotbar1 => m_Wrapper.m_HUD_Hotbar1;
         public InputAction @Hotbar2 => m_Wrapper.m_HUD_Hotbar2;
         public InputAction @Hotbar3 => m_Wrapper.m_HUD_Hotbar3;
+        public InputAction @HighlightObjectives => m_Wrapper.m_HUD_HighlightObjectives;
         public InputActionMap Get() { return m_Wrapper.m_HUD; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -833,6 +856,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Hotbar3.started += instance.OnHotbar3;
             @Hotbar3.performed += instance.OnHotbar3;
             @Hotbar3.canceled += instance.OnHotbar3;
+            @HighlightObjectives.started += instance.OnHighlightObjectives;
+            @HighlightObjectives.performed += instance.OnHighlightObjectives;
+            @HighlightObjectives.canceled += instance.OnHighlightObjectives;
         }
 
         private void UnregisterCallbacks(IHUDActions instance)
@@ -846,6 +872,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Hotbar3.started -= instance.OnHotbar3;
             @Hotbar3.performed -= instance.OnHotbar3;
             @Hotbar3.canceled -= instance.OnHotbar3;
+            @HighlightObjectives.started -= instance.OnHighlightObjectives;
+            @HighlightObjectives.performed -= instance.OnHighlightObjectives;
+            @HighlightObjectives.canceled -= instance.OnHighlightObjectives;
         }
 
         public void RemoveCallbacks(IHUDActions instance)
@@ -975,14 +1004,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     // Dialogue
     private readonly InputActionMap m_Dialogue;
     private List<IDialogueActions> m_DialogueActionsCallbackInterfaces = new List<IDialogueActions>();
-    private readonly InputAction m_Dialogue_Click;
     private readonly InputAction m_Dialogue_Hover;
+    private readonly InputAction m_Dialogue_Click;
     public struct DialogueActions
     {
         private @PlayerInputActions m_Wrapper;
         public DialogueActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Click => m_Wrapper.m_Dialogue_Click;
         public InputAction @Hover => m_Wrapper.m_Dialogue_Hover;
+        public InputAction @Click => m_Wrapper.m_Dialogue_Click;
         public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -992,22 +1021,22 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_DialogueActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_DialogueActionsCallbackInterfaces.Add(instance);
-            @Click.started += instance.OnClick;
-            @Click.performed += instance.OnClick;
-            @Click.canceled += instance.OnClick;
             @Hover.started += instance.OnHover;
             @Hover.performed += instance.OnHover;
             @Hover.canceled += instance.OnHover;
+            @Click.started += instance.OnClick;
+            @Click.performed += instance.OnClick;
+            @Click.canceled += instance.OnClick;
         }
 
         private void UnregisterCallbacks(IDialogueActions instance)
         {
-            @Click.started -= instance.OnClick;
-            @Click.performed -= instance.OnClick;
-            @Click.canceled -= instance.OnClick;
             @Hover.started -= instance.OnHover;
             @Hover.performed -= instance.OnHover;
             @Hover.canceled -= instance.OnHover;
+            @Click.started -= instance.OnClick;
+            @Click.performed -= instance.OnClick;
+            @Click.canceled -= instance.OnClick;
         }
 
         public void RemoveCallbacks(IDialogueActions instance)
@@ -1097,6 +1126,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnHotbar1(InputAction.CallbackContext context);
         void OnHotbar2(InputAction.CallbackContext context);
         void OnHotbar3(InputAction.CallbackContext context);
+        void OnHighlightObjectives(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
@@ -1110,8 +1140,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     }
     public interface IDialogueActions
     {
-        void OnClick(InputAction.CallbackContext context);
         void OnHover(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
     public interface IControlFlowActions
     {

@@ -6,6 +6,9 @@ using UnityEngine;
 public class HUDCanvas : StateCanvas
 {
     [SerializeField] private TextMeshProUGUI identifier;
+    public override void DeactivateCanvas()
+    {
+    }
 
     public override StateCanvasType GetStateCanvasType()
     {

@@ -6,6 +6,8 @@ public class ControlFlowInput : InputMap
 {
     protected override void OnDisableMap(PlayerInputActions p)
     {
+        p.ControlFlow.ToggleMenu.performed -= ToggleMenu_performed;
+        p.ControlFlow.ToggleInventory.performed -= ToggleInventory_performed;
         p.ControlFlow.Disable();
     }
 

@@ -14,5 +14,6 @@ public class MissionPassThrough : PassThrough
 
 public enum MissionPassThroughID
 {
-    LeftBathroomTrigger
+    LeftBathroomTrigger,
+    LeftRoomTrigger
 }

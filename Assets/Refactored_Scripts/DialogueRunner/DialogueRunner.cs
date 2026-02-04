@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,11 +19,43 @@ public abstract class DialogueRunner : MonoBehaviour
     protected bool isTyping = false;
     protected bool requestedAdvance = false;
 
+    protected Action onEndDialogue = null;
+
     public virtual void StartDialogue(DialogueDataSO asset)
     {
+        DebugManager d = DebugManager.Instance;
+        if (d != null)
+        {
+            if (d.Debugging)
+            {
+                asset = d.GetDebugDialogue();
+            }
+        }
+
         if (!ui || asset == null || asset.lines == null || asset.lines.Count == 0) return;
 
         currentDialogueData = asset;
+        index = -1;
+        ui.SetOpen(true);
+        NextLine();
+    }
+
+    public virtual void StartDialogue(DialogueDataSO asset, Action a)
+    {
+        DebugManager d = DebugManager.Instance;
+        if (d != null)
+        {
+            if (d.Debugging)
+            {
+                asset = d.GetDebugDialogue();
+            }
+        }
+
+
+        if (!ui || asset == null || asset.lines == null || asset.lines.Count == 0) return;
+
+        currentDialogueData = asset;
+        onEndDialogue = a;
         index = -1;
         ui.SetOpen(true);
         NextLine();
@@ -70,6 +103,8 @@ public abstract class DialogueRunner : MonoBehaviour
         currentDialogueData = null;
         index = -1;
         ui.SetOpen(false);
+        onEndDialogue?.Invoke();
+        onEndDialogue = null;
     }
 
     protected virtual void StopTyping()
