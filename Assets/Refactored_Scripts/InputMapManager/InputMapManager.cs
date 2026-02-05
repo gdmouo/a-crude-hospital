@@ -23,6 +23,8 @@ public class InputMapManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        /*
         controlFlow = GetMapByType(InputMapType.ControlFlow);
         if (controlFlow != null)
         {
@@ -32,10 +34,21 @@ public class InputMapManager : MonoBehaviour
         if (playerControls != null)
         {
             playerControls.EnableMap(playerInputActions);
-        }
+        }*/
     }
     public void ToggleMaps(List<GameStateType> toActivate, List<GameStateType> toDeactivate)
     {
+        //hmm. area of itnerest
+        if (controlFlow == null)
+        {
+            controlFlow = GetMapByType(InputMapType.ControlFlow);
+        }
+        if (playerControls == null)
+        {
+            playerControls = GetMapByType(InputMapType.Player);
+        }
+        //
+
         playerControls.DisableMap(playerInputActions);
         
         if (toDeactivate != null)

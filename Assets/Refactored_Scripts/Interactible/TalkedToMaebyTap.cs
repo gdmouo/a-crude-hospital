@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class TalkedToMaebyTap : MissionTap
 {
-    [SerializeField] DialogueDataSO dialogueDataSO;
+    [SerializeField] private DialogueDataSO dialogueDataSO;
+    [SerializeField] private Character maeby;
 
     public override void OnInteractEventFinished()
     {
@@ -16,11 +17,15 @@ public class TalkedToMaebyTap : MissionTap
         }
         g.ToggleState(GameStateType.Dialogue);
         base.OnInteractEventFinished();
-        //
+        Destroy(gameObject);
     }
 
     protected override void OnInteract(Action a)
     {
+        if (interacted)
+        {
+            return;
+        }
         GameStateManager g = GameStateManager.Instance;
         CharacterManager d = CharacterManager.Instance;
 
@@ -38,5 +43,10 @@ public class TalkedToMaebyTap : MissionTap
 
         g.ToggleState(GameStateType.Dialogue);
         dR.StartDialogue(dialogueDataSO, OnInteractEventFinished);
+    }
+
+    public override string GetName()
+    {
+        return "Talk to " + maeby.GetCharacterType().ToString() + " ?";
     }
 }

@@ -20,18 +20,26 @@ public abstract class Character : MonoBehaviour, ICharacter
 
     protected virtual void OnAwake()
     {
+        /*
+        if (motor )
+        {
+            
+        }
         motor = GetComponent<CharacterMotor>();
         sensor = GetComponent<CharacterSensor>();
 
         if (motor == null || sensor == null)
         {
             Debug.LogError("Critical variable unassigned in: " + gameObject.name);
-        }
+        }*/
     }
 
     protected virtual void OnStart()
     {
-        sensor.Init(this);
+        if (sensor != null)
+        {
+            sensor.Init(this);
+        }
     }
 
     /*

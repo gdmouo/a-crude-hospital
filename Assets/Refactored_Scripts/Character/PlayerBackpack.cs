@@ -38,6 +38,7 @@ public class PlayerBackpack : MonoBehaviour
             hotbarItems[toPut] = p;
             return true;
         }
+        //updare da hotabox
         return false;
     }
 

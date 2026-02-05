@@ -12,6 +12,10 @@ public abstract class MissionStage : MonoBehaviour
         if (o != null)
         {
             ObjectiveUI u = o.GetObjectiveUI();
+            if (!u.IsOpen)
+            {
+                u.SetOpen(true);
+            }
             u.SetBodyOnly(objectiveToUpdate);
         }
     }
@@ -21,6 +25,10 @@ public abstract class MissionStage : MonoBehaviour
         if (o != null)
         {
             ObjectiveUI u = o.GetObjectiveUI();
+            if (!u.IsOpen)
+            {
+                u.SetOpen(true);
+            }
             u.SetBodyOnly(t);
         }
     }

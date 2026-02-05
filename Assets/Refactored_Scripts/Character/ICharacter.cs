@@ -11,7 +11,8 @@ public interface ICharacter
 [System.Serializable]
 public enum CharacterType { 
     Player,
-    NPC
+    NPC,
+    Maeby
 }
 
 

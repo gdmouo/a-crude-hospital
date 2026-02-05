@@ -5,9 +5,46 @@ using UnityEngine;
 
 public class HUDCanvas : StateCanvas
 {
+    [Header("HUDCanvas specific")]
     [SerializeField] private TextMeshProUGUI identifier;
-    public override void DeactivateCanvas()
+    [SerializeField] private List<GameObject> canvasesToHide; 
+    protected override void OnDeactivate()
     {
+        if (canvasesToHide != null)
+        {
+            foreach(GameObject go in canvasesToHide)
+            {
+                go.SetActive(false);
+            }
+        }
+        ObjectiveManager o = ObjectiveManager.Instance;
+        if (o != null)
+        {
+            ObjectiveUI u = o.GetObjectiveUI();
+            if (u.IsOpen)
+            {
+                u.SetOpen(false);
+            }
+        }
+    }
+    protected override void OnActivate()
+    {
+        if (canvasesToHide != null)
+        {
+            foreach (GameObject go in canvasesToHide)
+            {
+                go.SetActive(true);
+            }
+        }
+        ObjectiveManager o = ObjectiveManager.Instance;
+        if (o != null)
+        {
+            ObjectiveUI u = o.GetObjectiveUI();
+            if (!u.IsOpen)
+            {
+                u.SetOpen(true);
+            }
+        }
     }
 
     public override StateCanvasType GetStateCanvasType()

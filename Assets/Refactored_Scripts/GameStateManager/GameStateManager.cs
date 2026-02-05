@@ -15,8 +15,11 @@ public class GameStateManager : MonoBehaviour
 
     }
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        //hm. area of itnetstes
+        ToggleState(GameStateType.HUD);
+        //
     }
 
     public void ToggleState(GameStateType gameStateType)

@@ -19,7 +19,7 @@ public abstract class StateCanvas : MonoBehaviour, IStateCanvas
         OnActivate();
         canvasEnabled = true;
     }
-    public virtual void DeactivateCanvas()
+    public void DeactivateCanvas()
     {
         OnDeactivate();
         canvasEnabled = false;

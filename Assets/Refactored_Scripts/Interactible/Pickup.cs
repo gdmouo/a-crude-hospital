@@ -21,6 +21,7 @@ public class Pickup : Interactible
                 gameObject.SetActive(false);
                 pickedUp = true;
                 OnPickup();
+                //uyayauayayayyayayyayay YUPDATE BTIH
             }
         }
     }

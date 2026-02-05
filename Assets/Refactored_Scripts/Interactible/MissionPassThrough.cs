@@ -9,6 +9,8 @@ public class MissionPassThrough : PassThrough
     {
         string s = triggerID.ToString();
         MissionEvents.RaisePassThroughTriggered(s);
+        //make sure u watn dthis vv
+        Destroy(gameObject);
     }
 }
 

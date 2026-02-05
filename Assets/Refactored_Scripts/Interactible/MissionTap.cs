@@ -6,9 +6,11 @@ using UnityEngine;
 public class MissionTap : Tap
 {
     [SerializeField] protected MissionTapID triggerID;
+    protected bool interacted = false;
 
     public override void OnInteractEventFinished()
     {
+        interacted = true;
         string s = triggerID.ToString();
         MissionEvents.RaiseTapEventFinished(s);
     }

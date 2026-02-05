@@ -4,8 +4,26 @@ using UnityEngine;
 
 public class DialogueCanvas : StateCanvas
 {
-    public override void DeactivateCanvas()
+    [SerializeField] private List<GameObject> canvasesToHide;
+    protected override void OnDeactivate()
     {
+        if (canvasesToHide != null)
+        {
+            foreach (GameObject go in canvasesToHide)
+            {
+                go.SetActive(false);
+            }
+        }
+    }
+    protected override void OnActivate()
+    {
+        if (canvasesToHide != null)
+        {
+            foreach (GameObject go in canvasesToHide)
+            {
+                go.SetActive(true);
+            }
+        }
     }
     public override StateCanvasType GetStateCanvasType()
     {
