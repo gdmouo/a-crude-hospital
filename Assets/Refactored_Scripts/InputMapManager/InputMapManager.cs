@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,32 +22,35 @@ public class InputMapManager : MonoBehaviour
         
     }
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-        /*
-        controlFlow = GetMapByType(InputMapType.ControlFlow);
-        if (controlFlow != null)
-        {
-            controlFlow.EnableMap(playerInputActions);
-        }
-        playerControls = GetMapByType(InputMapType.Player);
-        if (playerControls != null)
-        {
-            playerControls.EnableMap(playerInputActions);
-        }*/
+
+        SomeBullshit();
     }
-    public void ToggleMaps(List<GameStateType> toActivate, List<GameStateType> toDeactivate)
+
+    private void SomeBullshit()
     {
-        //hmm. area of itnerest
         if (controlFlow == null)
         {
             controlFlow = GetMapByType(InputMapType.ControlFlow);
+            if (!controlFlow.MapEnabled)
+            {
+                controlFlow.EnableMap(playerInputActions);
+            }
         }
         if (playerControls == null)
         {
             playerControls = GetMapByType(InputMapType.Player);
+            if (!playerControls.MapEnabled)
+            {
+                playerControls.EnableMap(playerInputActions);
+            }
         }
+    }
+    public void ToggleMaps(List<GameStateType> toActivate, List<GameStateType> toDeactivate)
+    {
+        //hmm. area of itnerest
+        SomeBullshit();
         //
 
         playerControls.DisableMap(playerInputActions);

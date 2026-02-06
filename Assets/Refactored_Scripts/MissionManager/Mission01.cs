@@ -42,7 +42,7 @@ public class Mission01 : Mission
  
         if (currentStage == Mission01StageLabel.FoundKeycard.ToString() && id == KeycardPickup)
         {
-            Advance(Mission01StageLabel.MissionEnded.ToString());
+            Advance(Mission01StageLabel.EnteredStockRoom.ToString());
         }
     }
 
@@ -63,8 +63,8 @@ public enum Mission01StageLabel {
     LeftRoom,
     TalkedToMaeby,
     FoundKeycard,
-    /*
     EnteredStockRoom,
+    /*
     FoundAllPillBottles,
     LeftStockRoom,
     EnteredSecurityRoom,

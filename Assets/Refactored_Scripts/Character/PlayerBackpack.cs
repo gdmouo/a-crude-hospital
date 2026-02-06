@@ -31,8 +31,10 @@ public class PlayerBackpack : MonoBehaviour
         int toPut = GetFirstEmptySlot(hotbarItems);
         if (toPut != -1)
         {
+           // Debug.Log("EHLLOOAOAOOAO");
             OnHotbarItemChanged?.Invoke(this, new OnHotbarItemChangedEventArg
             {
+                
                 slot = toPut, pickup = p
             });
             hotbarItems[toPut] = p;

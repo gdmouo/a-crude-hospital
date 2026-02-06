@@ -21,6 +21,7 @@ public class MenuState : GameState
     private GameState lastState = null;
     protected override void OnActivate()
     {
+       // Debug.Log("ahh");
         GameStateManager g = GameStateManager.Instance;
         StateCanvasManager s = StateCanvasManager.Instance;
         InputMapManager i = InputMapManager.Instance;

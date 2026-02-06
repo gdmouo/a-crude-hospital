@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Pickup : Interactible
 {
+    [SerializeField] protected PickupUISO pickupUISO;
     protected bool pickedUp = false;
     public override void Interact(Character character)
     {
@@ -34,5 +35,10 @@ public class Pickup : Interactible
     protected virtual void OnPickup()
     {
 
+    }
+
+    public PickupUISO GetUISO()
+    {
+        return pickupUISO;
     }
 }

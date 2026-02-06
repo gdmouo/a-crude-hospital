@@ -18,8 +18,13 @@ public class GameStateManager : MonoBehaviour
     private void Start()
     {
         //hm. area of itnetstes
-        ToggleState(GameStateType.HUD);
+        SomeBullshitAlso();
         //
+    }
+
+    private void SomeBullshitAlso()
+    {
+        ToggleState(GameStateType.HUD);
     }
 
     public void ToggleState(GameStateType gameStateType)
