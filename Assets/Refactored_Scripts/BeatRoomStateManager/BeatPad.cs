@@ -51,7 +51,7 @@ public class BeatPad : MonoBehaviour
             noteColliding = null;
             Destroy(temp);
 
-            ScoreManager.Instance.UpdateScore(score);
+           // ScoreManager.Instance.UpdateScore(score);
 
             Debug.Log(score);
         }
