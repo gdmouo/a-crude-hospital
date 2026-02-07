@@ -8,7 +8,7 @@ public class BeatRoomControls : MonoBehaviour
 
     private PlayerInputActions playerInputActions;
 
-    private BeatPadController bpCont;
+    private Pussyvagin bpCont;
 
 
     private void Awake()
@@ -26,7 +26,7 @@ public class BeatRoomControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bpCont = BeatPadController.Instance;
+        bpCont = Pussyvagin.Instance;
     }
 
     // Update is called once per frame

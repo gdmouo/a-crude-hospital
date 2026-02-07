@@ -22,7 +22,7 @@ public class MenuState : GameState
     protected override void OnActivate()
     {
        // Debug.Log("ahh");
-        GameStateManager g = GameStateManager.Instance;
+        StateManager g = StateManager.Instance;
         StateCanvasManager s = StateCanvasManager.Instance;
         InputMapManager i = InputMapManager.Instance;
 
@@ -51,7 +51,7 @@ public class MenuState : GameState
 
     protected override void OnDeactivate()
     {
-        GameStateManager g = GameStateManager.Instance;
+        StateManager g = StateManager.Instance;
         StateCanvasManager s = StateCanvasManager.Instance;
         InputMapManager i = InputMapManager.Instance;
 

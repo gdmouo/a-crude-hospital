@@ -10,7 +10,7 @@ public class TalkedToMaebyTap : MissionTap
 
     public override void OnInteractEventFinished()
     {
-        GameStateManager g = GameStateManager.Instance;
+        StateManager g = StateManager.Instance;
         if (g == null)
         {
             return;
@@ -26,7 +26,7 @@ public class TalkedToMaebyTap : MissionTap
         {
             return;
         }
-        GameStateManager g = GameStateManager.Instance;
+        StateManager g = StateManager.Instance;
         CharacterManager d = CharacterManager.Instance;
 
         if (g == null || d == null)

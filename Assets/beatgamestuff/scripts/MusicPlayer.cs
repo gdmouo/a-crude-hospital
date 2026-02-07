@@ -101,7 +101,7 @@ public class MusicPlayer : MonoBehaviour
 
     private void SpawnNote(ProjBeat pB, float f)
     {
-        if (AttackController.Instance.PLDict.TryGetValue(pB.dir, out ProjectileLauncher pL)) {
+        if (OldAttackController.Instance.PLDict.TryGetValue(pB.dir, out OldProjectileLauncher pL)) {
             pL.FireProjectile(f);
         }
     }

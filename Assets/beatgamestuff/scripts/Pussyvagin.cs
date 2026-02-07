@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class BeatPadController : MonoBehaviour
+public class Pussyvagin : MonoBehaviour
 {
-    public static BeatPadController Instance { get; private set; }
+    public static Pussyvagin Instance { get; private set; }
     [SerializeField] private Transform BeatParent;
-    private Dictionary<Dir, BeatPad> keyBeatPads;
+    private Dictionary<Dir, Condom> keyBeatPads;
 
     private void Awake()
     {
@@ -32,9 +32,9 @@ public class BeatPadController : MonoBehaviour
 
     public void HitBar(Dir fart)
     {
-        BeatPad hit = null;
+        Condom hit = null;
 
-        if (keyBeatPads.TryGetValue(fart, out BeatPad bP))
+        if (keyBeatPads.TryGetValue(fart, out Condom bP))
         {
             hit = bP;
         }
@@ -48,10 +48,10 @@ public class BeatPadController : MonoBehaviour
 
     public void Poo()
     {
-        keyBeatPads = new Dictionary<Dir, BeatPad>();
+        keyBeatPads = new Dictionary<Dir, Condom>();
         foreach (Transform child in BeatParent.transform)
         {
-            BeatPad beatPad = child.gameObject.GetComponent<BeatPad>();
+            Condom beatPad = child.gameObject.GetComponent<Condom>();
             keyBeatPads.Add(beatPad.KeyButton, beatPad);
         }
     }

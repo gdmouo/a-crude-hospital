@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class BeatPad : MonoBehaviour
 {
-    [SerializeField] private Dir keyButt;
-    [SerializeField] private Vector2 detectorBoxSize;
-    public Dir KeyButton { get { return keyButt; } }
+    [SerializeField] private KeyControlling keyControlling;
+    [SerializeField] private Vector2 colliderSize;
+    public KeyControlling KeyButton { get { return keyControlling; } }
     // Start is called before the first frame update
 
-    private Projectile projectileTouching;
-    void Start()
+    private OldProjectile projectileTouching;
+    private void Start()
     {
 
     }
@@ -19,17 +18,18 @@ public class BeatPad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Collideersfjs();
+        OnCollide();
     }
 
-    public void Interact()
+    public void Input()
     {
         //Debug.Log(dir.ToString());
         if (projectileTouching != null)
         {
             //the great bojack jerk-off
             //he hates the troops
-            float maxDist = detectorBoxSize.y + projectileTouching.ProjSize.y;
+
+            float maxDist = colliderSize.y + projectileTouching.ProjSize.y;
             float distToProj = Vector2.Distance(transform.position, projectileTouching.gameObject.transform.position);
             float scale = Mathf.Min(Mathf.Abs(1f - (distToProj / maxDist)), 1f);
             float baseScore = 100f;
@@ -45,12 +45,12 @@ public class BeatPad : MonoBehaviour
         }
     }
 
-    private void Collideersfjs()
+    private void OnCollide()
     {
-        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(transform.position, detectorBoxSize, 0f);
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(transform.position, colliderSize, 0f);
         foreach (Collider2D collider in hitColliders)
         {
-            if (collider.gameObject.TryGetComponent<Projectile>(out Projectile p))
+            if (collider.gameObject.TryGetComponent<OldProjectile>(out OldProjectile p))
             {
                 p.Touch();
                 projectileTouching = p;
@@ -66,22 +66,18 @@ public class BeatPad : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, detectorBoxSize);
+        Gizmos.DrawWireCube(transform.position, colliderSize);
     }
-
 }
 
-public enum Dir
+public enum KeyControlling
 {
-    urp,
-    durn,
-    lurft,
-    rut,
-    Z,
-    X,
-    C,
-    V,
-    B,
-    N,
-    M
+    UP_ARR,
+    DOWN_ARR,
+    LEFT_ARR,
+    RIGHT_ARR,
+    W_KEY,
+    A_KEY,
+    S_KEY,
+    D_KEY
 }

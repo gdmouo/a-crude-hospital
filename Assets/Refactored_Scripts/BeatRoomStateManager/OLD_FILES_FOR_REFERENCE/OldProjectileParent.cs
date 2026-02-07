@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileParent : MonoBehaviour
+public class OldProjectileParent : MonoBehaviour
 {
-    public static ProjectileParent Instance {  get; private set; }
+    public static OldProjectileParent Instance {  get; private set; }
 
     private void Awake()
     {

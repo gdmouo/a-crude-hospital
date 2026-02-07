@@ -13,7 +13,7 @@ public class MenuCanvas : StateCanvas
 
     public void OnClickResume()
     {
-        GameStateManager g = GameStateManager.Instance;
+        StateManager g = StateManager.Instance;
 
         if (g != null)
         {

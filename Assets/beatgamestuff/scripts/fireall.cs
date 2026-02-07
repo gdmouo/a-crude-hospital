@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class fireall : MonoBehaviour
 {
-    [SerializeField] private List<ProjectileLauncher> pLs;
+    [SerializeField] private List<OldProjectileLauncher> pLs;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,7 @@ public class fireall : MonoBehaviour
 
     public void FireAll()
     {
-        foreach (ProjectileLauncher p in pLs)
+        foreach (OldProjectileLauncher p in pLs)
         {
             //p.FireProjectile();
         }

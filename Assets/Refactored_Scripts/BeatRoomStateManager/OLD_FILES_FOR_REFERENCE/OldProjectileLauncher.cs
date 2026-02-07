@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ProjectileLauncher : MonoBehaviour
+public class OldProjectileLauncher : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private BeatPad targetPad;
@@ -25,7 +25,7 @@ public class ProjectileLauncher : MonoBehaviour
     public void FireProjectile(float time)
     {
         GameObject temp = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-        temp.transform.SetParent(ProjectileParent.Instance.transform);
-        temp.GetComponent<Projectile>().ShootGunn(direcrtion, time);
+        temp.transform.SetParent(OldProjectileParent.Instance.transform);
+        temp.GetComponent<OldProjectile>().ShootGunn(direcrtion, time);
     }
 }

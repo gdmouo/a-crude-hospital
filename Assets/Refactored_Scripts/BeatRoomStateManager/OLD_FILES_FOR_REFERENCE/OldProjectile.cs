@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Projectile : MonoBehaviour
+public class OldProjectile : MonoBehaviour
 {
-    // private BeatPad targetPad;
     private bool shoot = false;
-    // [SerializeField] private float travelDuration = 2f;
+
     [SerializeField] private Vector2 projSize = new(1f, 1f);
 
     private Dir dir;

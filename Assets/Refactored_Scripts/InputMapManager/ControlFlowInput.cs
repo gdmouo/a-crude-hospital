@@ -25,7 +25,7 @@ public class ControlFlowInput : InputMap
 
     private void ToggleMenu_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        GameStateManager g = GameStateManager.Instance;
+        StateManager g = StateManager.Instance;
         
         if (g != null)
         {
@@ -35,7 +35,7 @@ public class ControlFlowInput : InputMap
 
     private void ToggleInventory_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        GameStateManager g = GameStateManager.Instance;
+        StateManager g = StateManager.Instance;
 
         if (g != null)
         {

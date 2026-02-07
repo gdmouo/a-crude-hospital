@@ -609,6 +609,174 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""BeatRoom"",
+            ""id"": ""7efbc11f-0dbb-4808-a738-c02334c894a8"",
+            ""actions"": [
+                {
+                    ""name"": ""W"",
+                    ""type"": ""Button"",
+                    ""id"": ""bfd58152-3fc6-4059-bcd3-8ef5f2512020"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""A"",
+                    ""type"": ""Button"",
+                    ""id"": ""6824cd00-0941-4c8d-b3b0-b7dab122742e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""S"",
+                    ""type"": ""Button"",
+                    ""id"": ""a106eb90-5805-48d5-a38f-da15828af672"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""D"",
+                    ""type"": ""Button"",
+                    ""id"": ""b8cbb156-1402-4db6-9c76-c1efa4cd9652"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""7505fd65-a1d9-4636-9600-9d8c405d4fe3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""cc2fa03d-07c0-4c37-a24d-796547770d5d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""3bd3cbcd-6950-4d86-844f-42958dbe8193"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""77485af4-71ba-4470-a85b-1a780b83c204"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0c1d199f-f5bc-4f55-8f01-fed59dda1137"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""W"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""25e57c4c-6516-46de-8b40-5d23683f6438"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08b46e26-3648-47a6-9c55-349c274340c0"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""S"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6401d09c-7087-4b34-b3ae-bcc231145a2a"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ea6dac2-d510-4dcd-9890-d8db704193a1"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b88baaca-d056-4eff-b274-b5fccc5385af"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""530176ba-f238-4c38-b91e-bebed0b8af43"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74748ec8-9eba-4342-9755-194c0619178c"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -647,6 +815,16 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_ControlFlow = asset.FindActionMap("ControlFlow", throwIfNotFound: true);
         m_ControlFlow_ToggleMenu = m_ControlFlow.FindAction("ToggleMenu", throwIfNotFound: true);
         m_ControlFlow_ToggleInventory = m_ControlFlow.FindAction("ToggleInventory", throwIfNotFound: true);
+        // BeatRoom
+        m_BeatRoom = asset.FindActionMap("BeatRoom", throwIfNotFound: true);
+        m_BeatRoom_W = m_BeatRoom.FindAction("W", throwIfNotFound: true);
+        m_BeatRoom_A = m_BeatRoom.FindAction("A", throwIfNotFound: true);
+        m_BeatRoom_S = m_BeatRoom.FindAction("S", throwIfNotFound: true);
+        m_BeatRoom_D = m_BeatRoom.FindAction("D", throwIfNotFound: true);
+        m_BeatRoom_Up = m_BeatRoom.FindAction("Up", throwIfNotFound: true);
+        m_BeatRoom_Down = m_BeatRoom.FindAction("Down", throwIfNotFound: true);
+        m_BeatRoom_Left = m_BeatRoom.FindAction("Left", throwIfNotFound: true);
+        m_BeatRoom_Right = m_BeatRoom.FindAction("Right", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1108,6 +1286,108 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public ControlFlowActions @ControlFlow => new ControlFlowActions(this);
+
+    // BeatRoom
+    private readonly InputActionMap m_BeatRoom;
+    private List<IBeatRoomActions> m_BeatRoomActionsCallbackInterfaces = new List<IBeatRoomActions>();
+    private readonly InputAction m_BeatRoom_W;
+    private readonly InputAction m_BeatRoom_A;
+    private readonly InputAction m_BeatRoom_S;
+    private readonly InputAction m_BeatRoom_D;
+    private readonly InputAction m_BeatRoom_Up;
+    private readonly InputAction m_BeatRoom_Down;
+    private readonly InputAction m_BeatRoom_Left;
+    private readonly InputAction m_BeatRoom_Right;
+    public struct BeatRoomActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public BeatRoomActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @W => m_Wrapper.m_BeatRoom_W;
+        public InputAction @A => m_Wrapper.m_BeatRoom_A;
+        public InputAction @S => m_Wrapper.m_BeatRoom_S;
+        public InputAction @D => m_Wrapper.m_BeatRoom_D;
+        public InputAction @Up => m_Wrapper.m_BeatRoom_Up;
+        public InputAction @Down => m_Wrapper.m_BeatRoom_Down;
+        public InputAction @Left => m_Wrapper.m_BeatRoom_Left;
+        public InputAction @Right => m_Wrapper.m_BeatRoom_Right;
+        public InputActionMap Get() { return m_Wrapper.m_BeatRoom; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BeatRoomActions set) { return set.Get(); }
+        public void AddCallbacks(IBeatRoomActions instance)
+        {
+            if (instance == null || m_Wrapper.m_BeatRoomActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_BeatRoomActionsCallbackInterfaces.Add(instance);
+            @W.started += instance.OnW;
+            @W.performed += instance.OnW;
+            @W.canceled += instance.OnW;
+            @A.started += instance.OnA;
+            @A.performed += instance.OnA;
+            @A.canceled += instance.OnA;
+            @S.started += instance.OnS;
+            @S.performed += instance.OnS;
+            @S.canceled += instance.OnS;
+            @D.started += instance.OnD;
+            @D.performed += instance.OnD;
+            @D.canceled += instance.OnD;
+            @Up.started += instance.OnUp;
+            @Up.performed += instance.OnUp;
+            @Up.canceled += instance.OnUp;
+            @Down.started += instance.OnDown;
+            @Down.performed += instance.OnDown;
+            @Down.canceled += instance.OnDown;
+            @Left.started += instance.OnLeft;
+            @Left.performed += instance.OnLeft;
+            @Left.canceled += instance.OnLeft;
+            @Right.started += instance.OnRight;
+            @Right.performed += instance.OnRight;
+            @Right.canceled += instance.OnRight;
+        }
+
+        private void UnregisterCallbacks(IBeatRoomActions instance)
+        {
+            @W.started -= instance.OnW;
+            @W.performed -= instance.OnW;
+            @W.canceled -= instance.OnW;
+            @A.started -= instance.OnA;
+            @A.performed -= instance.OnA;
+            @A.canceled -= instance.OnA;
+            @S.started -= instance.OnS;
+            @S.performed -= instance.OnS;
+            @S.canceled -= instance.OnS;
+            @D.started -= instance.OnD;
+            @D.performed -= instance.OnD;
+            @D.canceled -= instance.OnD;
+            @Up.started -= instance.OnUp;
+            @Up.performed -= instance.OnUp;
+            @Up.canceled -= instance.OnUp;
+            @Down.started -= instance.OnDown;
+            @Down.performed -= instance.OnDown;
+            @Down.canceled -= instance.OnDown;
+            @Left.started -= instance.OnLeft;
+            @Left.performed -= instance.OnLeft;
+            @Left.canceled -= instance.OnLeft;
+            @Right.started -= instance.OnRight;
+            @Right.performed -= instance.OnRight;
+            @Right.canceled -= instance.OnRight;
+        }
+
+        public void RemoveCallbacks(IBeatRoomActions instance)
+        {
+            if (m_Wrapper.m_BeatRoomActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IBeatRoomActions instance)
+        {
+            foreach (var item in m_Wrapper.m_BeatRoomActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_BeatRoomActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public BeatRoomActions @BeatRoom => new BeatRoomActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -1147,5 +1427,16 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {
         void OnToggleMenu(InputAction.CallbackContext context);
         void OnToggleInventory(InputAction.CallbackContext context);
+    }
+    public interface IBeatRoomActions
+    {
+        void OnW(InputAction.CallbackContext context);
+        void OnA(InputAction.CallbackContext context);
+        void OnS(InputAction.CallbackContext context);
+        void OnD(InputAction.CallbackContext context);
+        void OnUp(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
+        void OnLeft(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
     }
 }

@@ -4,15 +4,67 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InputMapManager : MonoBehaviour
+public class GameInputMapManager : InputMapManager
 {
+    [Header("GameInputMapManager Fields")]
+
+    private InputMap controlFlow;
+    private InputMap playerControls;
+
+    protected override void OnStart()
+    {
+        if (controlFlow == null)
+        {
+            controlFlow = GetMapByType(InputMapType.ControlFlow);
+            if (!controlFlow.MapEnabled)
+            {
+                controlFlow.EnableMap(playerInputActions);
+            }
+        }
+        if (playerControls == null)
+        {
+            playerControls = GetMapByType(InputMapType.Player);
+            if (!playerControls.MapEnabled)
+            {
+                playerControls.EnableMap(playerInputActions);
+            }
+        }
+    }
+
+    protected override void BeforeToggleMap()
+    {
+        OnStart();
+    }
+
+    protected override void BeforeDeactivateMap(InputMapType i)
+    {
+        if (i == InputMapType.Dialogue)
+        {
+            controlFlow.EnableMap(playerInputActions);
+        } 
+    }
+
+    protected override void BeforeActivateMap(InputMapType i)
+    {
+        if (i == InputMapType.HUD)
+        {
+            playerControls.EnableMap(playerInputActions);
+        }
+        else if (i == InputMapType.Dialogue)
+        {
+            controlFlow.DisableMap(playerInputActions);
+        }
+    }
+
+
+    /*
     [SerializeField] private List<InputMap> inputMaps;
     [SerializeField] private MouseManager mouseManager;
     private InputMap controlFlow;
     private InputMap playerControls;
     private PlayerInputActions playerInputActions;
 
-    public static InputMapManager Instance { get; private set; }
+    public static GameInputMapManager Instance { get; private set; }
     public MouseManager Mouse { get { return mouseManager;  } }
 
     private void Awake()
@@ -121,5 +173,5 @@ public class InputMapManager : MonoBehaviour
             if (inputMap.GetInputMapType() == i) return inputMap;
         }
         return null;
-    }
+    }*/
 }

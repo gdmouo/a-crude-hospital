@@ -20,7 +20,7 @@ public class InventoryState : GameState
      */
     protected override void OnActivate()
     {
-        GameStateManager g = GameStateManager.Instance;
+        StateManager g = StateManager.Instance;
         StateCanvasManager s = StateCanvasManager.Instance;
         InputMapManager i = InputMapManager.Instance;
 
@@ -57,7 +57,7 @@ public class InventoryState : GameState
 
     protected override void OnDeactivate()
     {
-        GameStateManager g = GameStateManager.Instance;
+        StateManager g = StateManager.Instance;
         StateCanvasManager s = StateCanvasManager.Instance;
         InputMapManager i = InputMapManager.Instance;
 
