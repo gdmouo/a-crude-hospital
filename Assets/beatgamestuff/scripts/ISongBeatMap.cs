@@ -6,5 +6,5 @@ public interface ISongBeatMap
 {
     public BeatList GetBeatMap();
     public AudioSource GetSong();
-    public TrackSO GetTrackSO();
+    public FartSO GetTrackSO();
 }

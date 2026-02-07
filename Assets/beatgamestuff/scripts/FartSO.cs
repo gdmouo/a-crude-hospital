@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Track", menuName = "TrackSO")]
-public class TrackSO : ScriptableObject
+[CreateAssetMenu(fileName = "Fart", menuName = "FArtsSO")]
+public class FartSO : ScriptableObject
 {
     public string songTitle;
     public float flyDuration;

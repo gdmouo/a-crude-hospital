@@ -7,42 +7,42 @@ public class BeatRoomInput : InputMap
 {
     public bool IsWPressed()
     {
-        return playerInputActions.BeatRoom.W.WasPressedThisFrame();
+        return playerInputActions.BeatRoom.W.IsPressed();
     }
 
     public bool IsAPressed()
     {
-        return playerInputActions.BeatRoom.A.WasPressedThisFrame();
+        return playerInputActions.BeatRoom.A.IsPressed();
     }
 
     public bool IsSPressed()
     {
-        return playerInputActions.BeatRoom.S.WasPressedThisFrame();
+        return playerInputActions.BeatRoom.S.IsPressed();
     }
 
     public bool IsDPressed()
     {
-        return playerInputActions.BeatRoom.D.WasPressedThisFrame();
+        return playerInputActions.BeatRoom.D.IsPressed();
     }
 
     public bool IsUpPressed()
     {
-        return playerInputActions.BeatRoom.Up.WasPressedThisFrame();
+        return playerInputActions.BeatRoom.Up.IsPressed();
     }
 
     public bool IsDownPressed()
     {
-        return playerInputActions.BeatRoom.Down.WasPressedThisFrame();
+        return playerInputActions.BeatRoom.Down.IsPressed();
     }
 
     public bool IsLeftPressed()
     {
-        return playerInputActions.BeatRoom.Left.WasPressedThisFrame();
+        return playerInputActions.BeatRoom.Left.IsPressed();
     }
 
     public bool IsRightPressed()
     {
-        return playerInputActions.BeatRoom.Right.WasPressedThisFrame();
+        return playerInputActions.BeatRoom.Right.IsPressed();
     }
 
 

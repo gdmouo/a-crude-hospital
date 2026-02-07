@@ -47,7 +47,7 @@ public class MusicPlayer : MonoBehaviour
             
             
 
-            TrackSO trackSO = songBeatMap.GetTrackSO();
+            FartSO trackSO = songBeatMap.GetTrackSO();
             songStartTime = AudioSettings.dspTime + trackSO.songStartTime;
             songEndTime = trackSO.songEndTime;
 

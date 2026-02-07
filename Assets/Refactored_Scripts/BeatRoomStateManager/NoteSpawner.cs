@@ -17,7 +17,7 @@ public class NoteSpawner : MonoBehaviour
         //transform.position = new(targetPad.transform.position.x, transform.position.y, 0f);
     }
 
-    public void FireProjectile(float timeToGetToPad)
+    public void FireNote(float timeToGetToPad)
     {
         GameObject temp = Instantiate(notePrefab, transform.position, Quaternion.identity);
         temp.transform.SetParent(NoteSpace.Instance.transform);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class SongBeatMap : MonoBehaviour, ISongBeatMap
 {
-    [SerializeField] protected TrackSO trackSO;
+    [SerializeField] protected FartSO trackSO;
     [SerializeField] private AudioSource song;
     public BeatList GetBeatMap()
     {
@@ -18,7 +18,7 @@ public abstract class SongBeatMap : MonoBehaviour, ISongBeatMap
         return song;
     }
 
-    public TrackSO GetTrackSO()
+    public FartSO GetTrackSO()
     {
         return trackSO;
     }

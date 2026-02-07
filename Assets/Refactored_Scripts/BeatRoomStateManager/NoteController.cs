@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class NoteController : MonoBehaviour
 {
-    public static NoteController Instance { get; private set; }
+ //   public static NoteController Instance { get; private set; }
+
+
     [SerializeField] private List<NoteSpawner> noteSpawners;
     //
     private Dictionary<KeyControlling, NoteSpawner> noteSpawnerDict;
@@ -12,7 +14,7 @@ public class NoteController : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+       // Instance = this;
     }
     // Start is called before the first frame update
     void Start()
