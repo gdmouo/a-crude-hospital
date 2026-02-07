@@ -6,7 +6,7 @@ using UnityEngine;
 public class TrackSO : ScriptableObject
 {
     public TrackTitle Title;
-    public List<Beat> Beats;
+    public List<Beats> BeatMapping;
     public RecordSettings Settings;
 }
 
@@ -19,14 +19,17 @@ public enum TrackTitle {
 [System.Serializable]
 public struct Beat
 {
-    public float ArrivalTimeInTrack;
-    public List<KeyControlling> Targets;
-    public Beat(float t, List<KeyControlling> k)
-    {
-        ArrivalTimeInTrack = t;
-        Targets = k;
-    }
+    public KeyControlling Target;
+    //0 for non longbeat
+    public double LongBeatDuration;
 }
+
+[System.Serializable]
+public struct Beats {
+    public float ArrivalTimeInTrack;
+    public List<Beat> BeatsToMap;
+}
+
 
 [System.Serializable]
 public struct RecordSettings

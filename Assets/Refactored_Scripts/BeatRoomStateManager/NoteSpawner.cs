@@ -17,11 +17,14 @@ public class NoteSpawner : MonoBehaviour
         //transform.position = new(targetPad.transform.position.x, transform.position.y, 0f);
     }
 
-    public void FireNote(float timeToGetToPad)
+    public void FireNote(float timeToGetToPad, double longBeatDuration)
     {
-        GameObject temp = Instantiate(notePrefab, transform.position, Quaternion.identity);
-        temp.transform.SetParent(NoteSpace.Instance.transform);
-        temp.GetComponent<Note>().SpawnNote(direction, timeToGetToPad);
+        if (longBeatDuration == 0)
+        {
+            GameObject temp = Instantiate(notePrefab, transform.position, Quaternion.identity);
+            temp.transform.SetParent(NoteSpace.Instance.transform);
+            temp.GetComponent<Note>().SpawnNote(direction, timeToGetToPad);
+        }
     }
 
     public void SetPos(Vector2 pos)

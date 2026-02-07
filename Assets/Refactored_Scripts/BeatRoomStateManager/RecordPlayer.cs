@@ -6,7 +6,7 @@ using UnityEngine;
 public class RecordPlayer : MonoBehaviour
 {
     [SerializeField] private NoteController noteController;
-    private List<Beat> beatMapping;
+    private List<Beats> beatMapping;
 
     private AudioSource track;
     private float flyTime;
@@ -35,7 +35,7 @@ public class RecordPlayer : MonoBehaviour
 
     public void LoadTrack(TrackSO trackSO)
     {
-        List<Beat> trackBeats = trackSO.Beats;
+        List<Beats> trackBeats = trackSO.BeatMapping;
         beatMapping = trackBeats;
 
         RecordSettings rS = trackSO.Settings;
@@ -77,21 +77,21 @@ public class RecordPlayer : MonoBehaviour
 
         if (nextIndex < beatMapping.Count)
         {
-            Beat beat = beatMapping[nextIndex];
+            Beats beats = beatMapping[nextIndex];
 
-            double spawnTime = Mathf.Max(beat.ArrivalTimeInTrack - flyTime, 0);
+            double spawnTime = Mathf.Max(beats.ArrivalTimeInTrack - flyTime, 0);
 
             if (trackTime >= spawnTime)
             {
-                List<KeyControlling> targets = beat.Targets;
+                List<Beat> toMap = beats.BeatsToMap;
 
-                if (targets == null || targets.Count == 0) {
+                if (toMap == null || toMap.Count == 0) {
                     return;
                 }
 
-                foreach (KeyControlling k in targets)
+                foreach (Beat b in toMap)
                 {
-                    SpawnNote(k, flyTime);
+                    SpawnNote(b, flyTime);
                 }
 
                 nextIndex++;
@@ -100,16 +100,16 @@ public class RecordPlayer : MonoBehaviour
 
     }
 
-    private void SpawnNote(KeyControlling target, float f)
+    private void SpawnNote(Beat beat, float f)
     {
         if (noteController == null)
         {
             return;
         }
-        //NoteController.Instance;
-        if (noteController.NSDict.TryGetValue(target, out NoteSpawner nSp))
+
+        if (noteController.NSDict.TryGetValue(beat.Target, out NoteSpawner nSp))
         {
-            nSp.FireNote(f);
+            nSp.FireNote(f, beat.LongBeatDuration);
         }
     }
 

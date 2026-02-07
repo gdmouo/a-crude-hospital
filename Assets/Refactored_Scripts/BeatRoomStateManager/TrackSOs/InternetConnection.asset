@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: InternetConnection
   m_EditorClassIdentifier: 
   Title: 1
-  Beats:
+  BeatMapping:
   - ArrivalTimeInTrack: 0
-    Targets: 
+    BeatsToMap:
+    - Target: 0
+      LongBeatDuration: 0
   Settings:
     FlyTime: 0
     TrackStartTime: 0
