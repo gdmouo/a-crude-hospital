@@ -14,12 +14,111 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: 1
   BeatMapping:
-  - ArrivalTimeInTrack: 0
+  - ArrivalTimeInTrack: {x: 0, y: 12, z: 12}
     BeatsToMap:
-    - Target: 0
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 12, z: 18}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 13, z: 17}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 14, z: 0}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 14, z: 7}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 15, z: 12}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 15, z: 22}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 16, z: 3}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 17, z: 8}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 17, z: 21}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 17, z: 28}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 18, z: 26}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 19, z: 3}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 19, z: 17}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 19, z: 23}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 20, z: 0}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 20, z: 18}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 21, z: 12}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 21, z: 17}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 22, z: 24}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 23, z: 4}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 23, z: 14}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 24, z: 19}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 25, z: 2}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 25, z: 10}
+    BeatsToMap:
+    - Target: 2
+      LongBeatDuration: 0
+  - ArrivalTimeInTrack: {x: 0, y: 26, z: 28}
+    BeatsToMap:
+    - Target: 2
       LongBeatDuration: 0
   Settings:
-    FlyTime: 0
-    TrackStartTime: 0
-    TrackEndTime: 0
-    Track: {fileID: 0}
+    FlyTime: 1
+    TrackStartTime: 0.1
+    TrackEndTime: 30

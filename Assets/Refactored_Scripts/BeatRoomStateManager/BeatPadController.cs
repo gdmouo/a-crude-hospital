@@ -58,6 +58,15 @@ public class BeatPadController : MonoBehaviour
         }
     }*/
 
+    public float GetPadYCoord()
+    {
+        if (beatPads == null || beatPads.Count == 0)
+        {
+            return 0f;
+        }
+        return beatPads[0].transform.position.y;
+    }
+
     public BeatPad GetBeatPadByKey(KeyControlling k)
     {
         if (keyBeatPads == null)

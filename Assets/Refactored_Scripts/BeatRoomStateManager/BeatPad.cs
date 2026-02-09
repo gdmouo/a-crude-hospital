@@ -43,9 +43,9 @@ public class BeatPad : MonoBehaviour
 
             float maxDist = colliderSize.y + noteColliding.ProjSize.y;
             float distToProj = Vector2.Distance(transform.position, noteColliding.gameObject.transform.position);
-            float scale = Mathf.Min(Mathf.Abs(1f - (distToProj / maxDist)), 1f);
-            float baseScore = 100f;
-            float score = baseScore * scale;
+          //  float scale = Mathf.Min(Mathf.Abs(1f - (distToProj / maxDist)), 1f);
+           // float baseScore = 100f;
+          //  float score = baseScore * scale;
 
             GameObject temp = noteColliding.gameObject;
             noteColliding = null;
@@ -53,8 +53,8 @@ public class BeatPad : MonoBehaviour
 
            // ScoreManager.Instance.UpdateScore(score);
 
-            Debug.Log(score);
-        }
+           // Debug.Log(score);
+        }//
     }
 
     public void OnReleased()

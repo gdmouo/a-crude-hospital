@@ -26,8 +26,21 @@ public struct Beat
 
 [System.Serializable]
 public struct Beats {
-    public float ArrivalTimeInTrack;
+    public Vector3 ArrivalTimeInTrack;
     public List<Beat> BeatsToMap;
+
+    public float GetFloatArrivalTime()
+    {
+        float minutes = ArrivalTimeInTrack.x;
+        float seconds = ArrivalTimeInTrack.y;
+        float milliseconds = ArrivalTimeInTrack.z;
+
+        float arrivalTime = 0f;
+
+        arrivalTime += ((minutes * 60f) + seconds + (milliseconds / 60f));
+
+        return arrivalTime;
+    }
 }
 
 
@@ -37,7 +50,6 @@ public struct RecordSettings
     public float FlyTime;
     public double TrackStartTime;
     public double TrackEndTime;
-    public AudioSource Track;
 }
 
 
