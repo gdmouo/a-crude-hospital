@@ -13,7 +13,7 @@ public class BeatPad : MonoBehaviour
     private Color PadWhite;
     // Start is called before the first frame update
 
-    private Note noteColliding;
+    private OldNote noteColliding;
 
     private void Awake()
     {
@@ -67,7 +67,7 @@ public class BeatPad : MonoBehaviour
         Collider2D[] hitColliders = Physics2D.OverlapBoxAll(transform.position, colliderSize, 0f);
         foreach (Collider2D collider in hitColliders)
         {
-            if (collider.gameObject.TryGetComponent<Note>(out Note p))
+            if (collider.gameObject.TryGetComponent<OldNote>(out OldNote p))
             {
                 noteColliding = p;
             }

@@ -98,7 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c383d99675382b42a22b9d4f7aa457c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notePrefab: {fileID: 8019654043336420558, guid: eba80901c0bed21449fcb6835f7c89d1,
-    type: 3}
-  direction: {x: 0, y: 0}
-  keyTargeting: 5
+  noteSpawnerSettings:
+    Direction: {x: 0, y: 1}
+    NotePrefab: {fileID: 8019654043336420558, guid: eba80901c0bed21449fcb6835f7c89d1,
+      type: 3}
+    NoteSpace: {fileID: 0}
+    Lifetime: 0
+  targetPad: {fileID: 0}

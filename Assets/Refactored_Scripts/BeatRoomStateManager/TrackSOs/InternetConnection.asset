@@ -120,5 +120,5 @@ MonoBehaviour:
       LongBeatDuration: 0
   Settings:
     FlyTime: 1
-    TrackStartTime: 0.1
+    TrackStartTime: 0
     TrackEndTime: 30

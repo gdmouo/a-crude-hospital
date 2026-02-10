@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Tracks/TrackSO")]
-public class TrackSO : ScriptableObject
+[CreateAssetMenu(menuName = "OldTracks/TrackSO")]
+public class OldTrackSO : ScriptableObject
 {
-    public TrackTitle Title;
-    public List<Beats> BeatMapping;
-    public RecordSettings Settings;
+    public OldTrackTitle Title;
+    public List<OldBeats> BeatMapping;
+    public OldRecordSettings Settings;
 }
 
 [System.Serializable]
-public enum TrackTitle { 
+public enum OldTrackTitle { 
     NULL,
     Internet_Connection
 }
 
 [System.Serializable]
-public struct Beat
+public struct OldBeat
 {
     public KeyControlling Target;
     //0 for non longbeat
@@ -25,11 +25,10 @@ public struct Beat
 }
 
 [System.Serializable]
-public struct Beats {
+public struct OldBeats {
     public Vector3 ArrivalTimeInTrack;
-    public List<Beat> BeatsToMap;
-
-    public float GetFloatArrivalTime()
+    public List<OldBeat> BeatsToMap;
+    public double GetArrivalTime()
     {
         float minutes = ArrivalTimeInTrack.x;
         float seconds = ArrivalTimeInTrack.y;
@@ -45,7 +44,7 @@ public struct Beats {
 
 
 [System.Serializable]
-public struct RecordSettings
+public struct OldRecordSettings
 {
     public float FlyTime;
     public double TrackStartTime;

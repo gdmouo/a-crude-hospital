@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class RecordManager : MonoBehaviour
 {
-    [SerializeField] private List<Track> tracks;
-    [SerializeField] private TrackTitle currentTrack;
-    [SerializeField] private RecordPlayer recordPlayer;
+    [SerializeField] private List<OldTrack> tracks;
+    [SerializeField] private OldTrackTitle currentTrack;
+    [SerializeField] private OldRecordPlayer recordPlayer;
 
     public void PlayTrack()
     {
         if (recordPlayer != null)
         {
-            Track toPlay = GetTrackByTitle(currentTrack);
+            OldTrack toPlay = GetTrackByTitle(currentTrack);
             if (toPlay != null)
             {
                 recordPlayer.LoadTrack(toPlay);
@@ -21,10 +21,10 @@ public class RecordManager : MonoBehaviour
         }
     }
 
-    public Track GetTrackByTitle(TrackTitle t)
+    public OldTrack GetTrackByTitle(OldTrackTitle t)
     {
         if (tracks == null) return null;
-        foreach (Track track in tracks)
+        foreach (OldTrack track in tracks)
         {
             if (track.SO.Title == t) return track;
         }
