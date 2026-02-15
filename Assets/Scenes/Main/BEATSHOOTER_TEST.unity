@@ -1161,6 +1161,7 @@ GameObject:
   - component: {fileID: 1426636717}
   - component: {fileID: 1426636719}
   - component: {fileID: 1426636718}
+  - component: {fileID: 1426636720}
   m_Layer: 0
   m_Name: SportsCar
   m_TagString: Untagged
@@ -1293,6 +1294,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackSO: {fileID: 11400000, guid: 5ae3dea1a11c62c43bb81f96f9585b26, type: 2}
   audioSource: {fileID: 1426636718}
+--- !u!114 &1426636720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426636716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c6af48ddac85e4aad3b79cb52791ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1587679025
 GameObject:
   m_ObjectHideFlags: 0

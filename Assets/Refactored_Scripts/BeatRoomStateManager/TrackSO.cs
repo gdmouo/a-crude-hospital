@@ -10,6 +10,7 @@ public class TrackSO : ScriptableObject
     public Vector3 StartTime;
     public Vector3 EndTime;
     public double BeatFlyDuration;
+    public double BPM;
 
     public double GetStartTime()
     {

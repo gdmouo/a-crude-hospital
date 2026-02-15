@@ -2,24 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BPMMapperTestForSportsCar : MonoBehaviour
+public class BPMMapper : MonoBehaviour
 {
-    [Header("TrackInfo")]
-    [SerializeField] private TrackSO trackSO;
-    private double bpm = 107;
+   // [Header("TrackInfo")]
+    private TrackSO trackSO;
+    private double bpm;
 
     private const double WHOLE_NOTE_DENOM = 1;
 
     
-    void Start()
+    private void Start()
     {
+        Track t = GetComponent<Track>();
+        trackSO = t.GetTrackSO();
+            //GetComponent<TrackSO>();
+        bpm = trackSO.BPM;
+        SetTrackSOMap(trackSO);
+        //
        // secondsBetweenBeat = SPM / bpm;
         //(int)System.Math.Floor(songTime / secondsPerBeat);
     }
 
-    private void SetTrackSOMap()
+    private void SetTrackSOMap(TrackSO tSO)
     {
-        trackSO.BeatMapping = MapBeatsWithBPM(bpm, trackSO);
+        tSO.BeatMapping = MapBeatsWithBPM(bpm, trackSO);
     }
 
     public List<MappedBeat> MapBeatsWithBPM(double BPM, TrackSO tSO)
@@ -28,9 +34,12 @@ public class BPMMapperTestForSportsCar : MonoBehaviour
         double secondsBetweenBeat = SPM / BPM;
         List<MappedBeat> mappedBeats = new List<MappedBeat>();
 
-        mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, WHOLE_NOTE_DENOM, tSO.GetStartTime(), tSO.GetEndTime(), KeyControlling.UP_ARR));
+        mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, WHOLE_NOTE_DENOM, tSO.GetStartTime(), tSO.GetEndTime(), KeyControlling.LEFT_ARR));
+
         return mappedBeats;
     }
+
+    //struct with duration, keycontrolling, and perhaps ntoeType
 
     public List<MappedBeat> MapByNoteType(double secondsBetweenBeat, double noteTypeDenominator, double startTime, double endTime, KeyControlling key)
     {
