@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,32 +35,76 @@ public class BPMMapper : MonoBehaviour
         double secondsBetweenBeat = SPM / BPM;
         List<MappedBeat> mappedBeats = new List<MappedBeat>();
 
-        mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, WHOLE_NOTE_DENOM, tSO.GetStartTime(), tSO.GetEndTime(), KeyControlling.LEFT_ARR));
+        mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, WHOLE_NOTE_DENOM, tSO.GetStartTime(), tSO.GetEndTime(), KeyControlling.LEFT_ARR, tSO.BeatFlyDuration));
 
         return mappedBeats;
     }
 
     //struct with duration, keycontrolling, and perhaps ntoeType
 
-    public List<MappedBeat> MapByNoteType(double secondsBetweenBeat, double noteTypeDenominator, double startTime, double endTime, KeyControlling key)
+    public List<MappedBeat> MapByNoteType(double secondsBetweenBeat, double noteTypeDenominator, double startTime, double endTime, KeyControlling key, double flyTime)
     {
         List<MappedBeat> mappedBeats = new List<MappedBeat>();
-        double currTime;
+       // double currTime;
         double noteTypeInterval = secondsBetweenBeat / noteTypeDenominator;
 
+        int i = 1;
+        for (; ; i++)
+        {
+            double t = startTime + i * noteTypeInterval;
 
+            if (t >= endTime) break;
+
+            double shootTime = t - flyTime;
+
+            if (shootTime >= startTime)
+            {
+
+                MappedBeat mappedBeat = new MappedBeat();
+
+                //? change currTime to vector3?
+
+                mappedBeat.ArrivalTimeInTrack = GetSecondsAsTimeVector(t);
+
+                // mappedBeat.ArrTimeAsDouble = currTime;
+                mappedBeat.TargetKey = key;
+
+                mappedBeats.Add(mappedBeat);
+            }
+        }
+
+
+        /*
         for (currTime = startTime; currTime < endTime; currTime += noteTypeInterval)
         {
             MappedBeat mappedBeat = new MappedBeat();
-            mappedBeat.ArrTimeAsDouble = currTime;
+
+            //? change currTime to vector3?
+            
+            mappedBeat.ArrivalTimeInTrack = GetSecondsAsTimeVector(currTime);
+
+           // mappedBeat.ArrTimeAsDouble = currTime;
             mappedBeat.TargetKey = key;
 
             mappedBeats.Add(mappedBeat);
-        }
+        }*/
 
         return mappedBeats;
     }
 
+    private Vector3 GetSecondsAsTimeVector(double d)
+    {
+        double decimalPart = (d - Math.Floor(d)) * 100;
+        decimalPart = Math.Truncate(decimalPart);
+        double minutes = Math.Floor(d / 60);
+        minutes = Math.Truncate(minutes);
+        double seconds = d % 60;
+        seconds = Math.Truncate(seconds);
+
+        Vector3 temp = new Vector3((float) minutes, (float) seconds, (float) decimalPart);
+        Debug.Log(temp);
+        return temp;
+    }
     //subdivide, secondsBetweenBeat / (2,4,3 for 8th, 16th, triplet notes)
 
 }

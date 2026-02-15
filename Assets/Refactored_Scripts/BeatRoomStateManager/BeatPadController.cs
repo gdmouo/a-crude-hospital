@@ -105,44 +105,52 @@ public class BeatPadController : MonoBehaviour
         if (beatRoomInput.IsAPressed())
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.A_KEY);
+            if (b == null) return;
             b.OnHold();
         }
         else
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.A_KEY);
+            if (b == null) return;
             b.OnReleased();
         }
 
         if (beatRoomInput.IsSPressed())
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.S_KEY);
+            if (b == null) return;
             b.OnHold();
         }
         else
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.S_KEY);
+            if (b == null) return;
             b.OnReleased();
         }
 
         if (beatRoomInput.IsWPressed())
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.W_KEY);
+            if (b == null) return;
             b.OnHold();
         }
         else
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.W_KEY);
+            if (b == null) return;
             b.OnReleased();
         }
 
         if (beatRoomInput.IsDPressed())
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.D_KEY);
+            if (b == null) return;
             b.OnHold();
         }
         else
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.D_KEY);
+            if (b == null) return;
             b.OnReleased();
         }
 
@@ -153,44 +161,52 @@ public class BeatPadController : MonoBehaviour
         if (beatRoomInput.IsLeftPressed())
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.LEFT_ARR);
+            if (b == null) return;
             b.OnHold();
         }
         else
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.LEFT_ARR);
+            if (b == null) return;
             b.OnReleased();
         }
 
         if (beatRoomInput.IsDownPressed())
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.DOWN_ARR);
+            if (b == null) return;
             b.OnHold();
         }
         else
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.DOWN_ARR);
+            if (b == null) return;
             b.OnReleased();
         }
 
         if (beatRoomInput.IsUpPressed())
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.UP_ARR);
+            if (b == null) return;
             b.OnHold();
         }
         else
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.UP_ARR);
+            if (b == null) return;
             b.OnReleased();
         }
 
         if (beatRoomInput.IsRightPressed())
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.RIGHT_ARR);
+            if (b == null) return;
             b.OnHold();
         }
         else
         {
             BeatPad b = GetBeatPadByKey(KeyControlling.RIGHT_ARR);
+            if (b == null) return;
             b.OnReleased();
         }
     }

@@ -144,3 +144,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ff5b7006d8a584fb36c18449a2b3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projSize: {x: 1, y: 1}

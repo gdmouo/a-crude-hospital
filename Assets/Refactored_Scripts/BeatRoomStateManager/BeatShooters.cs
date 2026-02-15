@@ -12,7 +12,13 @@ public class BeatShooters : MonoBehaviour, IBeatShooter
     public void Fire(KeyControlling k, double d)
     {
         BeatShooter shooter = GetShooterByKey(k);
+
+        //
+
         BeatParam beatParam = new BeatParam(shooter.BeatShooterPos.position, shooter.BeatPadTargetPos.position, d);
+
+
+
         GameObject temp = Instantiate(beatPrefab, shooter.BeatShooterPos.position, Quaternion.identity);
         temp.transform.SetParent(beatParent);
         Beat beatComponent = temp.GetComponent<Beat>();

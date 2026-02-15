@@ -13,8 +13,594 @@ MonoBehaviour:
   m_Name: SportsCarTM
   m_EditorClassIdentifier: Assembly-CSharp::TrackSO
   Key: 0
-  BeatMapping: []
-  StartTime: {x: 0, y: 0, z: 0}
-  EndTime: {x: 0, y: 2, z: 45}
+  BeatMapping:
+  - ArrivalTimeInTrack: {x: 0, y: 1, z: 0}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 1, z: 56}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 2, z: 12}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 2, z: 68}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 3, z: 24}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 3, z: 80}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 4, z: 36}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 4, z: 92}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 5, z: 48}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 6, z: 4}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 6, z: 60}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 7, z: 16}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 7, z: 72}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 8, z: 28}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 8, z: 85}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 9, z: 41}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 9, z: 97}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 10, z: 53}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 11, z: 9}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 11, z: 65}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 12, z: 21}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 12, z: 77}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 13, z: 33}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 13, z: 89}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 14, z: 45}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 15, z: 1}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 15, z: 57}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 16, z: 14}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 16, z: 70}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 17, z: 26}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 17, z: 82}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 18, z: 38}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 18, z: 94}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 19, z: 50}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 20, z: 6}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 20, z: 62}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 21, z: 18}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 21, z: 74}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 22, z: 30}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 22, z: 86}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 23, z: 42}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 23, z: 99}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 24, z: 55}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 25, z: 11}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 25, z: 67}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 26, z: 23}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 26, z: 79}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 27, z: 35}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 27, z: 91}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 28, z: 47}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 29, z: 3}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 29, z: 59}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 30, z: 15}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 30, z: 71}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 31, z: 28}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 31, z: 84}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 32, z: 40}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 32, z: 96}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 33, z: 52}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 34, z: 8}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 34, z: 64}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 35, z: 20}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 35, z: 76}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 36, z: 32}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 36, z: 88}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 37, z: 44}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 38, z: 0}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 38, z: 57}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 39, z: 13}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 39, z: 69}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 40, z: 25}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 40, z: 81}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 41, z: 37}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 41, z: 93}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 42, z: 49}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 43, z: 5}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 43, z: 61}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 44, z: 17}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 44, z: 73}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 45, z: 29}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 45, z: 85}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 46, z: 42}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 46, z: 98}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 47, z: 54}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 48, z: 10}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 48, z: 66}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 49, z: 22}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 49, z: 78}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 50, z: 34}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 50, z: 90}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 51, z: 46}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 52, z: 2}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 52, z: 58}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 53, z: 14}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 53, z: 71}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 54, z: 27}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 54, z: 83}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 55, z: 39}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 55, z: 95}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 56, z: 51}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 57, z: 7}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 57, z: 63}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 58, z: 19}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 58, z: 75}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 59, z: 31}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 0, y: 59, z: 87}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 0, z: 43}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 1, z: 0}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 1, z: 56}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 2, z: 12}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 2, z: 68}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 3, z: 24}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 3, z: 80}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 4, z: 36}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 4, z: 92}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 5, z: 48}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 6, z: 4}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 6, z: 60}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 7, z: 16}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 7, z: 72}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 8, z: 28}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 8, z: 85}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 9, z: 41}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 9, z: 97}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 10, z: 53}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 11, z: 9}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 11, z: 65}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 12, z: 21}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 12, z: 77}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 13, z: 33}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 13, z: 89}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 14, z: 45}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 15, z: 1}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 15, z: 57}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 16, z: 14}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 16, z: 70}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 17, z: 26}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 17, z: 82}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 18, z: 38}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 18, z: 94}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 19, z: 50}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 20, z: 6}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 20, z: 62}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 21, z: 18}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 21, z: 74}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 22, z: 30}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 22, z: 86}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 23, z: 42}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 23, z: 99}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 24, z: 55}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 25, z: 11}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 25, z: 67}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 26, z: 23}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 26, z: 79}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 27, z: 35}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 27, z: 91}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 28, z: 47}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 29, z: 3}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 29, z: 59}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 30, z: 15}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 30, z: 71}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 31, z: 28}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 31, z: 84}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 32, z: 40}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 32, z: 96}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 33, z: 52}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 34, z: 8}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 34, z: 64}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 35, z: 20}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 35, z: 76}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 36, z: 32}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 36, z: 88}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 37, z: 44}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 38, z: 0}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 38, z: 57}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 39, z: 13}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 39, z: 69}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 40, z: 25}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 40, z: 81}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 41, z: 37}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 41, z: 93}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 42, z: 49}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 43, z: 5}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 43, z: 61}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 44, z: 17}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 44, z: 73}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 45, z: 29}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 45, z: 85}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 46, z: 42}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 46, z: 98}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 47, z: 54}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 48, z: 10}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 48, z: 66}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 49, z: 22}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 49, z: 78}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 50, z: 34}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 50, z: 90}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 51, z: 46}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 52, z: 2}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 52, z: 58}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 53, z: 14}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 53, z: 71}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 54, z: 27}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 54, z: 83}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 55, z: 39}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 55, z: 95}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 56, z: 51}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 57, z: 7}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 57, z: 63}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 58, z: 19}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 58, z: 75}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 59, z: 31}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 1, y: 59, z: 87}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 0, z: 43}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 0, z: 99}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 1, z: 56}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 2, z: 12}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 2, z: 68}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 3, z: 24}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 3, z: 80}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 4, z: 36}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 4, z: 92}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 5, z: 48}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 6, z: 4}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 6, z: 60}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 7, z: 16}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 7, z: 72}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 8, z: 28}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 8, z: 85}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 9, z: 41}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 9, z: 97}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 10, z: 53}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 11, z: 9}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 11, z: 65}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 12, z: 21}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 12, z: 77}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 13, z: 33}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 13, z: 89}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 14, z: 45}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 15, z: 1}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 15, z: 57}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 16, z: 14}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 16, z: 70}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 17, z: 26}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 17, z: 82}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 18, z: 38}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 18, z: 94}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 19, z: 50}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 20, z: 6}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 20, z: 62}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 21, z: 18}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 21, z: 74}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 22, z: 30}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 22, z: 86}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 23, z: 42}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 23, z: 99}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 24, z: 55}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 25, z: 11}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 25, z: 67}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 26, z: 23}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 26, z: 79}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 27, z: 35}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 27, z: 91}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 28, z: 47}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 29, z: 3}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 29, z: 59}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 30, z: 15}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 30, z: 71}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 31, z: 28}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 31, z: 84}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 32, z: 40}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 32, z: 96}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 33, z: 52}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 34, z: 8}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 34, z: 64}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 35, z: 20}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 35, z: 76}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 36, z: 32}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 36, z: 88}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 37, z: 44}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 38, z: 0}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 38, z: 57}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 39, z: 13}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 39, z: 69}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 40, z: 25}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 40, z: 81}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 41, z: 37}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 41, z: 93}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 42, z: 49}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 43, z: 5}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 43, z: 61}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 44, z: 17}
+    TargetKey: 2
+  - ArrivalTimeInTrack: {x: 2, y: 44, z: 73}
+    TargetKey: 2
+  StartTime: {x: 0, y: 1, z: 0}
+  EndTime: {x: 2, y: 45, z: 0}
   BeatFlyDuration: 1
   BPM: 107

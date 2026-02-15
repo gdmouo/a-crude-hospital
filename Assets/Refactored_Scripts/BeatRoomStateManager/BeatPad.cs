@@ -13,7 +13,7 @@ public class BeatPad : MonoBehaviour
     private Color PadWhite;
     // Start is called before the first frame update
 
-    private OldNote noteColliding;
+    private Beat beatColliding;
 
     private void Awake()
     {
@@ -36,19 +36,19 @@ public class BeatPad : MonoBehaviour
     {
         ToggleSprite(PadYellow);
 
-        if (noteColliding != null)
+        if (beatColliding != null)
         {
             //the great bojack jerk-off
             //he hates the troops
 
-            float maxDist = colliderSize.y + noteColliding.ProjSize.y;
-            float distToProj = Vector2.Distance(transform.position, noteColliding.gameObject.transform.position);
+            float maxDist = colliderSize.y + beatColliding.ProjSize.y;
+            float distToProj = Vector2.Distance(transform.position, beatColliding.gameObject.transform.position);
           //  float scale = Mathf.Min(Mathf.Abs(1f - (distToProj / maxDist)), 1f);
            // float baseScore = 100f;
           //  float score = baseScore * scale;
 
-            GameObject temp = noteColliding.gameObject;
-            noteColliding = null;
+            GameObject temp = beatColliding.gameObject;
+            beatColliding = null;
             Destroy(temp);
 
            // ScoreManager.Instance.UpdateScore(score);
@@ -67,15 +67,15 @@ public class BeatPad : MonoBehaviour
         Collider2D[] hitColliders = Physics2D.OverlapBoxAll(transform.position, colliderSize, 0f);
         foreach (Collider2D collider in hitColliders)
         {
-            if (collider.gameObject.TryGetComponent<OldNote>(out OldNote p))
+            if (collider.gameObject.TryGetComponent<Beat>(out Beat b))
             {
-                noteColliding = p;
+                beatColliding = b;
             }
         }
 
         if (hitColliders.Length == 0)
         {
-            noteColliding = null;
+            beatColliding = null;
         }
     }
 

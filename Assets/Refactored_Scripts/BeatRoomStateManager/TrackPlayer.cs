@@ -13,6 +13,7 @@ public class TrackPlayer : MonoBehaviour, ITrackPlayer
     private List<MappedBeat> trackBeatMapping;
     private int beatMapIndex = 0;
     private double beatFlyDuration = 0;
+    private double trackStartTime;
 
     private bool play = false;
 
@@ -27,6 +28,7 @@ public class TrackPlayer : MonoBehaviour, ITrackPlayer
         TrackSO trackSO = track.GetTrackSO();
         beatFlyDuration = trackSO.BeatFlyDuration;
         trackBeatMapping = trackSO.BeatMapping;
+        trackStartTime = trackSO.GetStartTime();
         PlayAudio(track.GetAudioSource(), trackSO.GetStartTime());
         play = true;
     }
@@ -40,8 +42,17 @@ public class TrackPlayer : MonoBehaviour, ITrackPlayer
         while (beatMapIndex < trackBeatMapping.Count)
         {
             MappedBeat m = trackBeatMapping[beatMapIndex];
+            //vv get arrivaltime, check if its based on bpm generation and use a different function?
             double trackShootTime = m.GetArrivalTime() - beatFlyDuration;
-            trackShootTime = Math.Max(trackShootTime, 0);
+          //  trackShootTime = Math.Max(trackShootTime, 0);
+          //  Debug.Log(trackShootTime);
+
+            /*
+            if (trackShootTime < trackStartTime)
+            {
+                beatMapIndex++;
+                break;
+            }*/
 
             if (elapsedTrackSeconds < trackShootTime) break;
 

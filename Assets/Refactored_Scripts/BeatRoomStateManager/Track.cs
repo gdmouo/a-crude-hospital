@@ -36,7 +36,8 @@ public struct MappedBeat
 {
     public Vector3 ArrivalTimeInTrack;
     public KeyControlling TargetKey;
-    public double ArrTimeAsDouble;
+   
+    //public double ArrTimeAsDouble;
     public double GetArrivalTime()
     {
         float minutes = ArrivalTimeInTrack.x;
@@ -47,7 +48,8 @@ public struct MappedBeat
 
         arrivalTime += ((minutes * 60f) + seconds + (milliseconds / 60f));
 
-        ArrTimeAsDouble = arrivalTime;
+       // ArrTimeAsDouble = arrivalTime;
+       //coudlve just done arrivaltime = arrtimeasdoubel.. no but i wanted ocnsistency. right rightt
 
         return arrivalTime;
     }
