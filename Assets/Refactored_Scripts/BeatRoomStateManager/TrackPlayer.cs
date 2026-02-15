@@ -23,8 +23,10 @@ public class TrackPlayer : MonoBehaviour, ITrackPlayer
 
     public void Play()
     {
+        beatMapIndex = 0;
         TrackSO trackSO = track.GetTrackSO();
         beatFlyDuration = trackSO.BeatFlyDuration;
+        trackBeatMapping = trackSO.BeatMapping;
         PlayAudio(track.GetAudioSource(), trackSO.GetStartTime());
         play = true;
     }
@@ -54,8 +56,9 @@ public class TrackPlayer : MonoBehaviour, ITrackPlayer
         {
             audioTime = AudioTime.Instance;
         }
-        double dspStart = AudioSettings.dspTime + startTime;
+        a.time = (float) startTime;
+        double dspStart = AudioSettings.dspTime;
         a.PlayScheduled(dspStart);
-        audioTime.RestartClock(0);
+        audioTime.RestartClock(startTime);
     }
 }
