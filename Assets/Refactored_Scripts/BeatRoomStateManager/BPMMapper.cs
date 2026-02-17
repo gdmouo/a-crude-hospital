@@ -40,6 +40,8 @@ public class BPMMapper : MonoBehaviour
         return mappedBeats;
     }
 
+    
+
     //struct with duration, keycontrolling, and perhaps ntoeType
 
     public List<MappedBeat> MapByNoteType(double secondsBetweenBeat, double noteTypeDenominator, double startTime, double endTime, KeyControlling key, double flyTime)
@@ -72,22 +74,6 @@ public class BPMMapper : MonoBehaviour
                 mappedBeats.Add(mappedBeat);
             }
         }
-
-
-        /*
-        for (currTime = startTime; currTime < endTime; currTime += noteTypeInterval)
-        {
-            MappedBeat mappedBeat = new MappedBeat();
-
-            //? change currTime to vector3?
-            
-            mappedBeat.ArrivalTimeInTrack = GetSecondsAsTimeVector(currTime);
-
-           // mappedBeat.ArrTimeAsDouble = currTime;
-            mappedBeat.TargetKey = key;
-
-            mappedBeats.Add(mappedBeat);
-        }*/
 
         return mappedBeats;
     }
