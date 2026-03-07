@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BPMMapper : MonoBehaviour
+public abstract class BPMMapper : MonoBehaviour
 {
    // [Header("TrackInfo")]
-    private TrackSO trackSO;
-    private double bpm;
+    protected TrackSO trackSO;
+    protected double bpm;
 
-    private const double WHOLE_NOTE_DENOM = 1;
+    protected const double WHOLE_NOTE_DENOM = 1;
+    protected const double HALF_NOTE_DENOM = 2;
 
     
     private void Start()
@@ -29,22 +30,27 @@ public class BPMMapper : MonoBehaviour
         tSO.BeatMapping = MapBeatsWithBPM(bpm, trackSO);
     }
 
-    public List<MappedBeat> MapBeatsWithBPM(double BPM, TrackSO tSO)
+    public abstract List<MappedBeat> MapBeatsWithBPM(double BPM, TrackSO tSO);
+        /*
     {
         double SPM = 60;
         double secondsBetweenBeat = SPM / BPM;
         List<MappedBeat> mappedBeats = new List<MappedBeat>();
 
-        mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, WHOLE_NOTE_DENOM, tSO.GetStartTime(), tSO.GetEndTime(), KeyControlling.LEFT_ARR, tSO.BeatFlyDuration));
+        double thisEndTime = 5;
+        double nextEndTime = 10;
+        //  mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, WHOLE_NOTE_DENOM, tSO.GetStartTime(), tSO.GetEndTime(), KeyControlling.LEFT_ARR, tSO.BeatFlyDuration));
+        mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, WHOLE_NOTE_DENOM, tSO.GetStartTime(), thisEndTime, KeyControlling.LEFT_ARR, tSO.BeatFlyDuration));
+        mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, HALF_NOTE_DENOM, thisEndTime, nextEndTime, KeyControlling.A_KEY, tSO.BeatFlyDuration));
 
         return mappedBeats;
-    }
+    }*/
 
     
 
     //struct with duration, keycontrolling, and perhaps ntoeType
 
-    public List<MappedBeat> MapByNoteType(double secondsBetweenBeat, double noteTypeDenominator, double startTime, double endTime, KeyControlling key, double flyTime)
+    protected List<MappedBeat> MapByNoteType(double secondsBetweenBeat, double noteTypeDenominator, double startTime, double endTime, KeyControlling key, double flyTime)
     {
         List<MappedBeat> mappedBeats = new List<MappedBeat>();
        // double currTime;
@@ -78,7 +84,7 @@ public class BPMMapper : MonoBehaviour
         return mappedBeats;
     }
 
-    private Vector3 GetSecondsAsTimeVector(double d)
+    protected Vector3 GetSecondsAsTimeVector(double d)
     {
         double decimalPart = (d - Math.Floor(d)) * 100;
         decimalPart = Math.Truncate(decimalPart);

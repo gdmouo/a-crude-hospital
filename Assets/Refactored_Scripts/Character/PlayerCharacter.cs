@@ -44,5 +44,28 @@ public class PlayerCharacter : Character
     {
         return playerBackpack;
     }
+
+    //requires: pickup is from hotbar
+    public void HoldItem(Pickup pickup)
+    {
+        if (itemHolding != null)
+        {
+            //
+            DropItem(itemHolding);
+        }
+
+        itemHolding = pickup;
+        // pickup.TogglePhysical(true);
+        pickup.Hold();
+
+    }
+
+    public void DropItem(Pickup pickup)
+    {
+        itemHolding = null;
+        // pickup.TogglePhysical(true);
+        pickup.Store();
+
+    }
     //pickup funciton
 }

@@ -6,5 +6,6 @@ public class PassThrough : Interactible
 {
     public override void Interact(Character character)
     {
+
     }
 }

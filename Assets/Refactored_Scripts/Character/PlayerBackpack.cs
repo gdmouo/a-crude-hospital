@@ -38,10 +38,73 @@ public class PlayerBackpack : MonoBehaviour
                 slot = toPut, pickup = p
             });
             hotbarItems[toPut] = p;
+            p.SetSlotNumber(toPut);
             return true;
         }
         //updare da hotabox
         return false;
+    }
+
+    public void SelectSlot(int i)
+    {
+        /*
+        Pickup iHolding = PlayerCharacter.Instance.ItemHolding;
+        if (iHolding != null)
+        {
+            PlayerCharacter.Instance.DropItem(iHolding);
+            HotbarManager.Instance.DarkenSlot(-1);
+        }
+        */
+
+        //check if playercharacter is holding item
+
+        Pickup pickup = hotbarItems[i];
+        if (pickup != null)
+        {
+            if (pickup.IsHeld)
+            {
+                PlayerCharacter.Instance.DropItem(hotbarItems[i]);
+                HotbarManager.Instance.DarkenSlot(-1);
+            } else
+            {
+                PlayerCharacter.Instance.HoldItem(hotbarItems[i]);
+                HotbarManager.Instance.DarkenSlot(i);
+                Debug.Log("holding item at slot " + i);
+            }
+        } else
+        {
+            
+
+            //
+            Debug.Log("no item at slot " + i);
+        }
+
+
+
+        //ubotpaniimal
+        /*
+        foreach (KeyValuePair<int, Pickup> pair in hotbarItems)
+        {
+            if (pair.Value != null)
+            {
+                pair.Value.TogglePhysical(false);
+            }
+        }
+
+        Pickup pickup = hotbarItems[i];
+        if (pickup != null)
+        {
+            pickup.TogglePhysical(true);
+            HotbarManager.Instance.DarkenSlot(i);
+        }*/
+
+        //if slot item is already being held, put item away
+        //if not, hold, reset all being held
+        //also update player on item holding
+
+        //dematerialize all other slot items incase
+        //materialize selected slot item
+        //highlight em too
     }
 
     public Transform GetHotbarHidePar()
@@ -68,4 +131,6 @@ public class PlayerBackpack : MonoBehaviour
         return -1;
 
     }
+
+    //selectitem
 }

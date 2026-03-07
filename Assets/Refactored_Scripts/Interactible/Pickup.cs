@@ -6,6 +6,12 @@ public class Pickup : Interactible
 {
     [SerializeField] protected PickupUISO pickupUISO;
     protected bool pickedUp = false;
+    private bool isHeld = false;
+    private int slotNumber = -1;
+
+    public bool IsHeld { get { return isHeld; } }
+
+    public int SlotNumber { get { return slotNumber; } }    
     public override void Interact(Character character)
     {
         if (pickedUp)
@@ -18,8 +24,11 @@ public class Pickup : Interactible
             PlayerBackpack p = player.GetPlayerBackpack();
             if (p.TryInsertItem(this))
             {
-                SetParentToFollow(p.GetHotbarHidePar());
-                gameObject.SetActive(false);
+                //
+                SetPhysical(p.GetHotbarHidePar());
+               // SetParentToFollow(p.GetHotbarHidePar());
+               // gameObject.SetActive(false);
+                //
                 pickedUp = true;
                 OnPickup();
                 //uyayauayayayyayayyayay YUPDATE BTIH
@@ -40,5 +49,39 @@ public class Pickup : Interactible
     public PickupUISO GetUISO()
     {
         return pickupUISO;
+    }
+
+   // public void Toggle
+   /*
+    public void TogglePhysical(bool op)
+    {
+        gameObject.SetActive(op);
+        isHeld = true;
+    }*/
+
+    public void Hold()
+    {
+        gameObject.SetActive(true);
+        isHeld = true;
+    }
+
+    public void Store()
+    {
+        gameObject.SetActive(false);
+        isHeld = false;
+    }
+
+    public void SetSlotNumber(int s)
+    {
+        slotNumber = s;
+    }
+
+    //set pos, gameobject false?
+
+    private void SetPhysical(Transform parent)
+    {
+        SetParentToFollow(parent);
+        transform.position = parent.position;
+        gameObject.SetActive(false);
     }
 }

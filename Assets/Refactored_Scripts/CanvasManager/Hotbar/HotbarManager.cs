@@ -6,7 +6,14 @@ public class HotbarManager : MonoBehaviour
 {
     [SerializeField] private PlayerBackpack playerBackpack;
     [SerializeField] private List<HotbarSlotUI> hotbarSlotUIs;
-    
+
+    public static HotbarManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -72,5 +79,23 @@ public class HotbarManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void DarkenSlot(int i)
+    {
+        foreach (HotbarSlotUI h in hotbarSlotUIs)
+        {
+            if (h.ItemOccupying != null)
+            {
+                if (h.SlotNumber == i)
+                {
+                    h.ToggleDarken(true);
+                    //
+                } else
+                {
+                    h.ToggleDarken(false);
+                }
+            }
+        }
     }
 }

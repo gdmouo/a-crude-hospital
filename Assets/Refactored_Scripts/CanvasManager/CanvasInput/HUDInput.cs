@@ -33,16 +33,26 @@ public class HUDInput : InputMap
 
     private void KeyboardOne_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        PlayerCharacter player = PlayerCharacter.Instance;
+        PlayerBackpack pB = player.GetPlayerBackpack();
+        pB.SelectSlot(0);
+        //yas
        // player.AccessInventory(0);
     }
 
     private void KeyboardTwo_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-       // player.AccessInventory(1);
+        PlayerCharacter player = PlayerCharacter.Instance;
+        PlayerBackpack pB = player.GetPlayerBackpack();
+        pB.SelectSlot(1);
+        // player.AccessInventory(1);
     }
 
     private void KeyboardThree_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        PlayerCharacter player = PlayerCharacter.Instance;
+        PlayerBackpack pB = player.GetPlayerBackpack();
+        pB.SelectSlot(2);
         //player.AccessInventory(2);
     }
 }

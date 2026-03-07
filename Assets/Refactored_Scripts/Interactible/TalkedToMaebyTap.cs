@@ -40,6 +40,9 @@ public class TalkedToMaebyTap : MissionTap
         {
             return;
         }
+        //if dr iis running
+
+        interacted = true;
 
         g.ToggleState(GameStateType.Dialogue);
         dR.StartDialogue(dialogueDataSO, OnInteractEventFinished);

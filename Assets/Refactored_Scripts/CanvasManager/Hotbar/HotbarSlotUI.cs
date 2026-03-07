@@ -41,4 +41,19 @@ public class HotbarSlotUI : MonoBehaviour
         }
         return false;
     }
+
+    public void ToggleDarken(bool op)
+    {
+        Color c = uiImage.color;
+
+        float opacity = 1f;
+
+        if (op)
+        {
+            opacity = 0.5f;
+        } 
+
+        c.a = opacity;
+        uiImage.color = c;
+    }
 }

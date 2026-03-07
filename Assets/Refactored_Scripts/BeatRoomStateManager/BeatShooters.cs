@@ -9,6 +9,15 @@ public class BeatShooters : MonoBehaviour, IBeatShooter
     [SerializeField] private Transform beatParent;
     [SerializeField] private float beatLifetime;
 
+    private void Start()
+    {
+        foreach (BeatShooter beat in beatShooters)
+        {
+            Vector3 newPos = new Vector3(beat.BeatPadTargetPos.position.x, beat.BeatShooterPos.position.y, beat.BeatShooterPos.position.z);
+            beat.BeatShooterPos.position = newPos;
+        }
+    }
+
     public void Fire(KeyControlling k, double d)
     {
         BeatShooter shooter = GetShooterByKey(k);
