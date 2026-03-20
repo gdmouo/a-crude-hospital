@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem.HID;
 
 public class GameInputMapManager : InputMapManager
 {
@@ -38,14 +40,34 @@ public class GameInputMapManager : InputMapManager
 
     protected override void BeforeDeactivateMap(InputMapType i)
     {
+        /*
         if (i == InputMapType.Dialogue)
         {
             controlFlow.EnableMap(playerInputActions);
-        } 
+        }*/
+
+        switch (i)
+        {
+            case InputMapType.HUD:
+                break;
+            case InputMapType.Menu:
+            case InputMapType.Inventory:
+                playerControls.EnableMap(playerInputActions);
+                break;
+            case InputMapType.Dialogue:
+                controlFlow.EnableMap(playerInputActions);
+                playerControls.EnableMap(playerInputActions);
+                break;
+            case InputMapType.ControlFlow:
+            case InputMapType.BeatRoom:
+            default:
+                break;
+        }
     }
 
     protected override void BeforeActivateMap(InputMapType i)
     {
+        /*
         if (i == InputMapType.HUD)
         {
             playerControls.EnableMap(playerInputActions);
@@ -53,7 +75,31 @@ public class GameInputMapManager : InputMapManager
         else if (i == InputMapType.Dialogue)
         {
             controlFlow.DisableMap(playerInputActions);
+            playerControls.DisableMap(playerInputActions);
+        }*/
+        //else if (i == InputMap)
+       // {
+
+       // }
+
+        switch (i) { 
+            case InputMapType.HUD:
+                playerControls.EnableMap(playerInputActions);
+                break;
+            case InputMapType.Menu:
+            case InputMapType.Inventory:
+                playerControls.DisableMap(playerInputActions);
+                break;
+            case InputMapType.Dialogue:
+                controlFlow.DisableMap(playerInputActions);
+                playerControls.DisableMap(playerInputActions);
+                break;
+            case InputMapType.ControlFlow:
+            case InputMapType.BeatRoom:
+            default:
+                break;
         }
+
     }
 
 

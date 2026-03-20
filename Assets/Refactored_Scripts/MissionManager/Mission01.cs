@@ -26,6 +26,7 @@ public class Mission01 : Mission
     {
         string LeftBathroomTrigger = "LeftBathroomTrigger";
         string LeftRoomTrigger = "LeftRoomTrigger";
+        string EnteredStockRoomTrigger = "EnteredStockRoomTrigger";
 
         if (currentStage == Mission01StageLabel.LeftBathroom.ToString() && id == LeftBathroomTrigger)
         {
@@ -33,6 +34,10 @@ public class Mission01 : Mission
         } else if (currentStage == Mission01StageLabel.LeftRoom.ToString()  && id == LeftRoomTrigger)
         {
             Advance(Mission01StageLabel.TalkedToMaeby.ToString());
+        }
+        else if (currentStage == Mission01StageLabel.EnteredStockRoom.ToString() && id == EnteredStockRoomTrigger)
+        {
+            Advance(Mission01StageLabel.FoundAllPillBottles.ToString());
         }
     }
 
@@ -64,8 +69,8 @@ public enum Mission01StageLabel {
     TalkedToMaeby,
     FoundKeycard,
     EnteredStockRoom,
-    /*
     FoundAllPillBottles,
+    /*
     LeftStockRoom,
     EnteredSecurityRoom,
     FootageDeleted,

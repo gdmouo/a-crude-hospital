@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class KeycardPad : PassThrough
+public class KeycardDoorPad : PassThrough
 {
     [SerializeField] private Pickup keyCard;
+    [SerializeField] private KeycardDoor door;
+    [SerializeField] private GameObject padObject;
 
     //^? nother way? maybe like serial number
     public override void Interact(Character character)
@@ -14,14 +17,14 @@ public class KeycardPad : PassThrough
         {
             if (playerCharacter.ItemHolding == keyCard)
             {
-                ToCall();
+                //vunlock door
+                if (!door.Unlocked)
+                {
+                    padObject.GetComponent<Renderer>().material.color = Color.green;
+                    door.UnlockDoor();
+                }
             }
         }
         //if (character.)
-    }
-
-    private void ToCall()
-    {
-        //unlock door
     }
 }
