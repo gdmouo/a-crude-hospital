@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Beat : MonoBehaviour, IBeat
+public class Beat : MonoBehaviour
 {
     [SerializeField] private Vector2 projSize;
     private AudioTime audioTime;
     private float movementSpeed;
-    private Vector3 direction = Vector3.up;
+    private Vector3 direction;
     private bool shoot = false;
 
     public Vector2 ProjSize { get { return projSize; } }
@@ -53,8 +53,9 @@ public class Beat : MonoBehaviour, IBeat
         transform.position = startPosition + direction * (movementSpeed * (float)t);
     }
 
-    public void Init(BeatParam b)
+    public void Init(BeatParam b, Vector3 dir)
     {
+        direction = dir;
         movementSpeed = b.GetBeatSpeed();
         startPosition = b.StartPos;
         endPosition = b.EndPos;

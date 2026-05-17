@@ -131,9 +131,10 @@ public class SeekStep : LoopStepOperator
 
     private bool StepIsEndIndex()
     {
-        //  HallwayGameManager hgm = HallwayGameManager.Instance;
+        /*
+        HatmanSequenceRunner hgm = HatmanSequenceRunner.Instance;*/
+        //  return hgm.LoopIndex == hgm.LoopMax;
         return false;
-            //hgm.LoopIndex == hgm.LoopMax;
     }
 
     private bool PlayerHasBattleBox()

@@ -18,5 +18,6 @@ public enum MissionPassThroughID
 {
     LeftBathroomTrigger,
     LeftRoomTrigger,
-    EnteredStockRoomTrigger
+    EnteredStockRoomTrigger,
+    EnteredHatmanHallTrigger
 }

@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class MissionStage : MonoBehaviour
 {
+    [SerializeField] private Transform stageStartPos;
     [SerializeField] protected string objectiveToUpdate;
+    [SerializeField] private List<UnityEvent> satisfyingFunctions;
     public abstract void ToInvoke();
     public void UpdateObjective()
     {
@@ -30,6 +34,20 @@ public abstract class MissionStage : MonoBehaviour
                 u.SetOpen(true);
             }
             u.SetBodyOnly(t);
+        }
+    }
+
+    public Transform GetStageStartPos()
+    {
+        return stageStartPos;
+    }
+    public virtual void SkipAndSatisfyAllRequirements()
+    {
+        if (satisfyingFunctions == null) return;
+
+        foreach (UnityEvent e in satisfyingFunctions)
+        {
+            e.Invoke();
         }
     }
 }

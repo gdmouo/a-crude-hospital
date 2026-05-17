@@ -19,9 +19,15 @@ public class MissionTap : Tap
     {
         //ie, trigger maeby dialogue, pass a in, once maeby dialogue is over, it should call a
     }
+
+    public void SuicideBomber()
+    {
+        Destroy(gameObject);
+    }
 }
 
 public enum MissionTapID
 {
-    TalkedToMaebyEvent
+    TalkedToMaebyEvent,
+    TappedPseudoBeatboxPickup
 } 

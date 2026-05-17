@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a87ef6f505d70d4ab0bfc1cf06c893c, type: 3}
   m_Name: Interactibles
   m_EditorClassIdentifier: 
-  hotbarIcon: {fileID: 21300000, guid: 70e01fe80a3bdcc48889d4a9936d44c6, type: 3}
+  slotIcon: {fileID: 21300000, guid: 70e01fe80a3bdcc48889d4a9936d44c6, type: 3}

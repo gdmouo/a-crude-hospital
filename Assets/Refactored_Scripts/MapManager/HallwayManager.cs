@@ -11,9 +11,6 @@ public class HallwayManager : MonoBehaviour
 
     public static HallwayManager Instance { get; private set; }
 
-    [SerializeField] private Vector3 hatmanHallwayStartPos;
-    public Vector3 HatmanHallwayStartPos { get { return hatmanHallwayStartPos; } }
-
     public int HatmanRoom { get; private set; }
 
     private int playerPrevRoom = -1;

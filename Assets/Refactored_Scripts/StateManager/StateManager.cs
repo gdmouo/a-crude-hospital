@@ -10,6 +10,7 @@ public abstract class StateManager : MonoBehaviour, IStateManager
 
     public static StateManager Instance { get; private set; }
 
+
     private void Awake()
     {
         Instance = this;

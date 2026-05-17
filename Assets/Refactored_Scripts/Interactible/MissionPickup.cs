@@ -15,5 +15,7 @@ public class MissionPickup : Pickup
 }
 
 public enum MissionPickupID {
-    KeycardPickup
+    KeycardPickup,
+    BarkadrylPickup,
+    BeatBoxPickup
 }

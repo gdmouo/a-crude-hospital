@@ -15,7 +15,9 @@ public class TalkedToMaebyTap : MissionTap
         {
             return;
         }
+
         g.ToggleState(GameStateType.Dialogue);
+
         base.OnInteractEventFinished();
         Destroy(gameObject);
     }

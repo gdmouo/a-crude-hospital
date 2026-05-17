@@ -17,7 +17,7 @@ public class HotbarSlotUI : MonoBehaviour
         PickupUISO pUISO = p.GetUISO();
         if (pUISO != null)
         {
-            uiImage.sprite = pUISO.hotbarIcon;
+            uiImage.sprite = pUISO.slotIcon;
             uiImage.enabled = true;
         }
     }

@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class Pickup : Interactible
 {
     [SerializeField] protected PickupUISO pickupUISO;
+    [SerializeField] protected PickupType pickupType;
+    public PickupType Type {  get { return pickupType; } }
     protected bool pickedUp = false;
     private bool isHeld = false;
     private int slotNumber = -1;
@@ -24,17 +27,30 @@ public class Pickup : Interactible
             PlayerBackpack p = player.GetPlayerBackpack();
             if (p.TryInsertItem(this))
             {
-                //
                 SetPhysical(p.GetHotbarHidePar());
-               // SetParentToFollow(p.GetHotbarHidePar());
-               // gameObject.SetActive(false);
-                //
                 pickedUp = true;
                 OnPickup();
-                //uyayauayayayyayayyayay YUPDATE BTIH
             }
         }
     }
+
+    public void AutoSetInInventory()
+    {
+        if (pickedUp)
+        {
+            return;
+        }
+
+        PlayerCharacter player = PlayerCharacter.Instance;
+        PlayerBackpack p = player.GetPlayerBackpack();
+        if (p.TryInsertItem(this))
+        {
+            SetPhysical(p.GetHotbarHidePar());
+            pickedUp = true;
+            OnPickup();
+        }
+    }
+
     protected void SetParentToFollow(Transform t)
     {
         transform.parent = t;
@@ -50,14 +66,6 @@ public class Pickup : Interactible
     {
         return pickupUISO;
     }
-
-   // public void Toggle
-   /*
-    public void TogglePhysical(bool op)
-    {
-        gameObject.SetActive(op);
-        isHeld = true;
-    }*/
 
     public void Hold()
     {
@@ -76,12 +84,16 @@ public class Pickup : Interactible
         slotNumber = s;
     }
 
-    //set pos, gameobject false?
-
     private void SetPhysical(Transform parent)
     {
         SetParentToFollow(parent);
         transform.position = parent.position;
         gameObject.SetActive(false);
     }
+}
+
+public enum PickupType
+{
+    Default,
+    Pillcase
 }

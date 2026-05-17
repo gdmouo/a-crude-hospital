@@ -8,4 +8,9 @@ public class PassThrough : Interactible
     {
 
     }
+
+    public void SuicideBomber()
+    {
+        Destroy(gameObject);
+    }
 }

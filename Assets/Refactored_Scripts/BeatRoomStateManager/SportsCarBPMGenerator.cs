@@ -16,6 +16,7 @@ public class SportsCarBPMGenerator : BPMMapper
         mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, WHOLE_NOTE_DENOM, tSO.GetStartTime(), thisEndTime, KeyControlling.LEFT_ARR, tSO.BeatFlyDuration));
         mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, HALF_NOTE_DENOM, thisEndTime, nextEndTime, KeyControlling.A_KEY, tSO.BeatFlyDuration));
         
+
         return mappedBeats;
     }
 }

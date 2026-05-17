@@ -10,6 +10,7 @@ public class HallwayRoom : MonoBehaviour
     [SerializeField] private BoxCollider boxCollider;
     private GameObject target;
     [SerializeField] private int roomNumber = 0;
+    [SerializeField] private GameObject door;
 
     
     public int RoomNumber { get { return roomNumber; } }
@@ -18,7 +19,7 @@ public class HallwayRoom : MonoBehaviour
     void Start()
     {
         areaBounds = boxCollider.bounds;
-       // target = Player.Instance.gameObject;
+        target = PlayerCharacter.Instance.gameObject;
 
     }
 
@@ -40,6 +41,11 @@ public class HallwayRoom : MonoBehaviour
             // target is inside
         }
         return false;
+    }
+
+    public void ToggleDoor(bool toggle)
+    {
+        door.SetActive(toggle);
     }
 }
 

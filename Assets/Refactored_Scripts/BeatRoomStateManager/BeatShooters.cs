@@ -8,13 +8,14 @@ public class BeatShooters : MonoBehaviour, IBeatShooter
     [SerializeField] private GameObject beatPrefab;
     [SerializeField] private Transform beatParent;
     [SerializeField] private float beatLifetime;
+    [SerializeField] private Vector3 direction;
 
     private void Start()
     {
-        foreach (BeatShooter beat in beatShooters)
+        foreach (BeatShooter bShooter in beatShooters)
         {
-            Vector3 newPos = new Vector3(beat.BeatPadTargetPos.position.x, beat.BeatShooterPos.position.y, beat.BeatShooterPos.position.z);
-            beat.BeatShooterPos.position = newPos;
+            Vector3 newPos = new Vector3(bShooter.BeatPadTargetPos.position.x, bShooter.BeatShooterPos.position.y, bShooter.BeatShooterPos.position.z);
+            bShooter.BeatShooterPos.position = newPos;
         }
     }
 
@@ -31,7 +32,7 @@ public class BeatShooters : MonoBehaviour, IBeatShooter
         GameObject temp = Instantiate(beatPrefab, shooter.BeatShooterPos.position, Quaternion.identity);
         temp.transform.SetParent(beatParent);
         Beat beatComponent = temp.GetComponent<Beat>();
-        beatComponent.Init(beatParam);
+        beatComponent.Init(beatParam, direction);
         Destroy(temp, beatLifetime);
     }
 

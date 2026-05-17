@@ -58,7 +58,7 @@ public class Hatman : NPC
     {
         npcMotor.ClearTarget();
         npcMotor.ToggleMovement(false);
-        transform.position = HallwayManager.Instance.HatmanHallwayStartPos;
+       // transform.position = HallwayManager.Instance.HatmanHallwayStartPos;
         Deactivate();
     }
 
