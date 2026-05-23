@@ -8,7 +8,7 @@ public abstract class InputMap : MonoBehaviour, IInputMap
     public bool MapEnabled { get { return mapEnabled; } }
     protected PlayerInputActions playerInputActions;
 
-    protected InputMapManager inputMapManager;
+    [SerializeField] protected InputMapManager inputMapManager;
 
     public void EnableMap(PlayerInputActions p)
     {

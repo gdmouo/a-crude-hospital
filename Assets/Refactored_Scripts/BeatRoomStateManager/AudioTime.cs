@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AudioTime : MonoBehaviour
 {
-
     private double previousTime = double.NaN;
     private double currentTime;
 

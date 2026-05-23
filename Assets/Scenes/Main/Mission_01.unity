@@ -511,6 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9c35af7b5780d4d998a4cc63a3eb40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMapManager: {fileID: 0}
 --- !u!1 &36282127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,6 +1476,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ddaebd029f58a64b84a44ca35ebcdd0, type: 3}
+--- !u!1 &93960767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 93960769}
+  - component: {fileID: 93960768}
+  m_Layer: 0
+  m_Name: MetHatman
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &93960768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93960767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6a9e16591a55d429758f3af84161cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefeatedHatman
+  stageStartPos: {fileID: 243663483}
+  objectiveToUpdate: Meet Hatman
+  satisfyingFunctions: []
+--- !u!4 &93960769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93960767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 243663483}
+  m_Father: {fileID: 1298501007}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &105178994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3182,7 +3231,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DefeatedHatman
   stageStartPos: {fileID: 1742108251}
   objectiveToUpdate: Find beatbox
-  satisfyingFunctions: []
+  satisfyingFunctions:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1261068024}
+        m_TargetAssemblyTypeName: BeatBoxMissionPseudoPickup, Assembly-CSharp
+        m_MethodName: SuicideBomber
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   toActivate:
   - {fileID: 1469874524}
   sequenceRunner: {fileID: 1369314255}
@@ -3851,6 +3914,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 446459156}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &243663482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 243663483}
+  m_Layer: 0
+  m_Name: StageStartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &243663483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243663482}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16.25, y: -0.228, z: 1.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 93960769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &246775398
 GameObject:
@@ -5999,6 +6093,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351134375}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &358247705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 358247706}
+  m_Layer: 0
+  m_Name: StageStartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &358247706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358247705}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -21.23, y: -0.228, z: -9.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1059433794}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &364023210
 GameObject:
   m_ObjectHideFlags: 0
@@ -6015,7 +6140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &364023211
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6172,6 +6297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b38e852a60b413449cb7c8a33c34dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMapManager: {fileID: 0}
 --- !u!114 &371739399 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 584136693181675589, guid: 2d52c6bb86bf82a4abc22b0c7143d042,
@@ -12231,6 +12357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c76d68a367fca4bbe4b0973c1aec53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMapManager: {fileID: 0}
 --- !u!1 &672827067
 GameObject:
   m_ObjectHideFlags: 0
@@ -18546,6 +18673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf47cc825491bd4395104f977dd3ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMapManager: {fileID: 0}
 --- !u!4 &959154577
 Transform:
   m_ObjectHideFlags: 0
@@ -20425,6 +20553,55 @@ Transform:
   - {fileID: 1903650255}
   m_Father: {fileID: 2074441847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1059433793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1059433794}
+  - component: {fileID: 1059433795}
+  m_Layer: 0
+  m_Name: CompletedBeatTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1059433794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059433793}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 358247706}
+  m_Father: {fileID: 1298501007}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1059433795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059433793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 920ac910efb010147b32f478f30ccce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CompletedBeatTutorial
+  stageStartPos: {fileID: 358247706}
+  objectiveToUpdate: Wa
+  satisfyingFunctions: []
+  sceneToGo: 1
 --- !u!1 &1070374395
 GameObject:
   m_ObjectHideFlags: 0
@@ -23146,7 +23323,7 @@ PrefabInstance:
     - target: {fileID: 6205223621882688191, guid: 2ddaebd029f58a64b84a44ca35ebcdd0,
         type: 3}
       propertyPath: m_Name
-      value: BeatboxMissionPickup
+      value: BeatboxMissionPseudoPickup
       objectReference: {fileID: 0}
     - target: {fileID: 6205223621882688191, guid: 2ddaebd029f58a64b84a44ca35ebcdd0,
         type: 3}
@@ -24309,6 +24486,8 @@ Transform:
   - {fileID: 419831110}
   - {fileID: 1393996713}
   - {fileID: 191510774}
+  - {fileID: 1059433794}
+  - {fileID: 93960769}
   m_Father: {fileID: 1401985241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1304342954
@@ -27393,7 +27572,9 @@ MonoBehaviour:
   - stageLabel: 9
     stageObject: {fileID: 191510773}
   - stageLabel: 10
-    stageObject: {fileID: 191510773}
+    stageObject: {fileID: 1059433795}
+  - stageLabel: 11
+    stageObject: {fileID: 93960768}
 --- !u!114 &1401985243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27406,9 +27587,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6aea9d6092d514b8b45d9f53409b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageBookmark
-  currentStage: 9
+  currentStage: 1
   mission01: {fileID: 1401985242}
-  enableStageBookmark: 1
+  enableStageBookmark: 0
 --- !u!1 &1402734298
 GameObject:
   m_ObjectHideFlags: 0
@@ -27686,7 +27867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01d1eeb25b4fcb4ead09a511584469c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugging: 1
+  debugging: 0
   debugDialogue: {fileID: 11400000, guid: 12242bf4f99ab4345b8cfad6f985bb79, type: 2}
 --- !u!1 &1422252849
 GameObject:
@@ -31665,6 +31846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8daad49c2e8934b84312193e1c3f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMapManager: {fileID: 0}
 --- !u!1 &1562008806
 GameObject:
   m_ObjectHideFlags: 0
@@ -31911,6 +32093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855b49327797a2c4cb952d114cb80b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMapManager: {fileID: 0}
 --- !u!1 &1570938289
 GameObject:
   m_ObjectHideFlags: 0
@@ -40747,8 +40930,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 947563510}
-  textSpeed: 0.05
-  nextLineDelay: 4
+  textSpeed: 0.02
+  nextLineDelay: 2
 --- !u!1 &1986998611
 GameObject:
   m_ObjectHideFlags: 0

@@ -117,7 +117,8 @@ public class Mission01 : Mission
 
         if (currentStage == Mission01StageLabel.FoundBeatbox.ToString() && id == TappedPseudoBeatboxPickup)
         {
-            Advance(Mission01StageLabel.DefeatedHatman.ToString());
+            Advance(Mission01StageLabel.CompletedBeatTutorial.ToString());
+           // Debug.Log("wow");
         }
 
     }
@@ -134,7 +135,9 @@ public enum Mission01StageLabel {
     ConsumedPills,
     EnteredHatmanHall,
     FoundBeatbox,
-    DefeatedHatman,
+    CompletedBeatTutorial,
+    MetHatman,
+    CompletedHatmanBeatGame,
     /*
      * 
     LeftStockRoom,

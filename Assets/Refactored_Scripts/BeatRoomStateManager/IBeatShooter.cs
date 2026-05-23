@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IBeatShooter
 {
-    public void Fire(KeyControlling k, double d);
+    public void Fire(PadLabel k, double d);
 }

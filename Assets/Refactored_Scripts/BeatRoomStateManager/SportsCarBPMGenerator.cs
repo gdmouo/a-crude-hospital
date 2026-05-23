@@ -13,8 +13,8 @@ public class SportsCarBPMGenerator : BPMMapper
         double thisEndTime = 5;
         double nextEndTime = 10;
         //  mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, WHOLE_NOTE_DENOM, tSO.GetStartTime(), tSO.GetEndTime(), KeyControlling.LEFT_ARR, tSO.BeatFlyDuration));
-        mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, WHOLE_NOTE_DENOM, tSO.GetStartTime(), thisEndTime, KeyControlling.LEFT_ARR, tSO.BeatFlyDuration));
-        mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, HALF_NOTE_DENOM, thisEndTime, nextEndTime, KeyControlling.A_KEY, tSO.BeatFlyDuration));
+        mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, WHOLE_NOTE_DENOM, tSO.GetStartTime(), thisEndTime, PadLabel.LEFT_ARR, tSO.BeatFlyDuration));
+        mappedBeats.AddRange(MapByNoteType(secondsBetweenBeat, HALF_NOTE_DENOM, thisEndTime, nextEndTime, PadLabel.A_KEY, tSO.BeatFlyDuration));
         
 
         return mappedBeats;

@@ -6,8 +6,8 @@ public class OldNoteController : MonoBehaviour
 {
     [SerializeField] private List<OldNoteSpawner> noteSpawners;
 
-    private Dictionary<KeyControlling, OldNoteSpawner> noteSpawnerDict;
-    public Dictionary<KeyControlling, OldNoteSpawner> NSDict { get { return noteSpawnerDict; } }
+    private Dictionary<PadLabel, OldNoteSpawner> noteSpawnerDict;
+    public Dictionary<PadLabel, OldNoteSpawner> NSDict { get { return noteSpawnerDict; } }
 
     [Header("NoteSpawner Settings")]
     [SerializeField] private BeatPadController beatPadController;
@@ -27,13 +27,13 @@ public class OldNoteController : MonoBehaviour
         }
         noteSpawnerDict = GetNSDictionary(noteSpawners);
     }
-    private Dictionary<KeyControlling, OldNoteSpawner> GetNSDictionary(List<OldNoteSpawner> l)
+    private Dictionary<PadLabel, OldNoteSpawner> GetNSDictionary(List<OldNoteSpawner> l)
     {
         if (l == null)
         {
             return null;
         }
-        Dictionary<KeyControlling, OldNoteSpawner> temp = new Dictionary<KeyControlling, OldNoteSpawner>();
+        Dictionary<PadLabel, OldNoteSpawner> temp = new Dictionary<PadLabel, OldNoteSpawner>();
         foreach (OldNoteSpawner n in l)
         {
             temp.Add(n.GetKeyTarget(), n);

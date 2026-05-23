@@ -1,0 +1,96 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BeatPad : MonoBehaviour
+{
+    [SerializeField] private PadLabel keyControlling;
+    [SerializeField] private Vector2 colliderSize;
+    private SpriteRenderer spriteRenderer;
+    public PadLabel KeyButton { get { return keyControlling; } }
+
+    private Color PadYellow;
+    private Color PadWhite;
+    // Start is called before the first frame update
+
+    private Beat beatColliding;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        PadYellow = new Color(1f, 1f, 0f, 1f);
+        PadWhite = new Color(1f, 1f, 1f, 1f);
+    }
+    private void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        OnCollide();
+    }
+
+    public void OnHold()
+    {
+        ToggleSprite(PadYellow);
+
+        if (beatColliding != null)
+        {
+            //the great bojack jerk-off
+            //he hates the troops
+
+            float maxDist = colliderSize.y + beatColliding.ProjSize.y;
+            float distToProj = Vector2.Distance(transform.position, beatColliding.gameObject.transform.position);
+          //  float scale = Mathf.Min(Mathf.Abs(1f - (distToProj / maxDist)), 1f);
+           // float baseScore = 100f;
+          //  float score = baseScore * scale;
+
+            GameObject temp = beatColliding.gameObject;
+            beatColliding = null;
+            Destroy(temp);
+
+           // ScoreManager.Instance.UpdateScore(score);
+
+           // Debug.Log(score);
+        }//
+    }
+
+    public void OnReleased()
+    {
+        ToggleSprite(PadWhite);
+    }
+
+    private void OnCollide()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(transform.position, colliderSize, 0f);
+        foreach (Collider2D collider in hitColliders)
+        {
+            if (collider.gameObject.TryGetComponent<Beat>(out Beat b))
+            {
+                beatColliding = b;
+            }
+        }
+
+        if (hitColliders.Length == 0)
+        {
+            beatColliding = null;
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, colliderSize);
+    }
+
+    private void ToggleSprite(Color c)
+    {
+        if (spriteRenderer != null && spriteRenderer.color != c)
+        {
+            spriteRenderer.color = c;
+        }
+    }
+}
+

@@ -16,5 +16,6 @@ public enum InputMapType {
     Inventory,
     Dialogue,
     ControlFlow,
-    BeatRoom
+    BeatRoom,
+    BeatScene
 }

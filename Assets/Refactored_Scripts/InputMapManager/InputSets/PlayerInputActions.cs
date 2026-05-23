@@ -114,7 +114,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""8f03b33c-0769-4fd5-8d5f-4fae4bb31e3a"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -403,7 +403,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Hotbar1"",
                     ""type"": ""Button"",
                     ""id"": ""6428c565-f599-4921-ae90-c4ae48583d25"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -491,7 +491,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Click"",
                     ""type"": ""Button"",
                     ""id"": ""de85d26e-7e0b-471e-82a0-9be4c68ac035"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -539,7 +539,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Click"",
                     ""type"": ""Button"",
                     ""id"": ""6cb20305-adcf-412b-a4dd-482805508b0e"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -683,7 +683,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""W"",
                     ""type"": ""Button"",
                     ""id"": ""bfd58152-3fc6-4059-bcd3-8ef5f2512020"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -842,6 +842,34 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""BeatScene"",
+            ""id"": ""b9ff0fd7-cd8b-45cc-9a3b-bc96dde0a42f"",
+            ""actions"": [
+                {
+                    ""name"": ""Play"",
+                    ""type"": ""Button"",
+                    ""id"": ""9be93f1d-6b6f-4273-ac9e-c32310596c9d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""e505c92d-6738-48a4-b988-800f008e3c6f"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Play"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -890,6 +918,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_BeatRoom_Down = m_BeatRoom.FindAction("Down", throwIfNotFound: true);
         m_BeatRoom_Left = m_BeatRoom.FindAction("Left", throwIfNotFound: true);
         m_BeatRoom_Right = m_BeatRoom.FindAction("Right", throwIfNotFound: true);
+        // BeatScene
+        m_BeatScene = asset.FindActionMap("BeatScene", throwIfNotFound: true);
+        m_BeatScene_Play = m_BeatScene.FindAction("Play", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -901,6 +932,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Dialogue.enabled, "This will cause a leak and performance issues, PlayerInputActions.Dialogue.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_ControlFlow.enabled, "This will cause a leak and performance issues, PlayerInputActions.ControlFlow.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_BeatRoom.enabled, "This will cause a leak and performance issues, PlayerInputActions.BeatRoom.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_BeatScene.enabled, "This will cause a leak and performance issues, PlayerInputActions.BeatScene.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1897,6 +1929,102 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="BeatRoomActions" /> instance referencing this action map.
     /// </summary>
     public BeatRoomActions @BeatRoom => new BeatRoomActions(this);
+
+    // BeatScene
+    private readonly InputActionMap m_BeatScene;
+    private List<IBeatSceneActions> m_BeatSceneActionsCallbackInterfaces = new List<IBeatSceneActions>();
+    private readonly InputAction m_BeatScene_Play;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "BeatScene".
+    /// </summary>
+    public struct BeatSceneActions
+    {
+        private @PlayerInputActions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public BeatSceneActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "BeatScene/Play".
+        /// </summary>
+        public InputAction @Play => m_Wrapper.m_BeatScene_Play;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_BeatScene; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="BeatSceneActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(BeatSceneActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="BeatSceneActions" />
+        public void AddCallbacks(IBeatSceneActions instance)
+        {
+            if (instance == null || m_Wrapper.m_BeatSceneActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_BeatSceneActionsCallbackInterfaces.Add(instance);
+            @Play.started += instance.OnPlay;
+            @Play.performed += instance.OnPlay;
+            @Play.canceled += instance.OnPlay;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="BeatSceneActions" />
+        private void UnregisterCallbacks(IBeatSceneActions instance)
+        {
+            @Play.started -= instance.OnPlay;
+            @Play.performed -= instance.OnPlay;
+            @Play.canceled -= instance.OnPlay;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="BeatSceneActions.UnregisterCallbacks(IBeatSceneActions)" />.
+        /// </summary>
+        /// <seealso cref="BeatSceneActions.UnregisterCallbacks(IBeatSceneActions)" />
+        public void RemoveCallbacks(IBeatSceneActions instance)
+        {
+            if (m_Wrapper.m_BeatSceneActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="BeatSceneActions.AddCallbacks(IBeatSceneActions)" />
+        /// <seealso cref="BeatSceneActions.RemoveCallbacks(IBeatSceneActions)" />
+        /// <seealso cref="BeatSceneActions.UnregisterCallbacks(IBeatSceneActions)" />
+        public void SetCallbacks(IBeatSceneActions instance)
+        {
+            foreach (var item in m_Wrapper.m_BeatSceneActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_BeatSceneActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="BeatSceneActions" /> instance referencing this action map.
+    /// </summary>
+    public BeatSceneActions @BeatScene => new BeatSceneActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player" which allows adding and removing callbacks.
     /// </summary>
@@ -2162,5 +2290,20 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRight(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "BeatScene" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="BeatSceneActions.AddCallbacks(IBeatSceneActions)" />
+    /// <seealso cref="BeatSceneActions.RemoveCallbacks(IBeatSceneActions)" />
+    public interface IBeatSceneActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Play" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPlay(InputAction.CallbackContext context);
     }
 }

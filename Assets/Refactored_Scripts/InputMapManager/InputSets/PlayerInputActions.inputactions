@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "PlayerInputActions",
     "maps": [
         {
@@ -27,7 +28,7 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "8f03b33c-0769-4fd5-8d5f-4fae4bb31e3a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -316,7 +317,7 @@
                     "name": "Hotbar1",
                     "type": "Button",
                     "id": "6428c565-f599-4921-ae90-c4ae48583d25",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -404,7 +405,7 @@
                     "name": "Click",
                     "type": "Button",
                     "id": "de85d26e-7e0b-471e-82a0-9be4c68ac035",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -452,7 +453,7 @@
                     "name": "Click",
                     "type": "Button",
                     "id": "6cb20305-adcf-412b-a4dd-482805508b0e",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -596,7 +597,7 @@
                     "name": "W",
                     "type": "Button",
                     "id": "bfd58152-3fc6-4059-bcd3-8ef5f2512020",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -751,6 +752,34 @@
                     "processors": "",
                     "groups": "",
                     "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "BeatScene",
+            "id": "b9ff0fd7-cd8b-45cc-9a3b-bc96dde0a42f",
+            "actions": [
+                {
+                    "name": "Play",
+                    "type": "Button",
+                    "id": "9be93f1d-6b6f-4273-ac9e-c32310596c9d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e505c92d-6738-48a4-b988-800f008e3c6f",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Play",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

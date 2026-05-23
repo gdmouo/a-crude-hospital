@@ -19,7 +19,7 @@ public enum OldTrackTitle {
 [System.Serializable]
 public struct OldBeat
 {
-    public KeyControlling Target;
+    public PadLabel Target;
     //0 for non longbeat
     public double LongBeatDuration;
 }

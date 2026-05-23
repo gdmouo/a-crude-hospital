@@ -15,7 +15,7 @@ public class OldNoteSpawner : MonoBehaviour
         transform.position = new(noteSpawnerSettings.TargetPad.transform.position.x, transform.position.y, 0f);
     }
 
-    public KeyControlling GetKeyTarget()
+    public PadLabel GetKeyTarget()
     {
         return noteSpawnerSettings.TargetPad.KeyButton;
     }
