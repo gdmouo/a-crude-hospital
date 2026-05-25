@@ -9,6 +9,7 @@ public class BeatSpawnerManager : MonoBehaviour
 
     public void PlayBeat(Note note)
     {
+        
         BeatSpawner b = GetBeatSpawnerByLabel(note.TargetPad);
 
         b.FireBeat(NoteToProjectile(note), note);

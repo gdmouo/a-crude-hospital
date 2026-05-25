@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,7 +28,7 @@ public class SongStageRunner : MonoBehaviour
         songBeatMapIndex = 0;
         currentSongBeatMap = currentSong.GetBeatMap();
         currentSongBeatMapCount = currentSongBeatMap.Count;
-        PlayAudio(currentSong.GetAudioSource(), currentSong.GetStartTime());
+        PlayAudio(currentSong.GetAudioSource(), currentSong.GetStartTime(), currentSong.GetIntroDelay());
         playing = true;
     }
 
@@ -40,13 +41,21 @@ public class SongStageRunner : MonoBehaviour
 
         double songDSP = dspClock.GetAudioDSP();
 
+        Debug.Log(songDSP);
+
         while (songBeatMapIndex < currentSongBeatMapCount)
         {
             Note n = currentSongBeatMap[songBeatMapIndex];
 
             double trackShootTime = n.GetBeatArrivalTime();
 
-            if (trackShootTime < 0)
+            
+            if (trackShootTime < currentSong.GetStartTime() - currentSong.GetIntroDelay())
+            {
+                songBeatMapIndex++;
+                break;
+            }
+            if (n.TargetPad == PadLabel.NONE)
             {
                 songBeatMapIndex++;
                 break;
@@ -59,11 +68,15 @@ public class SongStageRunner : MonoBehaviour
             songBeatMapIndex++;
         }
     }
-    private void PlayAudio(AudioSource a, double startTime)
+    private void PlayAudio(AudioSource a, double startTime, double introDelay)
     {
         a.time = (float) startTime;
         double dspStart = AudioSettings.dspTime;
-        a.PlayScheduled(dspStart);
-        dspClock.SetAudioDSP(startTime);
+        a.PlayScheduled(dspStart + Math.Abs(introDelay));
+
+        //dspstart + delay
+        //delay should be negatibve
+        //
+        dspClock.SetAudioDSP(startTime - introDelay);
     }
 }

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public abstract class BeatProjectile : MonoBehaviour
 {
+    private Vector3 colliderSize;
     protected float movementSpeed;
-   // private Vector3 vecDirection;
     private Vector3 start;
     private Vector3 end;
     private double dspSpawnTime;
@@ -14,6 +14,13 @@ public abstract class BeatProjectile : MonoBehaviour
 
 
     private const float MAX_DIST = 20f;
+
+    public Vector3 ColliderSize { get { return colliderSize; } }
+
+    private void Awake()
+    {
+        colliderSize = transform.localScale;
+    }
     private void Update()
     {
         UpdateFunction();

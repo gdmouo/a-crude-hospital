@@ -8,6 +8,7 @@ public class Song : MonoBehaviour
     private List<Note> beatMap;
     [SerializeField] private double startTime;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private double introDelay = 0;
     public SongTitle Title { get { return title; } }
 
     public void SetBeatMap(List<Note> m)
@@ -49,5 +50,10 @@ public class Song : MonoBehaviour
     public AudioSource GetAudioSource()
     {
         return audioSource;
+    }
+
+    public double GetIntroDelay()
+    {
+        return introDelay;
     }
 }
