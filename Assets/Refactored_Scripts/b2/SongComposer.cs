@@ -29,45 +29,8 @@ public class SongComposer : MonoBehaviour
     private List<Note> ParseGroup(BPMSyncedNotes b)
     {
         return BPMMap(b);
-       // double divider = GetDividerByNoteType(b.noteType);
-       // return MapByNoteType(secondsPerBeat / divider, b.GetStartTimeAsVec(), b.GetEndTimeAsVec(), (int) divider, b.everyNthNote, b.targetPad);
-
     }
 
-    /*
-    protected List<Note> MapByNoteType(double secondsBetweenBeat, double startTime, double endTime, int noteTypeDivider, int nthBeat, PadLabel key)
-    {
-        List<Note> mappedBeats = new List<Note>();
-
-        int i = 1;
-
-        double currTime = startTime;
-
-        for (; ; i++)
-        {
-            for (int y = 0; y < noteTypeDivider; y++)
-            {
-                if (y == nthBeat)
-                {
-                    Note n = new Note();
-                    n.SetProjectileType(BeatProjectileType.Default);
-                    n.SetTargetPad(key);
-                    n.SetArrivalTime(currTime);
-
-
-                    mappedBeats.Add(n);
-                }
-                currTime += secondsBetweenBeat;
-            }
-
-            if (currTime >= endTime) break;
-        }
-
-        return mappedBeats;
-    }*/
-
-    //how many beats in a bar
-    //how many notes in a beat
     protected List<Note> BPMMap(BPMSyncedNotes b)
     {
         List<Note> mappedBeats = new List<Note>();
@@ -76,27 +39,20 @@ public class SongComposer : MonoBehaviour
 
         double secondsPerBeat = 60.0 / b.bpm;
         double currTime = b.GetStartTimeAsDouble();
+        //
         double endTime = b.GetEndTimeAsDouble();
-        // int notesInABeat = b.notesInABeat;
-        // int everyNthNoteInABeat = b.everyNthNoteInABeat;
-        // int beatsInABar = b.beatsInABar;
-        // int everyNthBeatInABar = b.everyNthBeatInABar;
-        // PadLabel p = b.targetPad;
 
         double secondsBetweenBeat = secondsPerBeat;
+
+        if (b.snapTime)
+        {
+            currTime = SnapTime(currTime, secondsBetweenBeat);
+        }
+
         if (b.intervalShortener != 0)
         {
             secondsBetweenBeat = secondsPerBeat / b.intervalShortener;
         }
-
-        
-            // notesInABeat;
-    //    Debug.Log(notesInABeat);
-
-       // Debug.Log(secondsPerBeat);
-      //  Debug.Log(secondsBetweenBeat);
-      //  Debug.Log(currTime);
-     //   Debug.Log(endTime);
 
         List<PadLabel> sequence = b.sequence;
         int y = 0;
@@ -118,23 +74,8 @@ public class SongComposer : MonoBehaviour
                 y = 0;
             }
 
-
             n.SetArrivalTime(currTime);
             mappedBeats.Add(n);
-            /*
-            for (int y = 0; y < notesInABeat; y++)
-            {
-                if (y == everyNthNoteInABeat)
-                {
-                    Note n = new Note();
-                    n.SetProjectileType(BeatProjectileType.Default);
-                    n.SetTargetPad(p);
-                    n.SetArrivalTime(currTime);
-
-                    mappedBeats.Add(n);
-                }
-                currTime += secondsBetweenBeat;
-            }*/
 
             currTime += secondsBetweenBeat;
 
@@ -142,6 +83,16 @@ public class SongComposer : MonoBehaviour
         }
 
         return mappedBeats;
+    }
+
+    private double SnapTime(double time, double secondsBetweenBeat)
+    {
+        double inc = 0.0;
+        do
+        {
+            inc += secondsBetweenBeat;
+        } while (inc < time);
+        return inc;
     }
 }
 
@@ -153,12 +104,7 @@ public struct BPMSyncedNotes
     public List<PadLabel> sequence;
     public double bpm;
     public int intervalShortener;
-   // public PadLabel targetPad;
-
-    //public int notesInABeat;
-   // public int everyNthNoteInABeat;
-    //public int beatsInABar;
-    //public int everyNthBeatInABar;
+    public bool snapTime;
 
     public double GetStartTimeAsDouble()
     {

@@ -7,6 +7,7 @@ public class Song : MonoBehaviour
     [SerializeField] private double beatFlyTime;
     private List<Note> beatMap;
     [SerializeField] private double startTime;
+    [SerializeField] private double endTime;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private double introDelay = 0;
     public SongTitle Title { get { return title; } }
@@ -47,6 +48,10 @@ public class Song : MonoBehaviour
         return startTime;
     }
 
+    public double GetEndTime()
+    {
+        return endTime;
+    }
     public AudioSource GetAudioSource()
     {
         return audioSource;

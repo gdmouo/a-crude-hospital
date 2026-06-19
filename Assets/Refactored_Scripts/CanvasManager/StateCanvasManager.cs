@@ -10,35 +10,12 @@ public class StateCanvasManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(Instance);
+        }
         Instance = this;
     }
-
-    /*
-    public void ToggleCanvases(List<StateCanvas> toActivate, List<StateCanvas> toDeactivate)
-    {
-        if (toDeactivate != null)
-        {
-            foreach (StateCanvas stateCanvas in toDeactivate)
-            {
-                if (stateCanvas.CanvasEnabled)
-                {
-                    stateCanvas.DeactivateCanvas();
-                }
-            }
-        }
-
-        if (toActivate != null)
-        {
-            foreach (StateCanvas stateCanvas in toActivate)
-            {
-                if (!stateCanvas.CanvasEnabled)
-                {
-                    stateCanvas.ActivateCanvas();
-                }
-            }
-        }
-    }*/
-
 
     public void ToggleCanvases(List<GameStateType> toActivate, List<GameStateType> toDeactivate)
     {

@@ -6,6 +6,7 @@ public class DSPClock : MonoBehaviour
     private double currDSPTime;
     private double deltaDSPTime = 0;
     private double currAudioDSPTime = 0;
+    private double endAudioDSPTime = 0;
 
     // Update is called once per frame
     private void Update()
@@ -16,10 +17,18 @@ public class DSPClock : MonoBehaviour
     {
         currAudioDSPTime = d;
     }
-
+    public void SetAudioEndTime(double d)
+    {
+        endAudioDSPTime = d;
+    }
     public double GetAudioDSP()
     {
         return currAudioDSPTime;
+    }
+
+    public double GetAudioEndDSP()
+    {
+        return endAudioDSPTime;
     }
 
     private void ClockTick()

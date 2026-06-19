@@ -6,7 +6,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.XR;
-using static UnityEditor.Progress;
 
 public class Mission01 : Mission
 {

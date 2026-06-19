@@ -1,10 +1,15 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public class StageBookmark : MonoBehaviour
+public class CurrentMission01Stage : MonoBehaviour
 {
-    private Mission01StageLabel currentStage;
+    public Mission01StageLabel currentStage;
+   // public static PersistentManager Instance { get; private set; }
+    private void Awake()
+    {
+    }
 
+    /*
+    [SerializeField] private Mission01StageLabel currentStage;
     [SerializeField] private Mission01 mission01;
     [SerializeField] private bool enableStageBookmark;
 
@@ -12,7 +17,7 @@ public class StageBookmark : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -22,8 +27,6 @@ public class StageBookmark : MonoBehaviour
         if (stageSkippedTo) return;
         stageSkippedTo = true;
 
-        currentStage = PersistentManager.Instance.CurrentStage;
-
         mission01.SkipToStage(currentStage);
-    }
+    }*/
 }

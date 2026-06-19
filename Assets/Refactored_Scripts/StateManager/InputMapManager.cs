@@ -15,6 +15,11 @@ public abstract class InputMapManager : MonoBehaviour, IInputMapManager
 
     private void Awake()
     {
+        //v not the issue either
+        if (Instance != null)
+        {
+            Destroy(Instance);
+        }
         Instance = this;
         playerInputActions = new PlayerInputActions();
 

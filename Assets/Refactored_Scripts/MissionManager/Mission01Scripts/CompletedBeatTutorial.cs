@@ -19,12 +19,14 @@ public class CompletedBeatTutorial : MissionStage
         {
             sequenceRunner.Run();
         }*/
-        SceneManager.LoadScene(sceneToGo.ToString());
-    }
-}
 
-public enum SceneToGo { 
-    Mission_01,
-    BeatRoom
+        //
+
+       // SceneSet s = SceneSet.Instance;
+       // s.SetMissionStageForReturn(Mission01StageLabel.MetHatman);
+       // s.LoadBeatLevel(SongTitle.Beaty);
+       // s.SwitchRoom();
+
+    }
 }
 

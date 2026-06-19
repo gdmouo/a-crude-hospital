@@ -13,6 +13,10 @@ public abstract class StateManager : MonoBehaviour, IStateManager
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(Instance);
+        }
         Instance = this;
 
     }
@@ -26,7 +30,8 @@ public abstract class StateManager : MonoBehaviour, IStateManager
 
     protected virtual void OnStart()
     {
-        //ToggleState(GameStateType.HUD);
+        //v
+      //  ToggleState(GameStateType.HUD);
     }
 
     public void ToggleState(GameStateType gameStateType)
